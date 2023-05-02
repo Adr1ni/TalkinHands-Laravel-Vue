@@ -2,6 +2,8 @@
 
 import {reactive , ref} from 'vue'
 import { useRouter } from 'vue-router'
+import axios from "axios";
+import GoogleLogin from './GoogleLogin.vue';
 
 const router = useRouter()
 
@@ -42,5 +44,8 @@ const login = async() =>{
             <br>
             <input type="submit" value="login">
         </form>
+    </div>
+    <div>
+        <GoogleLogin></GoogleLogin>
     </div>
 </template>
