@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
-use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
@@ -130,23 +129,6 @@ class UserController extends Controller
     public function logout(){
         $cookie = Cookie::forget('cookie_token');
         return response(["message" => "Close session"],Response::HTTP_OK)->withCookie($cookie);
-    }
-
-    public function googleCallback(){
-        $user = Socialite::driver('google')->stateless()->user();
-        $userData = [
-            'name' => $user->name,
-            'email' => $user->email,
-            'google_id' => $user->id,
-        ];
-        $existingUser = User::where('google_id', $user->id)->first();
-        if ($existingUser) {
-            auth()->login($existingUser);
-        } else {
-            $newUser = User::create($userData);
-            auth()->login($newUser);
-        }
-        return redirect('/'); 
     }
 
 }
