@@ -29,23 +29,48 @@ const login = async() =>{
 </script>
 
 <template>
-    <div>
-        <h1>Welcome to out login</h1>
-        <router-link to="/">Home</router-link><br>
-        <router-link to="register">Re</router-link>
-    </div>
+    <div class="container">
 
-    <div>
-        <p v-if="error">{{ error }}</p>
-        <form @submit.prevent="login">
-            <input type="email" placeholder="Enter your email" v-model="form.email">
-            <br>
-            <input type="password" placeholder="Enter your password" v-model="form.password">
-            <br>
-            <input type="submit" value="login">
-        </form>
-    </div>
-    <div>
-        <GoogleLogin></GoogleLogin>
-    </div>
+		<div class="login-content">
+			<p v-if="error">{{ error }}</p>
+			<form @submit.prevent="login">
+				<img src="Img/logo-talkinhands.png">
+
+				<!---Formulario-->
+				<h2 class="title">Welcome</h2>
+
+				<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+						<input type="email" placeholder="Enter your email" v-model="form.email"
+						class="input input-field"
+						minlength="4"
+						autocomplete="off"
+						required>
+           		   </div>
+           		</div>
+				<br>
+				<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" placeholder="Enter your password" v-model="form.password" 
+						class="input input-field" 
+						autocomplete="off" required>
+            	   </div>
+            	</div>
+				<br>
+				<input type="submit" class="btn" value="login">
+				<router-link to="/" class="btn" style="text-decoration: none; padding-top: 5px">Cancelar</router-link>
+			</form>
+		</div>
+		<div>
+			<GoogleLogin></GoogleLogin>
+		</div>
+	</div>
 </template>

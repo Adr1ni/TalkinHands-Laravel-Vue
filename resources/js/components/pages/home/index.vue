@@ -48,6 +48,30 @@ const deleteUser = async() => {
 
 <template>
     <div>
+        <!--Scroll de navegacion-->
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    
+    <!--NAVBAR------------------------------------->
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Talkin<span>Hands</span></a></div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Inicio</a></li>
+                <li><a href="#about" class="menu-btn">Imformacion</a></li>
+                <li><a href="#services" class="menu-btn">Programa</a></li>
+                <li><a href="#skills" class="menu-btn">Herramientas</a></li>
+                <li><a href="#teams" class="menu-btn">Equipo</a></li>
+                <li><a href="actualizar.html" class="menu-btn">Mi Perfil</a></li>
+
+            </ul>
+            <!--Boton de Menu-->
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
         <h1>WELCOME!!!!! GAAAAA</h1>
         <br />
         <router-link to="update">Update</router-link>
