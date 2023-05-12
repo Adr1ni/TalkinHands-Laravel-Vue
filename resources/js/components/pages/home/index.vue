@@ -1,15 +1,14 @@
 <script setup>
-import {onMounted} from 'vue'
-import {ref} from 'vue';
+
+import { useRouter } from 'vue-router'
+import {ref, onMounted} from 'vue'
 import VoideToText from './voideToText.vue';
 import axios from "axios";
 
-import usersApi from '../../../api-users';
-
-const {logout} = usersApi()
+const router = useRouter()
 
 let error = ref('')
-let id = ref('')
+let id = ref()
 
 onMounted(async() => {
     userData()
@@ -21,24 +20,28 @@ const userData = async() =>{
         .then(response => {
             if(response.data.success){
                 id.value = response.data.data._id
-                console.log(id.value)
             }else{
                 error.value = response.data.message;
             }
         })
 }
 
+const logout = () => {
+    localStorage.removeItem('data')
+    router.push('/')
+}
+
 const deleteUser = async() => {
-        await axios.delete('/users/'+ id.value)
-            .then(response => {
-                if(response.data.success){
-                    localStorage.removeItem('data')
-                    router.push('/')
-                }else{
-                    errors.value = response.data.message;
-                }
-            }) 
-    }
+    await axios.delete('/api/users/'+ id.value)
+        .then(response => {
+            if(response.data.success){
+                localStorage.removeItem('data')
+                router.push('/')
+            }else{
+                error.value = response.data.message;
+            }
+        }) 
+}
 
 
 </script>
@@ -73,11 +76,11 @@ const deleteUser = async() => {
         <br />
         <router-link to="update">Update</router-link>
         <br /><br />
-        <button @click="logout()">Log out</button>
+        <button @click="logout">Log out</button>
         <br /><br />
         <VoideToText/>
         <br /><br />
-        <button @click="deleteUser()">Delete user</button>
+        <button @click="deleteUser">Delete user</button>
         <br /><br />
     </div>
 
