@@ -74,13 +74,13 @@ const deleteUser = async() => {
     </nav>
         <h1>WELCOME!!!!! GAAAAA</h1>
         <br />
-        <router-link to="update">Update</router-link>
+        <router-link to="/update">Update</router-link>
         <br /><br />
         <button @click="logout">Log out</button>
+        <br>
+        <button @click="deleteUser">Delete user</button>
         <br /><br />
         <VoideToText/>
-        <br /><br />
-        <button @click="deleteUser">Delete user</button>
         <br /><br />
     </div>
 
