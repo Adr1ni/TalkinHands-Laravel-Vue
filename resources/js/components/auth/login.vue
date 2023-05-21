@@ -3,7 +3,7 @@
 import {reactive , ref} from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
-import GoogleLogin from './GoogleLogin.vue';
+
 
 const router = useRouter()
 
@@ -71,7 +71,6 @@ const login = async() =>{
 				<input type="submit" class="btn" value="login">
 				<router-link to="/" class="btn" style="text-decoration: none; padding-top: 5px">Cancelar</router-link>
 				<div>
-			<GoogleLogin></GoogleLogin>
 		</div>
 			</form>
 		</div>
@@ -81,8 +80,9 @@ const login = async() =>{
 	</div>
 </template>
 
-<style>
-	*{
+
+<style scoped>
+*{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;

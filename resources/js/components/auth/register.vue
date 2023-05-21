@@ -1,9 +1,13 @@
+
 <script setup>
+
 
 import {reactive , ref} from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
-import GoogleLogin from './GoogleLogin.vue';
+
+
+
 
 const router = useRouter()
 
@@ -25,10 +29,14 @@ const register = async() =>{
             }else{
                 error.value = response.data.message;
             }
-        })
+        })
 }
 
+
+
+
 </script>
+
 
 <template>
 
@@ -105,10 +113,10 @@ const register = async() =>{
             </form>
         </div>
     </div>
-    <div>
-        <GoogleLogin></GoogleLogin>
-    </div>
 </template>
+
+
+
 
 <style>
 *{

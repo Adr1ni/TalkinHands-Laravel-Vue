@@ -1,33 +1,72 @@
 <template>
     <div>
-        <header>
-            <a href="index.html" class="logo"><span>Talkin</span>Hands</a>
-        </header>
-
-        <section class="home">
-            <div class="home-text">
-                <span>Tecsup - Diseño y Desarrollo de Software</span>
-                <h1>Bienvenidos</h1>
-                <p>Para poder interactuar con la aplicacion por favor inicia sesion o registrate</p>
-                <div class="main-btn">
-                    <router-link to="login" class="btn">Login</router-link><br>
-                    <router-link to="register" class="btn two">Register</router-link><br>
-                </div>
-            </div>
-            <div class="home-img">
-                <img src="Img/fondo-talkinhands.png" alt="logo">
-            </div>
-            <div class="share">
-                <p>Links:</p>
-                <div class="social">
-                    <a href=""><i class='bx bxs-file-doc'></i></a>
-                    <a href=""><i class='bx bxl-github'></i></a>
-                </div>
-            </div>
-        </section>
-
+      <header>
+        <a class="logo" @click="toggleNavbar">
+          <span :class="{ 'bx-x': isNavbarOpen }"></span>TalkinHands
+        </a>
+      </header>
+  
+      <section class="home">
+        <div class="home-text">
+          <span ref="spanRef">Tecsup - Diseño y Desarrollo de Software</span>
+          <h1 ref="h1Ref">Bienvenidos</h1>
+          <p ref="pRef">Para poder interactuar con la aplicación, por favor inicia sesión o regístrate</p>
+          <div class="main-btn" ref="btnRef">
+            <router-link to="login" class="btn">Login</router-link>
+            <router-link to="register" class="btn two">Register</router-link>
+          </div>
+        </div>
+        <div class="home-img" ref="imgRef">
+          <img src="Img/fondo-talkinhands.png" alt="logo">
+        </div>
+      </section>
+  
+      <div class="share">
+        <p>Links:</p>
+        <div class="social" ref="socialRef">
+          <a href=""><i class='bx bxs-file-doc'></i></a>
+          <a href=""><i class='bx bxl-github'></i></a>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
+  
+  <script>
+  import ScrollReveal from 'scrollreveal';
+  
+  export default {
+    mounted() {
+      this.initializeScrollReveal();
+    },
+    methods: {
+      toggleNavbar() {
+        this.$refs.logo.classList.toggle('bx-x');
+        this.$refs.navbar.classList.toggle('open');
+      },
+      initializeScrollReveal() {
+        const sr = ScrollReveal({
+          distance: '40px',
+          duration: 2500,
+          reset: true
+        });
+  
+        sr.reveal(this.$refs.logo, { delay: 200, origin: 'left' });
+        sr.reveal(this.$refs.spanRef, { delay: 520, origin: 'top' });
+        sr.reveal(this.$refs.h1Ref, { delay: 600, origin: 'left' });
+        sr.reveal(this.$refs.pRef, { delay: 680, origin: 'right' });
+        sr.reveal(this.$refs.btnRef, { delay: 750, origin: 'left' });
+        sr.reveal(this.$refs.socialRef, { delay: 860, origin: 'left' });
+        sr.reveal(this.$refs.imgRef, { delay: 950, origin: 'right' });
+      }
+    },
+    data() {
+      return {
+        isNavbarOpen: false
+      };
+    }
+  };
+  </script>
+
 <style>
 *{
     padding: 0;
@@ -48,11 +87,6 @@
 }
 
 /* header ---- headwe li*/
-body{
-    background: var(--bg-color);
-    color: var(--text-color);
-    overflow-x: hidden;
-}
 
 header{
     position: fixed;
@@ -198,6 +232,13 @@ section{
     transform: translateY(-10px);
 }
 /*Responsive pagina*/
+@media (max-width: 500px) {
+  .home-text span {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
 
 @media (max-width: 1850px){
     header{
@@ -296,5 +337,3 @@ section{
     }
 }
 </style>
-  
-  
