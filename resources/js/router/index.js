@@ -1,21 +1,11 @@
 import {createRouter, createWebHistory } from "vue-router";
 
-//import pages
-import homePage from "../components/pages/home/index.vue";
-import login from "../components/auth/login.vue";
-import register from "../components/auth/register.vue";
-import update from "../components/auth/update.vue";
-import inicio from "../components/principal.vue";
-
-//import Not Found
-import notFound from "../components/notFound.vue";
-
 const routes = [
     
     {
         name:"Home",
         path:'/home',
-        component:homePage,
+        component:() => import('../components/pages/home/index.vue'),
         meta:{
             requiresAuth:true
         }
@@ -24,7 +14,7 @@ const routes = [
     {
         name:'Login',
         path:"/login",
-        component:login,
+        component:() => import("../components/auth/login.vue"),
         meta:{
             requiresAuth:false
         }
@@ -33,7 +23,7 @@ const routes = [
     {
         name:"Register",
         path:"/register",
-        component:register,
+        component:() => import("../components/auth/register.vue"),
         meta:{
             requiresAuth:false
         }
@@ -42,7 +32,7 @@ const routes = [
     {
         name:'Update',
         path:"/update",
-        component:update,
+        component: () => import("../components/auth/update.vue"),
         meta:{
             requiresAuth:true
         }
@@ -51,7 +41,7 @@ const routes = [
     {
         name:'Inicio',
         path:"/",
-        component: inicio,
+        component: () => import("../components/principal.vue"),
         meta:{
             requiresAuth:false
         }
@@ -61,7 +51,7 @@ const routes = [
     {
         name:'NotFound',
         path:"/:pathMatch(.*)*",
-        component: notFound,
+        component: () => import("../components/notFound.vue"),
         meta:{
             requiresAuth:false
         }

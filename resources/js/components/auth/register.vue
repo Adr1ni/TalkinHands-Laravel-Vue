@@ -3,7 +3,6 @@
 import {reactive , ref} from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
-import GoogleLogin from './GoogleLogin.vue';
 
 const router = useRouter()
 
@@ -105,12 +104,9 @@ const register = async() =>{
             </form>
         </div>
     </div>
-    <div>
-        <GoogleLogin></GoogleLogin>
-    </div>
 </template>
 
-<style>
+<style scope>
 *{
 	padding: 0;
 	margin: 0;

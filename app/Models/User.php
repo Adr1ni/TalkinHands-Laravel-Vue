@@ -23,7 +23,6 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
         'name',
         'email',
         'password',
-        'google_id',
     ];
 
     protected $hidden = [

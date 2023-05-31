@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\GoogleUsersController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
 
 Route::controller(UserController::class)->group(function (){
@@ -12,10 +10,6 @@ Route::controller(UserController::class)->group(function (){
     Route::post('/login', 'login');
     Route::put('/users/{id}', 'update');
     Route::delete('/users/{id}', 'delete');
-});
-
-Route::controller(GoogleUsersController::class)->group(function (){
-    Route::post('/googleAuth','validateToken');
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
