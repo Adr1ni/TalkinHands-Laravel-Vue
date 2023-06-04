@@ -1,5 +1,21 @@
 export default function application() {
   const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const acciones_temporales = new Set([
+    'abril','agosto','ahora','amanecer','año','antes','atardecer','ayer','cumpleaños','día',
+    'diciembre','domingo','enero','estaciones','febrero','feriado','futuro','hora','hoy','invierno',
+    'jueves','julio','junio','lunes','mañana','martes','marzo','mayo','mes','miércoles','minuto',
+    'navidad','noche','nunca','octubre','otoño','pasado','primavera','próximo','sabado','semana',
+    'septiembre','temprano','vacaciones','verano','viernes'
+  ]);
+
+  const colegio = new Set([
+    'amarillo','anaranjado','arte','audífono','azul','blanco','borrador','celeste','ciencia','clase',
+    'colegio','colores','computadora','cuaderno','diccionario','diploma','examen','fólder','geografía',
+    'goma','historia','inicial','lapicero','lápiz','lenguaje','libreta','libro','marrón','matemática',
+    'mochila','morado','mota','negro','nota','papel','pizarra','plomo','plumones','primaria','regla',
+    'rojo','rosado','secundaria','tajador','tarea','tiza','universidad','verde'
+  ]);
+  
   const numbers = new Set([
     '0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'
     ,'20','21','26','30','31','40','50','60','61','100','1000'
@@ -17,7 +33,7 @@ export default function application() {
   const alimentos = new Set([
     'aceitunas','antiuchos','arroz','azucar','caramelo','carne_de_pescado','carne','causa',
     'ceviche','chorizo','ensalada','frijoles','galleta','gelatina','hamburguesa','helado',
-    'hotdog','huevo','jamon','ketchup','mantequilla','mayonesa','pan','papa','parrillada',
+    'hotdog','huevo','jamón','ketchup','mantequilla','mayonesa','pan','papa','parrillada',
     'queso','sal','sandwich','sopa','tallarines','tamal','torta','tortilla']);
 
   const prendas = new Set([
@@ -61,6 +77,79 @@ export default function application() {
     'respetar','respirar','rezar','robar','romper','saber','salir','saltar','saludar','sentarse','sentir',
     'significar','soñar','sonreir','subir','telefonear','terminar','tirar','visitar','vivir','volar'
   ])
+
+  const adjetivos = new Set([
+    'adinerado','ágil','alegre','alto','amargo','antipático','asustado',
+    'bajo','bien','blando','bonita','brillo','bueno','callado','cansado','caro','celoso','cerrado','chismoso','claro',
+    'cobarde','contento','corto','cuadrado','cualquier','despacio','diferente','divertido','dulce','egoísta','enamorado'
+    ,'enfermo','estudioso','fácil','falso','falta','feliz','feo','flaco','fresco','frío','fuerte','fumador','gordo',
+    'gracioso','grande','gritón','húmedo','igual','importante','largo','limpio','lleno','loco','malo','mejor','mentiroso',
+    'mío','molesto','nervioso','oscuro','otro','paciencia','pequeño','pesado','pobre','preocupado','rápido','redondo',
+    'rico','seco','sediento','sorprendido','suave','sucio','tacaño','tonto','torpe','tranquilo','triste','vergonzoso'
+    ,'viejo'
+  ]);
+  const adverbios = new Set([
+    'cerca','con','de','delante','dentro','detras','encima','entre','ese','hacia','junto','mucho',
+    'nada','por','si','siempre','solamente','solo','tampoco','verdad','y'
+  ]);
+  const paises = new Set([
+    'áfrica','alemania','américa','argentina','bolivia','brasil','canadá','chile','china','colombia',
+    'cuba','ecuardor','egipto','españa','europa','francia','holanda','india','inglaterra','italia','méxico',
+    'oceanía','país','paraguay','perú','rusia','uruguay','venezuela'
+  ])
+  const animales = new Set([
+    'araña','bombero','búho','burro','caballo','chancho','chofer','cocodrilo','cóndor','conejo','culebra',
+    'elefante','gallina','gallo','gato','gusano','jirafa','león','llama','loro','mariposa','mono','mosca','niñera',
+    'oso','oveja','pájaro','pato','pavo','perro','pescado','pollo','sapo','toro','tortuga','vaca','zancudo','zorro'
+  ])
+  const profesiones = new Set([
+    'abogado','albañil','carpintero','ingeniero','jardinero','juez','dentista','dibujante','director','doctor',
+    'electricista','ingeniero','jardinero','juez','mecánico','presidente','profesora','sacerdote',
+    'sastre','secretaria'
+  ])
+  const lugares = new Set([
+    'aeropuerto','amazonas','ancash','ate','avenida','ayacucho',
+    'cajamarca','callao','cárcel','casa','cementerio','chiclayo','chorrillos','chosica','colegio','comas','comisaría','correos',
+    'cusco','edificio','estadio','fábrica','hospital','huancavelica','huancayo','huánuco','ica','iglesia','iquitos','lima',
+    'miraflores','municipalidad','puno','restaurant','rimac','surco','tacna','trujillo','tumbes','ucayali'
+  ])
+  const pronombre_personales = new Set([
+    'el','él','ella','ellas','ellos','guión','la','lo','los','mi','nosotros','paréntesis','punto',
+    'subrayado','tú','un','una','ustedes','yo'
+  ])
+
+  const ambientes = new Set([
+    'almohada','baño','basura','botella','caja','cama','casa','cepillo','champu','clóset','cocina','colcha','colchón','comedor','cuchara','cucharón','cuchillo','desodorante','dormitorio','ducha','escoba','espejo',
+    'frazada','funda','horno','jabón','jardín','lámpara','lavandería','licuado','llave','mantel','mesa','olla','pared','peine',
+    'plato','puerta','radio','refrigeradora','reja','sábana','sala','sartén','servilleta','silla','sofá','talco','techo','teléfono','televisor',
+    'tenedor','timbre','toalla','vaso'
+  ]);
+
+  const naturaleza = new Set([
+    'aire','árbol','calor','fresco','lluvia','luz','mar','montaña','mundo','neblina','nieve','nube','ola',
+    'piedra','rayo','río','sol','terremoto','tierra','universo'
+  ]);
+
+const imagePaths = {
+  numbers: './numbers/',
+  personas: './personas/',
+  letters: './letters/',
+  alimentos: './alimentos/',
+  prendas: './prendas/',
+  ambientes: './ambientes/',
+  frutas: './frutas/',
+  juguetes: './juguetes/',
+  religion: './religion/',
+  verbos: './verbos/',
+  adjetivos: './adjetivos/',
+  profesiones: './Animales/',
+  animales :'./Animales/',
+  adverbios: './advervios_prepocisiones/',
+  pronombres_personales: './pronombres_personales/',
+  paises: './países_lugares/',
+  letters : './letters/',
+};
+
 
   let noteContent = '';
   let cleanedText = [];
@@ -106,33 +195,48 @@ export default function application() {
     }
   }
 
+  //problemas con paises,lugares
+
   function createSquence(){
     cleanedText = cleanText(noteContent);
     console.log(cleanedText, cleanedText.length)
 
     for (let i = 0; i < cleanedText.length; i++) {
       const letter = cleanedText[i].toLowerCase();
-      const img = new Image();
       if(numbers.has(letter)){
-        img.src = `./numbers/${letter}.png`;
+        createImage(letter, 'numbers');
       }else if(personas.has(letter)){
-        img.src = `./personas/${letter}.png`;
-      }else if(letters.has(letter)){
-        img.src = `./letters/${letter}.png`; 
+        createImage(letter, 'personas');
       }else if(alimentos.has(letter)){
-        img.src = `./alimentos/${letter}.png`; 
+        createImage(letter, 'alimentos')
       }else if(prendas.has(letter)){
-        img.src = `./prendas/${letter}.png`; 
+        createImage(letter, 'prendas') 
       }else if(ambientes.has(letter)){
-        img.src = `./prendas/${letter}.png`; 
+        createImage(letter, 'ambientes') 
       }else if(frutas.has(letter)){
-        img.src = `./prendas/${letter}.png`; 
+        createImage(letter, 'frutas') 
       }else if(juguetes.has(letter)){
-        img.src = `./prendas/${letter}.png`; 
+        createImage(letter,'juguetes') 
       }else if(religion.has(letter)){
-        img.src = `./prendas/${letter}.png`; 
+        createImage(letter, 'religion')
       }else if(verbos.has(letter)){
-        img.src = `./prendas/${letter}.png`; 
+        createImage(letter,'verbos') 
+      }else if(adjetivos.has(letter)){
+        createImage(letter, 'adjetivos');
+      }else if(adverbios.has(letter)){
+        createImage(letter, 'adverbios') 
+      }else if(paises.has(letter)){
+        createImage(letter, 'paises') 
+      }else if(profesiones.has(letter)){
+        createImage(letter, 'profesiones') 
+      }else if(lugares.has(letter)){
+        createImage(letter, 'paises'); 
+      }else if(pronombre_personales.has(letter)){
+        createImage(letter, 'pronombres_personales') 
+      }else if(animales.has(letter)){
+        createImage(letter, 'animales') 
+      }else if(letters.has(letter)){
+        createImage(letter, 'letters') 
       }else{
         otherWord(letter);
         console.log(cleanedText);
@@ -140,8 +244,14 @@ export default function application() {
         i--;
         continue;
       }
-      images[letter] = img;
     }
+  }
+
+  function createImage(letter, category) {
+    const img = new Image();
+    console.log(letter)
+    img.src = `${imagePaths[category]}${letter}.png`;
+    images[letter] = img;
   }
 
   function generateImages() {

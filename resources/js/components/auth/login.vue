@@ -73,10 +73,7 @@ const login = async() =>{
 				<div>
 		</div>
 			</form>
-		</div>
-		
-
-		
+		</div>	
 	</div>
 </template>
 
