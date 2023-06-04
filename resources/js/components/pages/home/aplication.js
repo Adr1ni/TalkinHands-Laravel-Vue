@@ -17,8 +17,8 @@ export default function application() {
   ]);
   
   const numbers = new Set([
-    '0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'
-    ,'20','21','26','30','31','40','50','60','61','100','1000'
+    '0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15', 
+    '20','21','26','30','31','40','50','60','61','100','1000'
   ]);
   const personas = new Set([
     'abuela','abuelo','adulto','amigo','bebé','cuñado','esposa','esposo',
@@ -92,11 +92,13 @@ export default function application() {
     'cerca','con','de','delante','dentro','detras','encima','entre','ese','hacia','junto','mucho',
     'nada','por','si','siempre','solamente','solo','tampoco','verdad','y'
   ]);
+
   const paises = new Set([
     'áfrica','alemania','américa','argentina','bolivia','brasil','canadá','chile','china','colombia',
     'cuba','ecuardor','egipto','españa','europa','francia','holanda','india','inglaterra','italia','méxico',
     'oceanía','país','paraguay','perú','rusia','uruguay','venezuela'
   ])
+
   const animales = new Set([
     'araña','bombero','búho','burro','caballo','chancho','chofer','cocodrilo','cóndor','conejo','culebra',
     'elefante','gallina','gallo','gato','gusano','jirafa','león','llama','loro','mariposa','mono','mosca','niñera',
@@ -112,11 +114,12 @@ export default function application() {
     'cajamarca','callao','cárcel','casa','cementerio','chiclayo','chorrillos','chosica','colegio','comas','comisaría','correos',
     'cusco','edificio','estadio','fábrica','hospital','huancavelica','huancayo','huánuco','ica','iglesia','iquitos','lima',
     'miraflores','municipalidad','puno','restaurant','rimac','surco','tacna','trujillo','tumbes','ucayali'
-  ])
+  ]);
+  
   const pronombre_personales = new Set([
     'el','él','ella','ellas','ellos','guión','la','lo','los','mi','nosotros','paréntesis','punto',
     'subrayado','tú','un','una','ustedes','yo'
-  ])
+  ]);
 
   const ambientes = new Set([
     'almohada','baño','basura','botella','caja','cama','casa','cepillo','champu','clóset','cocina','colcha','colchón','comedor','cuchara','cucharón','cuchillo','desodorante','dormitorio','ducha','escoba','espejo',
@@ -130,25 +133,40 @@ export default function application() {
     'piedra','rayo','río','sol','terremoto','tierra','universo'
   ]);
 
-const imagePaths = {
-  numbers: './numbers/',
-  personas: './personas/',
-  letters: './letters/',
-  alimentos: './alimentos/',
-  prendas: './prendas/',
-  ambientes: './ambientes/',
-  frutas: './frutas/',
-  juguetes: './juguetes/',
-  religion: './religion/',
-  verbos: './verbos/',
-  adjetivos: './adjetivos/',
-  profesiones: './Animales/',
-  animales :'./Animales/',
-  adverbios: './advervios_prepocisiones/',
-  pronombres_personales: './pronombres_personales/',
-  paises: './países_lugares/',
-  letters : './letters/',
-};
+  const informatica = new Set([
+    'abrir','access','aceptar','alineacion','archivo','autoformato','calculadora','cancelar','cerrar','columna',
+    'comando','comentario','computación','configuración','contraseña','correo','cortar','cursiva',
+    'cursor','diskettera','encabezado','escape','estilo','excel','filas','filtro','flecha','formato',
+    'formulario','fuente','guardar','hardware','hipervinculo','icono','impresora','inicio','internet',
+    'justificado','línea','margen','maximizar','máximo','mayuscula','microsoft','mínimo','minúscula','monitor',
+    'mouse','negrita','nuevo','ordenar','página','paint','pantalla','programa','promedio','puntero','red','regleta',
+    'regresar','sangría','seleccionar','software','sombreado','tabular','tamaño','teclado','texto','ventana',
+    'vocabulario','windows'
+  ]);
+
+  const imagePaths = {
+    numbers: './numbers/',
+    personas: './personas/',
+    letters: './letters/',
+    alimentos: './alimentos/',
+    prendas: './prendas/',
+    ambientes: './ambientes/',
+    frutas: './frutas/',
+    juguetes: './juguetes/',
+    religion: './religion/',
+    verbos: './verbos/',
+    adjetivos: './adjetivos/',
+    profesiones: './Animales/',
+    animales :'./Animales/',
+    adverbios: './advervios_prepocisiones/',
+    pronombres_personales: './pronombres_personales/',
+    paises: './países_lugares/',
+    letters : './letters/',
+    naturaleza: './naturaleza/',
+    colegio: './colegio/',
+    acciones_temporales : './acciones_temporales/',
+    informatica: './informatica/'
+  };
 
 
   let noteContent = '';
@@ -237,6 +255,14 @@ const imagePaths = {
         createImage(letter, 'animales') 
       }else if(letters.has(letter)){
         createImage(letter, 'letters') 
+      }else if(naturaleza.has(letter)){
+        createImage(letter, 'naturaleza') 
+      }else if(colegio.has(letter)){
+        createImage(letter, 'colegio') 
+      }else if(acciones_temporales.has(letter)){
+        createImage(letter, 'acciones_temporales') 
+      }else if(informatica.has(letter)){
+        createImage(letter, 'informatica') 
       }else{
         otherWord(letter);
         console.log(cleanedText);
