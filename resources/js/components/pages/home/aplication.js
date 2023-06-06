@@ -56,7 +56,7 @@ export default function application() {
   
     if (searchedWord !== null) {
       const img = new Image();
-      img.src = `./acciones_temporales/${searchedWord}.png`;
+      img.src = `./vocabulario/${searchedWord}.png`;
       images[letter] = img;
     } else {
       otherWord(letter)
