@@ -38,12 +38,9 @@ export default function application() {
     recognitionInstance.stop();
   };
 
-  function cleanText(text) {
-    return text.split(' ');
-  }
-
+  
   function createSequence() {
-    cleanedText = cleanText(noteContent);
+    cleanedText = cleanedText.split(' ');
     console.log(cleanedText, cleanedText.length);
     let currentIndex = 0;
   
