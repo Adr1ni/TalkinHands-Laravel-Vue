@@ -1,166 +1,153 @@
-const acciones_temporales = new Set([
-    'abril','agosto','ahora','amanecer','año','antes','atardecer','ayer','cumpleaños','día',
-    'diciembre','domingo','enero','estaciones','febrero','feriado','futuro','hora','hoy','invierno',
-    'jueves','julio','junio','lunes','mañana','martes','marzo','mayo','mes','miércoles','minuto',
-    'navidad','noche','nunca','octubre','otoño','pasado','primavera','próximo','sabado','semana',
-    'septiembre','temprano','vacaciones','verano','viernes'
-]);
+export default function search(){
+    
+    const voacbulario = new Set([
+        '0', '1', '10', '100', '1000', '11', '12', '13', '14', '15', '2', '20', '21', '26', '3', '30', '31', '4',
+        '40', '5', '50', '6', '60', '61', '7', '8', '9', 'abandonar', 'abogado', 'abrazar', 'abrigar', 'abril','abrir',
+        'abuela', 'abuelo', 'acariciar', 'access', 'aceitunas', 'aceptar', 'aceptar', 'acompañar', 'acostumbrar', 
+        'adelgazar', 'adinerado', 'adorar', 'adulto', 'aeropuerto', 'afeitar', 'agarrar', 'agosto', 'agradecer', 
+        'aguantar', 'ahora', 'aire', 'ajedrez', 'albañil', 'alegre', 'aleluya', 'alemania', 'alineacion', 'alma', 
+        'almohada', 'altar', 'alto', 'amanecer', 'amargo', 'amarillo', 'amarrar', 'amazonas', 'amen', 'amigo', 'amor',
+        'américa', 'anaranjado', 'ancash', 'anillo', 'antes', 'antipático', 'antiuchos', 'apagar', 'aplaudir', 'aprender', 
+        'apurar', 'apóstol', 'araña', 'arbito', 'archivo', 'aretes', 'argentina', 'arrepentida', 'arroz', 'arruinar', 
+        'arte', 'ascensión', 'asustado', 'atardecer', 'ate', 'aterrizar', 'atletismo', 'audífono', 'aumentar', 'autoformato', 'automovilismo', 
+        'avenida', 'avergonzar', 'avión', 'ayacucho', 'ayer', 'ayudar', 'azucar', 'azul', 'año', 'bailar', 
+        'bajo', 'barrer', 'basura', 'bautizo', 'bañar', 'baño', 'beber', 'bebé', 'bendecir', 'besar', 'biblia',
+        'bien', 'blanco', 'blando', 'blusa', 'bolivia', 'bombero', 'bonita', 'borrador', 'borrar', 'botar', 
+        'botella', 'boxeo', 'brasil', 'brillo', 'bueno', 'burro', 'buscar', 'básquet', 'búho', 'caballo', 'caer', 
+        'caja', 'cajamarca', 'calculadora', 'calcular', 'callado', 'callao', 'callar', 'calmar', 'calor', 'calzon', 
+        'calzoncillo', 'cama', 'cambiar', 'caminar', 'camisa', 'canadá', 'cancelar', 'cansado', 'cantar', 'capitán', 
+        'capítulo', 'caramelo', 'carne', 'carne_de_pescado', 'caro', 'carpintero', 'cartera', 'casa', 'casa', 'castigar',
+        'católica', 'causa', 'celeste', 'celoso', 'cementerio', 'cepillo', 'cerca', 'cerrado', 'cerrar', 'cerrar', 
+        'ceviche', 'chaleco', 'chalina', 'champu', 'chancho', 'chiclayo', 'chile', 'china', 'chismoso', 'chocar', 
+        'chofer', 'chompa', 'chorizo', 'chorrillos', 'chosica', 'chullo', 'ciclismo', 'cielo', 'ciencia', 'ciruela', 
+        'claro', 'clase', 'clavar', 'clóset', 'cobarde', 'cobrar', 'cocina', 'cocinar', 'coco', 'cocodrilo', 'coger',
+        'colcha', 'colchón', 'colegio', 'colegio', 'colgar', 'collar', 'colombia', 'colores', 'columna', 'comando',
+        'comas', 'comedor', 'comentario', 'comer', 'comisaría', 'comprar', 'comprender', 'computación', 'computadora',
+        'con', 'conejo', 'confesar', 'configuración', 'confirmación', 'contento', 'continuar', 'contraseña', 'copiar',
+        'corbata', 'correa', 'correo', 'correos', 'cortar', 'cortar', 'corto', 'coser', 'crecer', 'creer', 'creer',
+        'cruz', 'cruzar', 'cuaderno', 'cuadrado', 'cualquier', 'cuba', 'cubo', 'cuchara', 'cucharón', 'cuchillo',
+        'culebra', 'cumpleaños', 'curiosear', 'cursiva', 'cursor', 'cusco', 'cuñado', 'cárcel', 'cóndor', 'dados',
+        'dar', 'de', 'decir', 'dejar', 'delante', 'dentista', 'dentro', 'desodorante', 'despacio', 'despertar',
+        'detras', 'diablo', 'dialogar', 'dibujante', 'dibujar', 'diccionario', 'diciembre', 'diferente', 'dios',
+        'diploma', 'director', 'diskettera', 'divertido', 'doctor', 'doler', 'domingo', 'dormir', 'dormitorio',
+        'ducha', 'dulce', 'durazno', 'día', 'ecuardor', 'edificio', 'egipto', 'egoísta', 'el', 'electricista',
+        'elefante', 'ella', 'ellas', 'ellos', 'empezar', 'empujar', 'enamorado', 'encabezado', 'encima',
+        'enero', 'enfermo', 'ensalada', 'enseñar', 'entrar', 'entre', 'envolver', 'equibocar', 'escape',
+        'escoba', 'escoger', 'escribir', 'escuchar', 'ese', 'españa', 'espejo', 'esperar', 'esposa',
+        'esposo', 'estaciones', 'estadio', 'estadio', 'estilo', 'estudiante', 'estudioso', 'europa', 'evangélica', 
+        'examen', 'excel', 'explicar', 'falda', 'falso', 'falta', 'familia', 'fe', 'febrero', 'feliz', 'feo', 'feriado', 
+        'filas', 'filtro', 'firmar', 'flaco', 'flecha', 'formato', 'formulario', 'francia', 'frazada', 'fresas', 'fresco', 
+        'fresco', 'frijoles', 'frío', 'fuente', 'fuerte', 'fumador', 'fumar', 'funda', 'futuro', 'fábrica', 'fácil', 
+        'fólder', 'fútbol', 'galleta', 'gallina', 'gallo', 'ganar', 'gastar', 'gato', 'gelatina', 'geografía', 'gloria', 
+        'golpear', 'goma', 'gordo', 'gorro', 'gracia', 'gracioso', 'grande', 'gritón', 'guantes', 'guardar', 'guardar', 
+        'guión', 'gusano', 'gustar', 'hacia', 'hamburguesa', 'hardware', 'helado', 'hermana', 'hija', 'hijo', 
+        'hipervinculo', 'historia', 'holanda', 'hombre', 'hora', 'horno', 'hospital', 'hotdog', 'hoy', 'huancavelica',
+        'huancayo', 'huevo', 'huánuco', 'húmedo', 'ica', 'icono', 'iglesia', 'igual', 'imagen', 'importante', 
+        'impresora', 'india', 'infierno', 'ingeniero', 'ingeniero', 'inglaterra', 'inicial', 'inicio', 'intercambiar', 
+        'internet', 'inventar', 'invierno', 'iquitos', 'italia', 'jabón', 'jamón', 'jardinero', 'jardinero', 'jardín', 
+        'jesús', 'jirafa', 'joven', 'judío', 'jueves', 'juez', 'juez', 'jugador', 'jugar', 'julio', 'junio', 'junto', 
+        'justificado', 'ketchup', 'la', 'lapicero', 'largo', 'lavandería', 'lavar', 'leer', 'lenguaje', 'león', 'libreta',
+        'libro', 'licuado', 'lima', 'limpiar', 'limpio', 'limón', 'llama', 'llave', 'llegar', 'lleno', 'llevar', 'llorar',
+        'llover', 'lluvia', 'lo', 'loco', 'loro', 'los', 'lunes', 'luz', 'lámpara', 'lápiz', 'línea', 'maleta', 'malo', 
+        'mamá', 'mandamiento', 'mandar', 'mandarina', 'mandil', 'manejar', 'mango', 'mantel', 'mantequilla', 'manzana', 
+        'mar', 'marearse', 'margen', 'mariposa', 'marrón', 'martes', 'marzo', 'matemática', 'matrimonio', 'maximizar', 
+        'mayo', 'mayonesa', 'mayuscula', 'mañana', 'mecánico', 'medias', 'medir', 'mejor', 'memorizar', 'mentiroso', 
+        'mes', 'mesa', 'mi', 'microsoft', 'milagro', 'minuto', 'minúscula', 'miraflores', 'misa', 'misionero', 'miércoles',
+        'mochila', 'molesto', 'monitor', 'mono', 'montar', 'montaña', 'morado', 'morder', 'morir', 'mosca', 'mota', 
+        'motociclismo', 'mouse', 'mucho', 'mujer', 'multiplicar', 'mundo', 'municipalidad', 'muñeca', 'máximo', 'méxico',
+        'mínimo', 'mío', 'nacer', 'nada', 'naranja', 'navidad', 'neblina', 'necesitar', 'negrita', 'negro', 'nervioso', 
+        'nieto', 'nieve', 'niñera', 'niños', 'noche', 'nosotros', 'nota', 'nube', 'nuevo', 'nunca', 'obedecer', 'obispo',
+        'obligar', 'observar', 'oceanía', 'octubre', 'ofrenda', 'ola', 'olla', 'olvidar', 'operar', 'ordenar', 'ordernar',
+        'oscuro', 'oso', 'otoño', 'otro', 'oveja', 'paciencia', 'paint', 'palta', 'pan', 'pantalla', 'pantalon', 'papa', 
+        'papa', 'papaya', 'papel', 'papá', 'paraguay', 'pared', 'parguas', 'parrillada', 'paréntesis', 'pasado', 'pastor', 
+        'pato', 'pavo', 'país', 'pañuelo', 'pecado', 'peine', 'pelota', 'pensar', 'pequeño', 'pera', 'perder', 'perdonar',
+        'perro', 'perseguir', 'persona', 'perú', 'pesado', 'pesca', 'pescado', 'piedra', 'pijama', 'ping', 'pintar', 
+        'pistola', 'pizarra', 'piña', 'planchar', 'platano', 'plato', 'plomo', 'plumones', 'pobre', 'pollo', 'polo', 
+        'poncho', 'por', 'practicar', 'preocupado', 'presidente', 'primaria', 'primavera', 'primo', 'profesora', 
+        'programa', 'promedio', 'próximo', 'puerta', 'puno', 'puntero', 'punto', 'página', 'pájaro', 'querer', 
+        'queso', 'quitar', 'radio', 'rayo', 'rebalar', 'recodar', 'red', 'redondo', 'refrigeradora', 'regla', 'reglamento', 
+        'regleta', 'regresar', 'reja', 'religión', 'reloj', 'respetar', 'respirar', 'restaurant', 'resurrección', 'rezar',
+        'rezar', 'rico', 'rimac', 'robar', 'rojo', 'romper', 'rosado', 'rusia', 'rápido', 'río', 'sabado', 'saber', 'sacerdote',                
+        'sacerdote', 'saco', 'sacramento', 'sal', 'sala', 'salir', 'saltar', 'saludar', 'salvación', 'sandwich', 'sangría',
+        'sapo', 'sartén', 'sastre', 'seco', 'secretaria', 'secundaria', 'sediento', 'seleccionar', 'semana', 'sentarse', 
+        'sentir', 'septiembre', 'servilleta', 'short', 'si', 'siempre', 'significar', 'silla', 'sobrina', 'sobrino', 'software',
+        'sofá', 'soga', 'sol', 'solamente', 'soldado', 'solo', 'soltera', 'soltero', 'sombreado', 'sombrero', 'sonreir', 
+        'sopa', 'sorprendido', 'sosten', 'soñar', 'suave', 'subir', 'subrayado', 'sucio', 'surco', 'sábana', 'tabular', 
+        'tacaño', 'tacna', 'tajador', 'talco', 'tallarines', 'tamal', 'tamaño', 'tambor', 'tampoco', 'tarea', 'techo', 
+        'teclado', 'telefonear', 'televisor', 'teléfono', 'temprano', 'tenedor', 'tenis', 'tentación', 'terminar', 
+        'terremoto', 'texto', 'tierra', 'timbre', 'tirar', 'tiza', 'toalla', 'tonto', 'toro', 'torpe', 'torta', 'tortilla', 'tortuga', 
+        'tranquilo', 'tren', 'triste', 'trompo', 'trujillo', 'tumbes', 'tía', 'tío', 'tú', 'ucayali', 'un', 'una', 'uniforme', 'universidad', 
+        'universo', 'uruguay', 'ustedes', 'vaca', 'vacaciones', 'vaso', 'vecino', 'venezuela', 'ventana', 'verano', 'verdad', 'verde', 'vergonzoso', 
+        'vestido', 'viejo', 'viernes', 'vincha', 'visitar', 'vivir', 'vocabulario', 'volar', 'voleybol', 'windows', 'y', 'yases', 'yo', 
+        'zancudo', 'zapatilla', 'zapatos', 'zorro', 'áfrica', 'ágil', 'ángel', 'árbol', 'él'
+    ])
 
-const colegio = new Set([
-'amarillo','anaranjado','arte','audífono','azul','blanco','borrador','celeste','ciencia','clase',
-'colegio','colores','computadora','cuaderno','diccionario','diploma','examen','fólder','geografía',
-'goma','historia','inicial','lapicero','lápiz','lenguaje','libreta','libro','marrón','matemática',
-'mochila','morado','mota','negro','nota','papel','pizarra','plomo','plumones','primaria','regla',
-'rojo','rosado','secundaria','tajador','tarea','tiza','universidad','verde'
-]);
+    class Node {
+        constructor(data) {
+          this.left = null;
+          this.right = null;
+          this.data = data;
+        }
+      }
+      
+      class BinarySearchTree {
+        constructor() {
+          this.root = null;
+        }
+      
+        insert(data) {
+          const newNode = new Node(data);
+      
+          if (this.root === null) {
+            this.root = newNode;
+          } else {
+            this.insertNode(this.root, newNode);
+          }
+        }
+      
+        insertNode(node, newNode) {
+          if (newNode.data < node.data) {
+            if (node.left === null) {
+              node.left = newNode;
+            } else {
+              this.insertNode(node.left, newNode);
+            }
+          } else {
+            if (node.right === null) {
+              node.right = newNode;
+            } else {
+              this.insertNode(node.right, newNode);
+            }
+          }
+        }
+      
+        search(key) {
+          return this.searchNode(this.root, key);
+        }
+      
+        searchNode(node, key) {
+          if (node === null || node.data === key) {
+            return node;
+          }
+      
+          if (key < node.data) {
+            return this.searchNode(node.left, key);
+          }
+      
+          return this.searchNode(node.right, key);
+        }
+      }
+      
+      const bst = new BinarySearchTree();
+    
+      voacbulario.forEach(word => bst.insert(word));
+    
+      function searchWord(word) {
+        const node = bst.search(word);
+        return node !== null ? node.data : null;
+      }
 
-const numbers = new Set([
-'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15', 
-'20','21','26','30','31','40','50','60','61','100','1000'
-]);
-const personas = new Set([
-'abuela','abuelo','adulto','amigo','bebé','cuñado','esposa','esposo',
-'estudiante','familia','hermana','hija','hijo','hombre','joven','mamá',
-'mujer','nieto','niños','papá','persona','primo','sobrina','sobrino',
-'soltera','soltero','tía','tío','vecino']);
-
-const letters = new Set([
-'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r',
-'s','t','u','v','w','x','y','z']);
-
-const alimentos = new Set([
-'aceitunas','antiuchos','arroz','azucar','caramelo','carne_de_pescado','carne','causa',
-'ceviche','chorizo','ensalada','frijoles','galleta','gelatina','hamburguesa','helado',
-'hotdog','huevo','jamón','ketchup','mantequilla','mayonesa','pan','papa','parrillada',
-'queso','sal','sandwich','sopa','tallarines','tamal','torta','tortilla']);
-
-const prendas = new Set([
-'anillo','aretes','blusa','calzon','calzoncillo','camisa','cartera','chaleco','chalina',
-'chompa','chullo','collar','corbata','correa','falda','gorro','guantes','maleta','mandil',
-'medias','pantalon','pañuelo','parguas','pijama','polo','poncho','reloj','saco','short',
-'sombrero','sosten','uniforme','vestido','vincha','zapatilla','zapatos']);
-
-const frutas = new Set([
-'ciruela','coco','durazno','fresas','limón','mandarina','mango','manzana','naranja','palta',
-'papaya','pera','piña','platano'
-]);
-
-const juguetes = new Set([
-'ajedrez','arbito','atletismo','automovilismo','avión','básquet','boxeo','capitán','ciclismo',
-'cubo','dados','estadio','fútbol','jugador','motociclismo','muñeca','pelota','pesca','ping'
-,'pistola','reglamento','soga','soldado','tambor','tenis','tren','trompo','voleybol','yases'
-]);
-
-const religion = new Set([
-'adorar','aleluya','alma','altar','amen','amor','ángel','apóstol','arrepentida','ascensión',
-'bautizo','bendecir','biblia','capítulo','católica','cielo','confirmación','creer','cruz',
-'diablo','dios','evangélica','fe','gloria','gracia','imagen','infierno','jesús','judío',
-'mandamiento','matrimonio','milagro','misa','misionero','obispo','ofrenda','papa','pastor',
-'pecado','religión','resurrección','rezar','sacerdote','sacramento','salvación','tentación'
-])
-
-const verbos = new Set([
-'abandonar','abrazar','abrigar','acariciar','aceptar','acompañar','acostumbrar','adelgazar',
-'afeitar','agarrar','agradecer','aguantar','amarrar','apagar','aplaudir','aprender','apurar',
-'arruinar','aterrizar','aumentar','avergonzar','ayudar','bailar','bañar','barrer','beber','besar',
-'borrar','botar','buscar','caer','calcular','callar','calmar','cambiar','caminar','cantar','castigar',
-'cerrar','chocar','clavar','cobrar','cocinar','coger','colgar','comer','comprar','comprender','confesar',
-'continuar','copiar','cortar','coser','crecer','creer','cruzar','curiosear','dar','decir','dejar',
-'despertar','dialogar','dibujar','doler','dormir','empezar','empujar','enseñar','entrar','envolver',
-'equibocar','escoger','escribir','escuchar','esperar','explicar','firmar','fumar','ganar','gastar',
-'golpear','guardar','gustar','intercambiar','inventar','jugar','lavar','leer','limpiar','llegar',
-'llevar','llorar','llover','mandar','manejar','marearse','medir','memorizar','montar','morder','morir',
-'multiplicar','nacer','necesitar','obedecer','obligar','observar','olvidar','operar','ordernar','pensar',
-'perder','perdonar','perseguir','pintar','planchar','practicar','querer','quitar','recodar','rebalar',
-'respetar','respirar','rezar','robar','romper','saber','salir','saltar','saludar','sentarse','sentir',
-'significar','soñar','sonreir','subir','telefonear','terminar','tirar','visitar','vivir','volar'
-])
-
-const adjetivos = new Set([
-'adinerado','ágil','alegre','alto','amargo','antipático','asustado',
-'bajo','bien','blando','bonita','brillo','bueno','callado','cansado','caro','celoso','cerrado','chismoso','claro',
-'cobarde','contento','corto','cuadrado','cualquier','despacio','diferente','divertido','dulce','egoísta','enamorado'
-,'enfermo','estudioso','fácil','falso','falta','feliz','feo','flaco','fresco','frío','fuerte','fumador','gordo',
-'gracioso','grande','gritón','húmedo','igual','importante','largo','limpio','lleno','loco','malo','mejor','mentiroso',
-'mío','molesto','nervioso','oscuro','otro','paciencia','pequeño','pesado','pobre','preocupado','rápido','redondo',
-'rico','seco','sediento','sorprendido','suave','sucio','tacaño','tonto','torpe','tranquilo','triste','vergonzoso'
-,'viejo'
-]);
-const adverbios = new Set([
-'cerca','con','de','delante','dentro','detras','encima','entre','ese','hacia','junto','mucho',
-'nada','por','si','siempre','solamente','solo','tampoco','verdad','y'
-]);
-
-const paises = new Set([
-'áfrica','alemania','américa','argentina','bolivia','brasil','canadá','chile','china','colombia',
-'cuba','ecuardor','egipto','españa','europa','francia','holanda','india','inglaterra','italia','méxico',
-'oceanía','país','paraguay','perú','rusia','uruguay','venezuela'
-])
-
-const animales = new Set([
-'araña','bombero','búho','burro','caballo','chancho','chofer','cocodrilo','cóndor','conejo','culebra',
-'elefante','gallina','gallo','gato','gusano','jirafa','león','llama','loro','mariposa','mono','mosca','niñera',
-'oso','oveja','pájaro','pato','pavo','perro','pescado','pollo','sapo','toro','tortuga','vaca','zancudo','zorro'
-])
-const profesiones = new Set([
-'abogado','albañil','carpintero','ingeniero','jardinero','juez','dentista','dibujante','director','doctor',
-'electricista','ingeniero','jardinero','juez','mecánico','presidente','profesora','sacerdote',
-'sastre','secretaria'
-])
-const lugares = new Set([
-'aeropuerto','amazonas','ancash','ate','avenida','ayacucho',
-'cajamarca','callao','cárcel','casa','cementerio','chiclayo','chorrillos','chosica','colegio','comas','comisaría','correos',
-'cusco','edificio','estadio','fábrica','hospital','huancavelica','huancayo','huánuco','ica','iglesia','iquitos','lima',
-'miraflores','municipalidad','puno','restaurant','rimac','surco','tacna','trujillo','tumbes','ucayali'
-]);
-
-const pronombre_personales = new Set([
-'el','él','ella','ellas','ellos','guión','la','lo','los','mi','nosotros','paréntesis','punto',
-'subrayado','tú','un','una','ustedes','yo'
-]);
-
-const ambientes = new Set([
-'almohada','baño','basura','botella','caja','cama','casa','cepillo','champu','clóset','cocina','colcha','colchón','comedor','cuchara','cucharón','cuchillo','desodorante','dormitorio','ducha','escoba','espejo',
-'frazada','funda','horno','jabón','jardín','lámpara','lavandería','licuado','llave','mantel','mesa','olla','pared','peine',
-'plato','puerta','radio','refrigeradora','reja','sábana','sala','sartén','servilleta','silla','sofá','talco','techo','teléfono','televisor',
-'tenedor','timbre','toalla','vaso'
-]);
-
-const naturaleza = new Set([
-'aire','árbol','calor','fresco','lluvia','luz','mar','montaña','mundo','neblina','nieve','nube','ola',
-'piedra','rayo','río','sol','terremoto','tierra','universo'
-]);
-
-const informatica = new Set([
-'abrir','access','aceptar','alineacion','archivo','autoformato','calculadora','cancelar','cerrar','columna',
-'comando','comentario','computación','configuración','contraseña','correo','cortar','cursiva',
-'cursor','diskettera','encabezado','escape','estilo','excel','filas','filtro','flecha','formato',
-'formulario','fuente','guardar','hardware','hipervinculo','icono','impresora','inicio','internet',
-'justificado','línea','margen','maximizar','máximo','mayuscula','microsoft','mínimo','minúscula','monitor',
-'mouse','negrita','nuevo','ordenar','página','paint','pantalla','programa','promedio','puntero','red','regleta',
-'regresar','sangría','seleccionar','software','sombreado','tabular','tamaño','teclado','texto','ventana',
-'vocabulario','windows'
-]);
-
-export default {
-    acciones_temporales,
-    informatica,
-    naturaleza,
-    ambientes,
-    pronombre_personales,
-    lugares,
-    profesiones,
-    paises,
-    animales,
-    adverbios,
-    colegio,
-    personas,
-    numbers,
-    prendas
-    ,frutas,
-    juguetes,
-    verbos,
-    religion,
-    adjetivos,alimentos,
-    letters,
+    return{
+        searchWord
+    }
 }
