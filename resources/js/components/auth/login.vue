@@ -3,7 +3,7 @@
 import {reactive , ref} from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
-import GoogleLogin from './GoogleLogin.vue';
+
 
 const router = useRouter()
 
@@ -37,7 +37,7 @@ const login = async() =>{
 		<div class="login-content">
 			<p v-if="error">{{ error }}</p>
 			<form @submit.prevent="login">
-				<img src="Img/logo-talkinhands.png">
+				<img src="http://imgfz.com/i/0DYs7Nm.png"> 
 
 				<!---Formulario-->
 				<h2 class="title">Welcome</h2>
@@ -47,13 +47,15 @@ const login = async() =>{
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<h5>Username</h5>
+           		   		<h5></h5>
 						<input type="email"  v-model="form.email"
+						placeholder="Ingresa tu Nombre"
 						class="input input-field"
 						minlength="4"
 						autocomplete="off"
 						required>
            		   </div>
+				   
            		</div>
 				<br>
 				<div class="input-div pass">
@@ -61,8 +63,9 @@ const login = async() =>{
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password"  v-model="form.password" 
+           		    	<h5></h5>
+           		    	<input type="password"  v-model="form.password"
+						placeholder="Ingresa tu Contraseña"
 						class="input input-field" 
 						autocomplete="off" required>
             	   </div>
@@ -71,7 +74,6 @@ const login = async() =>{
 				<input type="submit" class="btn" value="login">
 				<router-link to="/" class="btn" style="text-decoration: none; padding-top: 5px">Cancelar</router-link>
 				<div>
-			<GoogleLogin></GoogleLogin>
 		</div>
 			</form>
 		</div>
@@ -81,8 +83,9 @@ const login = async() =>{
 	</div>
 </template>
 
-<style>
-	*{
+
+<style scoped>
+*{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;

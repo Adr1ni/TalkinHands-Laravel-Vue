@@ -1,21 +1,14 @@
 <script setup>
 
-import {reactive , ref, onMounted} from 'vue'
+import { ref, onMounted} from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
 
 const router = useRouter()
 
-let form = reactive({
-    name:'',
-    username:'',
-    email:'',
-    password:'',
-    c_password:''
-})
+const form = ref([])
 
 let error = ref('')
-let id = ref()
 
 onMounted(async() => {
     userData()
@@ -26,7 +19,7 @@ const userData = async() =>{
     await axios.get('/api/user-profile')
         .then(response => {
             if(response.data.success){
-                id.value = response.data.data._id
+                form.value = response.data.data
             }else{
                 error.value = response.data.message;
             }
@@ -34,7 +27,7 @@ const userData = async() =>{
 }
 
 const update = async() =>{
-    await axios.put('/api/users/'+ id.value, form)
+    await axios.put('/api/users/'+ form.value._id, form.value)
         .then(response => {
             if(response.data.success){
                 router.push('/home')
@@ -71,4 +64,3 @@ const update = async() =>{
         </form>
     </div>
 </template>
-
