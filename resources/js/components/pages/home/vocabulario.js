@@ -1,6 +1,6 @@
 export default function search(){
     
-const voacbulario = new Set([
+const vocabulario = new Set([
   '0', '1', '10', '100', '1000', '11', '12', '13', '14', '15', '2', '20', '21', '26', '3', '30', '31', '4',
   '40', '5', '50', '6', '60', '61', '7', '8', '9', 'abandonar', 'abogado', 'abrazar', 'abrigar', 'abril','abrir',
   'abuela', 'abuelo', 'acariciar', 'access', 'aceitunas', 'aceptar', 'aceptar', 'acompañar', 'acostumbrar', 
@@ -140,7 +140,7 @@ const voacbulario = new Set([
     
   const bst = new BinarySearchTree();
   
-  voacbulario.forEach(word => bst.insert(word));
+  vocabulario.forEach(word => bst.insert(word));
 
   function searchWord(word) {
     const node = bst.search(word);
