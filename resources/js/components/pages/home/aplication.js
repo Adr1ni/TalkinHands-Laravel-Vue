@@ -1,4 +1,4 @@
-import search from './voacbulario';
+import search from './vocabulario';
 
 const {searchWord}= search()
 
