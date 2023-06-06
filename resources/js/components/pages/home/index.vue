@@ -3,7 +3,7 @@
 import { useRouter } from 'vue-router'
 import {ref, onMounted} from 'vue'
 import axios from "axios";
-import voideToText from './voideToText.vue';
+import voideToText from './voiceToText.vue';
 
 const router = useRouter()
 
