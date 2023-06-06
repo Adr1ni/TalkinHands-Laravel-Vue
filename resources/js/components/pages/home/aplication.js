@@ -4,6 +4,10 @@ const {searchWord}= search()
 
 export default function application() {
   const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const letters = new Set([
+    'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r',
+    's','t','u','v','w','x','y','z'
+  ]);
 
   let noteContent = '';
   let cleanedText = [];
@@ -38,43 +42,41 @@ export default function application() {
     return text.split(' ');
   }
 
-
-  function otherWord(text){
-    const word = text.split('');
-    for (let i = 0; i < word.length; i++) {
-      const letter = word[i].toLowerCase();
-      cleanedText.push(letter);
-      const img = new Image();
-      img.src = `./letters/${letter}.png`;
-      images[letter] = img;
-    }
-  }
-
-
-  function createImage(letter) {
-    const searchedWord = searchWord(letter);
-  
-    if (searchedWord !== null) {
-      const img = new Image();
-      img.src = `./vocabulario/${searchedWord}.png`;
-      images[letter] = img;
-    } else {
-      otherWord(letter)
-    }
-  }
-  
-
-  function createSquence(){
+  function createSequence() {
     cleanedText = cleanText(noteContent);
-    console.log(cleanedText, cleanedText.length)
-    for (let i = 0; i < cleanedText.length; i++) {
-      const letter = cleanedText[i].toLowerCase();
-      createImage(letter)
-    }  
+    console.log(cleanedText, cleanedText.length);
+    let currentIndex = 0;
+  
+    const otherWord = (text) => {
+      const word = text.split('');
+      cleanedText.push(...word);
+    };
+  
+    while (currentIndex < cleanedText.length) {
+      const letter = cleanedText[currentIndex].toLowerCase();
+      const searchedWord = searchWord(letter);
+  
+      if (searchedWord !== null) {
+        const img = new Image();
+        img.src = `./vocabulario/${searchedWord}.png`;
+        images[letter] = img;
+      } else if (letters.has(letter)) {
+        const img = new Image();
+        img.src = `./letters/${letter}.png`;
+        images[letter] = img;
+      } else {
+        otherWord(letter);
+        cleanedText.splice(currentIndex, 1);
+        console.log(cleanedText);
+        continue;
+      }
+  
+      currentIndex++;
+    }
   }
-
+  
   function generateImages() {
-    createSquence();
+    createSequence();
     document.getElementById('mainImage').src = images[cleanedText[currentImageIndex]].src;
   }
 
@@ -82,7 +84,7 @@ export default function application() {
     currentImageIndex = (currentImageIndex + 1) % cleanedText.length;
     document.getElementById('mainImage').src = images[cleanedText[currentImageIndex]].src;
   }
-
+  
   return {
     showImages,
     generateImages,
