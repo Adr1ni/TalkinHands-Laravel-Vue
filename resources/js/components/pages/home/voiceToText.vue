@@ -38,7 +38,7 @@ const {startRecording,stopRecording,generateImages,showImages}= aplication()
     </div>
 </template>
 
-<style>
+<style scoped>
 #prueba{
     font-family: Arial, Helvetica, sans-serif;
     color: #1da7da;
