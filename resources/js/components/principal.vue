@@ -1,8 +1,45 @@
+<script>
+import ScrollReveal from 'scrollreveal';
+
+export default {
+  mounted() {
+    this.initializeScrollReveal();
+  },
+  methods: {
+    toggleNavbar() {
+      this.$refs.logo.classList.toggle('bx-x');
+      this.$refs.navbar.classList.toggle('open');
+    },
+    initializeScrollReveal() {
+      const sr = ScrollReveal({
+        distance: '60px',
+        duration: 2500,
+        reset: true
+      });
+
+      sr.reveal(this.$refs.logo, { delay: 200, origin: 'left' });
+      sr.reveal(this.$refs.spanRef, { delay: 520, origin: 'top' });
+      sr.reveal(this.$refs.h1Ref, { delay: 600, origin: 'left' });
+      sr.reveal(this.$refs.pRef, { delay: 680, origin: 'right' });
+      sr.reveal(this.$refs.btnRef, { delay: 750, origin: 'left' });
+      sr.reveal(this.$refs.socialRef, { delay: 860, origin: 'left' });
+      sr.reveal(this.$refs.imgRef, { delay: 950, origin: 'right' });
+    }
+  },
+  data() {
+    return {
+      isNavbarOpen: false
+    };
+  }
+};
+</script>
+
 <template>
+    <body>
     <div>
       <header>
         <a class="logo" @click="toggleNavbar">
-          <span :class="{ 'bx-x': isNavbarOpen }"></span>TalkinHands
+          <span :class="{ 'bx-x': isNavbarOpen }">Talkin</span>Hands
         </a>
       </header>
   
@@ -24,66 +61,28 @@
       <div class="share">
         <p>Links:</p>
         <div class="social" ref="socialRef">
-          <a href=""><i class='bx bxs-file-doc'></i></a>
+          <a href=""><i class='bx bxs-file-doc'></i></a> <!--Poner los links de enlaces documentacion y Github-->
           <a href=""><i class='bx bxl-github'></i></a>
         </div>
       </div>
     </div>
+</body>
   </template>
   
-  <script>
-  import ScrollReveal from 'scrollreveal';
-  
-  export default {
-    mounted() {
-      this.initializeScrollReveal();
-    },
-    methods: {
-      toggleNavbar() {
-        this.$refs.logo.classList.toggle('bx-x');
-        this.$refs.navbar.classList.toggle('open');
-      },
-      initializeScrollReveal() {
-        const sr = ScrollReveal({
-          distance: '40px',
-          duration: 2500,
-          reset: true
-        });
-  
-        sr.reveal(this.$refs.logo, { delay: 200, origin: 'left' });
-        sr.reveal(this.$refs.spanRef, { delay: 520, origin: 'top' });
-        sr.reveal(this.$refs.h1Ref, { delay: 600, origin: 'left' });
-        sr.reveal(this.$refs.pRef, { delay: 680, origin: 'right' });
-        sr.reveal(this.$refs.btnRef, { delay: 750, origin: 'left' });
-        sr.reveal(this.$refs.socialRef, { delay: 860, origin: 'left' });
-        sr.reveal(this.$refs.imgRef, { delay: 950, origin: 'right' });
-      }
-    },
-    data() {
-      return {
-        isNavbarOpen: false
-      };
-    }
-  };
-  </script>
 
 <style>
 *{
-    padding: 0;
-    margin: 0;
+    padding: 0%;
+    margin: 0%;
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
     list-style: none;
     text-decoration: none;
+    
 }
 
-:root{
-    --bg-color:#1f1f21;
-    --text-color: #fff;
-    --main-color: #0E8388;
-
-    --big-font: 7rem;
-    --p-font: 1.1rem;
+body{
+    background-color:#1f1f21;
 }
 
 /* header ---- headwe li*/
@@ -103,13 +102,13 @@ header{
 }
 /* header ---- logo */
 .logo{
-    color: var(--text-color);
+    color: #fff;
     font-size: 41px;
     font-weight: 600;
 }
 
 .logo span{
-    color: var(--main-color);
+    color: #0E8388;
 }
 
 
@@ -146,19 +145,20 @@ section{
     box-shadow: 0px 20px 40px #00000070;
     border: 1px solid #3b3b3b;
     border-radius: 100px;
-    color: var(--text-color);
+    color: #fff;
     font-weight: 700;
     font-size: 15px;
     text-transform: uppercase;
 }
 
 .home-text h1{
-    font-size: var(--big-font); /*bajar tamaño de text -rem variable*/
+    font-size: 7rem; /*bajar tamaño de text -rem variable*/
     margin: 23px 0;
+    color: #fff;
 }
 
 .home-text p{
-    font-size: var(--p-font);
+    font-size:  1.1rem;
     font-weight: 400;
     color: #c3c3c3;
     line-height: 30px;
@@ -168,9 +168,9 @@ section{
 .btn{
     display: inline-block;
     padding: 14px 34px;
-    background: var(--main-color) ;
-    color: var(--text-color);
-    border: 2px solid var(--main-color);
+    background: #0E8388 ;
+    color: #fff;
+    border: 2px solid #0E8388;
     font-size: 16px;
     font-weight: 600;
     border-radius: 8px ;
@@ -180,20 +180,20 @@ section{
 .btn:hover{
     transform: translateY(-5px);
     background: transparent;
-    color: var(--main-color);
+    color: #0E8388;
 }
 /*boton derecho*/
 .two{
     background: #141414;
     border: 2px solid #141414;
-    color: var(--text-color);
+    color: #fff;
     margin-left: 25px;
 }
 
 .two:hover{
     color: #141414;
-    background: var(--text-color);
-    border: 2px solid var(--text-color);
+    background: #fff;
+    border: 2px solid #fff;
 }
 
 /*Enlaces face/docs/github*/
@@ -207,7 +207,7 @@ section{
 
 .share p{
     font-size: 17px;
-    color: var(--text-color);
+    color: #fff;
     margin-right: 25px;
 }
 
@@ -222,7 +222,7 @@ section{
     box-shadow: 0px 20px 40px #00000070;
     border: 1px solid #3b3b3b;
     border-radius: 100px;
-    color: var(--text-color);
+    color: #fff;
     font-size: 20px;
     margin: 0 7px;
     transition: all 0.6s ease-in-out;
@@ -230,6 +230,12 @@ section{
 
 .social i:hover{
     transform: translateY(-10px);
+}
+
+/*animacion imagen*/
+.home-img img{
+    animation: imgg 2s ease-in-out infinite;
+    animation-delay: 2s ;
 }
 /*Responsive pagina*/
 @media (max-width: 500px) {
@@ -275,8 +281,6 @@ section{
     }
 }
 
-
-
 @media (max-width: 950px){
     .share{
         display: none;
@@ -319,11 +323,6 @@ section{
     }
 }
 
-/*animacion imagen*/
-.home-img img{
-    animation: imgg 2s ease-in-out infinite;
-    animation-delay: 2s ;
-}
 
 @keyframes imgg{
     0%{

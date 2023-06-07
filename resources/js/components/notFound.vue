@@ -1,11 +1,5 @@
 <template>
-    <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/notfound.css">
     <link rel="shortcut icon" href="Img/icono-TalkinHands.png">
     <title>TalkinHands</title>
 </head>
@@ -23,21 +17,15 @@
       </div>
       
 </body>
-</html>
 </template>
 
-<style>
-    *{
+<style scoped>
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root{
-    --bg-color:#1f1f21;
-    --text-color: #fff;
-    --main-color: #0E8388;
-}
 
 body{
     overflow-x: hidden;
@@ -65,12 +53,12 @@ body{
 
 .text h1{
     font-size: 100px;
-    color: var(--text-color);
+    color: #fff;
 }
 
 .text p{
     font-weight: bold;
-    color: var(--text-color);
+    color: #fff;
     font-size: 30px;
 }
 
@@ -79,9 +67,9 @@ body{
     padding: 14px 34px;
 	margin-left: 25px;
 	margin-top: 15px;
-    background: var(--main-color) ;
-    color: var(--text-color);
-    border: 2px solid var(--main-color);
+    background:#0E8388 ;
+    color: #fff;
+    border: 2px solid #0E8388;
     font-size: 16px;
     font-weight: 600;
     border-radius: 8px ;
@@ -91,7 +79,7 @@ body{
 .btn:hover{
     transform: translateY(-5px);
     background: transparent;
-    color: var(--main-color);
+    color:#0E8388;
 }
 
 @media(max-width: 800px){
