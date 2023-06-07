@@ -37,7 +37,7 @@ const login = async() =>{
 		<div class="login-content">
 			<p v-if="error">{{ error }}</p>
 			<form @submit.prevent="login">
-				<img src="Img/logo-talkinhands.png">
+				<img src="https://imgfz.com/i/0DYs7Nm.png">
 
 				<!---Formulario-->
 				<h2 class="title">Welcome</h2>
@@ -93,7 +93,7 @@ const login = async() =>{
 
 body{
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    overflow: auto;
     background-color: var(--bg-color);
 }
 

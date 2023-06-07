@@ -94,7 +94,7 @@ const deleteUser = async() => {
             <h2 class="title">Información del Proyecto</h2>
             <div class="about-content">
                 <div class="column left">
-                    <img src="Img/logo-jpg-talkinhands.jpg" alt="">
+                    <img src="http://imgfz.com/i/0DYs7Nm.png">
                 </div>
                 <div class="column right">
                     <div class="text">TalkinHands <span class="typing-2"></span></div>

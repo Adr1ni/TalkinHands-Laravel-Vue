@@ -24,7 +24,7 @@ const {startRecording,stopRecording,generateImages,showImages}= aplication()
 
                 <h1>Click to see the next image</h1>
                 <div id="splash">
-                    <img src="aplication.js" alt="classroom image" id="mainImage">
+                    <img src="" alt="classroom image" id="mainImage">
                 </div> 
                 <div id="controls">
                     <button id="nextbtn" @click="generateImages()"> Generate Image</button>

@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="home-img">
-                <img src="Img/fondo-talkinhands.png" alt="logo">
+                <img src="https://imgfz.com/i/0DYs7Nm.png" alt="logo">
             </div>
             <div class="share">
                 <p>Links:</p>
