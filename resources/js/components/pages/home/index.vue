@@ -65,7 +65,7 @@ const deleteUser = async () => {
                 <li><a href="#services" class="menu-btn">Programa</a></li>
                 <li><a href="#skills" class="menu-btn">Herramientas</a></li>
                 <li><a href="#teams" class="menu-btn">Equipo</a></li>
-                <li><a class="menu-btn"><router-link to="/update">Actualizar Perfil</router-link></a></li>
+                <li><a class="menu-btn"><router-link to="/actualizar">Actualizar Perfil</router-link></a></li>
 
             </ul>
             <!--Boton de Menu-->
@@ -110,7 +110,7 @@ const deleteUser = async () => {
                         mejorar la comunicación inclusiva para las
                         personas con discapacidad auditiva.
                     </p>
-                    <a href="#">Documentacion</a>
+                    <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing">Documentacion</a>
                 </div>
             </div>
         </div>

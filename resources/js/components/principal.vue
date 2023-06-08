@@ -49,8 +49,8 @@ export default {
           <h1 ref="h1Ref">Bienvenidos</h1>
           <p ref="pRef">Para poder interactuar con la aplicación, por favor inicia sesión o regístrate</p>
           <div class="main-btn" ref="btnRef">
-            <router-link to="login" class="btn">Iniciar Session</router-link>
-            <router-link to="register" class="btn two">Registrarse</router-link>
+            <router-link to="iniciar-sesion" class="btn">Iniciar Session</router-link>
+            <router-link to="registro" class="btn two">Registrarse</router-link>
           </div>
         </div>
         <div class="home-img" ref="imgRef">
@@ -61,7 +61,7 @@ export default {
       <div class="share">
         <p>Links:</p>
         <div class="social" ref="socialRef">
-          <a href=""><i class='bx bxs-file-doc'></i></a> <!--Poner los links de enlaces documentacion y Github-->
+          <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing"><i class='bx bxs-file-doc'></i></a> <!--Poner los links de enlaces documentacion y Github-->
           <a href=""><i class='bx bxl-github'></i></a>
         </div>
       </div>

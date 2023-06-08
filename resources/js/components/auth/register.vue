@@ -43,14 +43,14 @@ const register = async() =>{
             <form @submit.prevent="register">
               <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
 
-                <h2>Register</h2>
+                <h2>Registro</h2>
                 <div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
                  <!--Input ---------------------------------------------------------------->
            		   <div class="div">
-                        <input type="text" placeholder="Nombre Completo" v-model="form.name"
+                        <input type="text" placeholder="Ingrese su nombre" v-model="form.name"
                         class="input input-field"
                         autocomplete="off"
                         required>
@@ -63,7 +63,7 @@ const register = async() =>{
                             <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="div">
-                            <input type="text" placeholder="Username" v-model="form.username" 
+                            <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username" 
                             class="input input-field"
                             autocomplete="off"
                             required>
@@ -76,7 +76,7 @@ const register = async() =>{
                         <i class="fas fa-envelope"></i>
                   </div>
                   <div class="div">
-                        <input type="email" placeholder="Enter your email" v-model="form.email" 
+                        <input type="email" placeholder="Ingrese su email" v-model="form.email" 
                         class="input input-field"
                         autocomplete="off"
                         required>
@@ -89,7 +89,7 @@ const register = async() =>{
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<input type="password" placeholder="Enter your password" v-model="form.password"
+           		    	<input type="password" placeholder="Ingrese su contraseña" v-model="form.password"
                         class="input input-field" 
                         autocomplete="off"
                         required>
@@ -102,7 +102,7 @@ const register = async() =>{
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<input type="password" placeholder="Confirm your password" v-model="form.c_password"
+           		    	<input type="password" placeholder="Confirme su contraseña" v-model="form.c_password"
                         class="input input-field" 
                         autocomplete="off"
                         required>

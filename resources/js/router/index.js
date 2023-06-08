@@ -13,7 +13,7 @@ const routes = [
 
     {
         name:'Login',
-        path:"/login",
+        path:"/iniciar-sesion",
         component:() => import("../components/auth/login.vue"),
         meta:{
             requiresAuth:false
@@ -22,7 +22,7 @@ const routes = [
 
     {
         name:"Register",
-        path:"/register",
+        path:"/registro",
         component:() => import("../components/auth/register.vue"),
         meta:{
             requiresAuth:false
@@ -31,7 +31,7 @@ const routes = [
 
     {
         name:'Update',
-        path:"/update",
+        path:"/actualizar",
         component: () => import("../components/auth/update.vue"),
         meta:{
             requiresAuth:true
