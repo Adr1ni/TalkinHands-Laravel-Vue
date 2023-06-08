@@ -29,7 +29,7 @@ git clone https://github.com/yourusername/talkinhands.git
 Accede al directorio del proyecto:
 
 ```shell
-cd talkinhands
+cd TalkinHands-Laravel-Vue
 ```
 
 Instalar las dependencias(asegurate tener instalada la dependecia de php para mongo:^1.12):
