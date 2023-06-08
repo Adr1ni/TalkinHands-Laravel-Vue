@@ -1,6 +1,6 @@
 <script setup>
 
-import {reactive , ref} from 'vue'
+import {reactive} from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
 
@@ -11,7 +11,6 @@ let form = reactive({
     password:''
 })
 
-let error = ref('')
 
 const login = async() =>{
     await axios.post('/api/login', form)
@@ -20,6 +19,7 @@ const login = async() =>{
                 localStorage.setItem('data', response.data.data)
                 router.push('/home')
             }else{
+                alert(response.data.message);
                 error.value = response.data.message;
             }
         })
@@ -34,7 +34,6 @@ const login = async() =>{
 			<img src="Img/logo-jpg-talkinhands.jpg">
 		</div>
 		<div class="login-content">
-			<p v-if="error">{{ error }}</p>
 			
 			<form @submit.prevent="login">
 
