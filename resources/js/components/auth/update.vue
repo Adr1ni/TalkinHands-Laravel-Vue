@@ -19,7 +19,7 @@ const userData = async() =>{
             if(response.data.success){
                 form.value = response.data.data
             }else{
-                error.value = response.data.message;
+                alert(response.data.message);
             }
         })
 }
@@ -30,10 +30,12 @@ const update = async() =>{
             if(response.data.success){
                 router.push('/home')
             }else{
-                error.value = response.data.message;
+              alert(response.data.message);
             }
         })
 }
+</script>
+
 </script>
 
 <template>
@@ -41,7 +43,6 @@ const update = async() =>{
       <div class="container">
         <div class="img">
           <img src="Img/logo-jpg-talkinhands.jpg">
-          <p v-if="error">{{ error }}</p>
         </div>
       
         <form @submit.prevent="update">
@@ -51,30 +52,30 @@ const update = async() =>{
             <!-- Name ------------------------------------------------- -->
             <div class="text-input">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Ingrese nombre" v-model="form.name">
+              <input type="text" placeholder="Enter your name" v-model="form.name">
             </div>
   
             <!-- Username ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username">
+              <input type="text" placeholder="Enter your username" v-model="form.username">
             </div>
   
             <!-- Email -------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Ingrese nuevo email" v-model="form.email">
+              <input type="email" placeholder="Enter your email" v-model="form.email">
             </div>
   
             <!-- Password ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Ingrese la nueva contraseña" v-model="form.password">
+              <input type="password" placeholder="Enter your password" v-model="form.password">
             </div>
   
             <div class="text-input">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Confirme la contraseña" v-model="form.c_password">
+              <input type="password" placeholder="Confirm your password" v-model="form.c_password">
             </div>
   
             <button class="btn"><input type="submit" value="Actualizar" style="background-color: transparent; border: none; padding: 0;color: #fff;font-size: 16px;font-weight: 600;"></button>
@@ -274,48 +275,4 @@ a.forgot {
     }
   }
   
-</style>
-
-
-<style scoped>
-.container {
-  max-width: 400px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.error {
-  color: red;
-  margin-bottom: 10px;
-}
-
-.btn-submit {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.btn-submit:hover {
-  background-color: #45a049;
-}
 </style>

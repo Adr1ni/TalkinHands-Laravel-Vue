@@ -20,7 +20,6 @@ const login = async() =>{
                 router.push('/home')
             }else{
                 alert(response.data.message);
-                error.value = response.data.message;
             }
         })
 }
@@ -34,30 +33,28 @@ const login = async() =>{
 			<img src="Img/logo-jpg-talkinhands.jpg">
 		</div>
 		<div class="login-content">
+			<p v-if="error">{{ error }}</p>
 			
 			<form @submit.prevent="login">
-				<img src="http://imgfz.com/i/0DYs7Nm.png">
 
 				<!---Formulario-->
         <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
 
-				<h2 class="title">Iniciar Sesion</h2>
+				<h2 class="title">Login</h2>
         <!-- input --------------------------------------------------------->
 				<div class="input-div one">
            	<div class="i">
            		  <i class="fas fa-user"></i>
            		   </div>
-           		   <div class="div">
-           		   		<h5></h5>
-						<input type="email"  v-model="form.email"
-						placeholder="Ingresa tu Nombre"
-						class="input input-field"
-						minlength="4"
-						autocomplete="off"
-						required>
+                 <div class="div">
+						      <input type="email" placeholder="Enter your email"  v-model="form.email"
+						            class="input input-field"
+						            minlength="4"
+						            autocomplete="off"
+						            required>
            		   </div>
-				   
-           		</div>
+        </div>
+
 				<br>
         <!-- input --------------------------------------------------------->
 				<div class="input-div pass">
@@ -65,18 +62,16 @@ const login = async() =>{
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<h5></h5>
-           		    	<input type="password"  v-model="form.password"
-						placeholder="Ingresa tu Contraseña"
-						class="input input-field" 
-						autocomplete="off" required>
+           		    	<input type="password" placeholder="Enter your password" v-model="form.password" 
+						              class="input input-field" 
+						              autocomplete="off" required>
             	   </div>
             	</div>
-				<br>
+
+        <!-- Button login--------------------------------------------------------->
 				<input type="submit" class="btn" value="login">
-				<router-link to="/" class="btn" style="text-decoration: none; padding-top: 5px">Cancelar</router-link>
-				<div>
-		</div>
+				<router-link to="/" class="btn">Cancelar</router-link>
+        
 			</form>
 		</div>
 	</div>	
@@ -84,13 +79,12 @@ const login = async() =>{
 
 </template>
 
-
 <style scoped>
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
 
   body {
     font-family: 'Poppins', sans-serif;
