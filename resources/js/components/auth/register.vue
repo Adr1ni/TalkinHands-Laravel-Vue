@@ -1,335 +1,328 @@
 <script setup>
 
-import {reactive , ref} from 'vue'
+
+import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
+
+
+
 
 const router = useRouter()
 
 let form = reactive({
-    name:'',
-    username:'',
-    email:'',
-    password:'',
-    c_password:''
+	name: '',
+	username: '',
+	email: '',
+	password: '',
+	c_password: ''
 })
 
 let error = ref('')
 
-const register = async() =>{
-    await axios.post('/api/users', form)
-        .then(response => {
-            if(response.data.success){
-                router.push('/')
-            }else{
-                error.value = response.data.message;
-            }
-        })
+const register = async () => {
+	await axios.post('/api/users', form)
+		.then(response => {
+			if (response.data.success) {
+				router.push('/')
+			} else {
+				error.value = response.data.message;
+			}
+		})
 }
+
+
+
 
 </script>
 
 
-<template>
-
-    <div class="container">
-        <div class="img">
+<template >
+	<div class="container">
+		<div class="img">
 			<img src="http://imgfz.com/i/HAyGNWU.jpeg">
 		</div>
-        <div class="login-content">
-            <p v-if="error">{{ error }}</p>
-            <!--Formulario -------------------------------------------->
+		<div class="login-content">
+			<p v-if="error">{{ error }}</p>
+			<form @submit.prevent="register">
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5></h5>
+						<input type="text" placeholder="Ingresa tu Nombre" v-model="form.name" class="input input-field"
+							autocomplete="off" required>
+					</div>
+				</div>
 
-            <form @submit.prevent="register">
-              <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
-
-                <h2>Registro</h2>
-                <div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-                 <!--Input ---------------------------------------------------------------->
-           		   <div class="div">
-                        <input type="text" placeholder="Ingrese su nombre" v-model="form.name"
-                        class="input input-field"
-                        autocomplete="off"
-                        required>
-           		   </div>
-           		</div>
-                  <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div one">
-                    <div class="i">
-                            <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="div">
-                            <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username" 
-                            class="input input-field"
-                            autocomplete="off"
-                            required>
-                    </div>
-                </div>
-                <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div one">
-                  <div class="i">
-                        <i class="fas fa-envelope"></i>
-                  </div>
-                  <div class="div">
-                        <input type="email" placeholder="Ingrese su email" v-model="form.email" 
-                        class="input input-field"
-                        autocomplete="off"
-                        required>
-                  </div>
-                </div>
-                  <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<input type="password" placeholder="Ingrese su contraseña" v-model="form.password"
-                        class="input input-field" 
-                        autocomplete="off"
-                        required>
-            	   </div>
-            	</div>
-                  <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<input type="password" placeholder="Confirme su contraseña" v-model="form.c_password"
-                        class="input input-field" 
-                        autocomplete="off"
-                        required>
-            	   </div>
-            	</div>
-              <!--Button ----------------------------------------------------------->
-                <input type="submit" class="btn" value="Registrarse">
-				        <router-link to="/" class="btn">Cancelar</router-link>
-            </form>
-        </div>
-    </div>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user-circle"></i>
+					</div>
+					<div class="div">
+						<h5></h5>
+						<input type="text" placeholder="Ingresa tu Usuario" v-model="form.username"
+							class="input input-field" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-envelope"></i>
+					</div>
+					<div class="div">
+						<h5></h5>
+						<input type="email" placeholder="Ingresa tu correo email" v-model="form.email" class="input input-field"
+							autocomplete="off" required>
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5></h5>
+						<input type="password" placeholder="Ingresa tu contraseña" v-model="form.password"
+							class="input input-field" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5></h5>
+						<input type="password" placeholder="Confirma tu contraseña" v-model="form.c_password"
+							class="input input-field" autocomplete="off" required>
+					</div>
+				</div>
+				<input type="submit" class="btn" value="Registrar">
+				<router-link to="/" class="btn" style="text-decoration: none; padding-top: 5px">Cancelar</router-link>
+			</form>
+		</div>
+	</div>
 </template>
 
 
 
+
 <style scoped>
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
-    background-color: #1f1f21;
-  }
+:root {
+	--bg-color: #1f1f21;
+	--text-color: #fff;
+	--main-color: #0E8388;
+}
 
-  .container {
-    width: 100vw;
-    height: 100vh;
+h1 {
+	color: #fff;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	overflow: auto;
+	background-color: var(--bg-color);
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 7rem;
-    padding: 0 2rem;
-  }
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 7rem;
+	padding: 0 2rem;
+}
 
-  .img {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-	padding-left: 200px;
-  }
+.img {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
 
-  .login-content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-  }
+.login-content {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
 
-  .img img {
-    width: 500px;
-	  height: 500px;
-    border-radius: 20px;
-  }
+.img img {
+	width: 500px;
+}
 
-  form {
-    width: 360px;
-  }
+form {
+	width: 360px;
+}
 
-  /*Logo pequeño ---------------------------------------------------------*/
-  .login-content .logo-min{
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-  }
-/*Logo pequeño ---------------------------------------------------------*/
-  .login-content h2 {
-    margin: 15px 0;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 2.9rem;
-  }
+.login-content img {
+	height: 100px;
+}
 
-  .login-content .input-div {
-    position: relative;
-    display: grid;
-    grid-template-columns: 7% 93%;
-    margin: 25px 0;
-    padding: 5px 0;
-    border-bottom: 2px solid #fff;
-  }
+.login-content h2 {
+	margin: 15px 0;
+	color: var(--text-color);
+	text-transform: uppercase;
+	font-size: 2.9rem;
+}
 
-  .login-content .input-div.one {
-    margin-top: 0;
-  }
+.login-content .input-div {
+	position: relative;
+	display: grid;
+	grid-template-columns: 7% 93%;
+	margin: 25px 0;
+	padding: 5px 0;
+	border-bottom: 2px solid var(--text-color);
+}
 
-  .i {
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.login-content .input-div.one {
+	margin-top: 0;
+}
 
-  .i i {
-    transition: .3s;
-  }
+.i {
+	color: var(--text-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-  .input-div > div {
-    position: relative;
-    height: 45px;
-  }
+.i i {
+	transition: .3s;
+}
 
-  .input-div > div > h5 {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    font-size: 18px;
-    transition: .3s;
-  }
+.input-div>div {
+	position: relative;
+	height: 45px;
+}
 
-  .input-div:before,
-  .input-div:after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    width: 0%;
-    height: 2px;
-    background-color: #0E8388;
-    transition: .4s;
-  }
+.input-div>div>h5 {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
 
-  .input-div:before {
-    right: 50%;
-  }
+.input-div:before,
+.input-div:after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: var(--main-color);
+	transition: .4s;
+}
 
-  .input-div:after {
-    left: 50%;
-  }
+.input-div:before {
+	right: 50%;
+}
 
-  .input-div.focus:before,
-  .input-div.focus:after {
-    width: 50%;
-  }
+.input-div:after {
+	left: 50%;
+}
 
-  .input-div.focus > div > h5 {
-    top: -5px;
-    font-size: 15px;
-  }
+.input-div.focus:before,
+.input-div.focus:after {
+	width: 50%;
+}
 
-  .input-div.focus > .i > i {
-    color: #38d39f;
-  }
+.input-div.focus>div>h5 {
+	top: -5px;
+	font-size: 15px;
+}
 
-  .input-div > div > input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    background: none;
-    padding: 0.5rem 0.7rem;
-    font-size: 1.2rem;
-    color: #fff;
-    font-family: 'poppins', sans-serif;
-  }
+.input-div.focus>.i>i {
+	color: #38d39f;
+}
 
-  .input-div.pass {
-    margin-bottom: 4px;
-  }
+.input-div>div>input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: var(--text-color);
+	;
+	font-family: 'poppins', sans-serif;
+}
 
-  a {
-    text-align: center;
-  }
+.input-div.pass {
+	margin-bottom: 4px;
+}
 
-  .btn {
-    display: inline-block;
-    padding: 14px 34px;
-    margin-left: 25px;
-    margin-top: 15px;
-    background: #0E8388;
-    color: #fff;
-    border: 2px solid #0E8388;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.6s ease-in-out;
-  }
+a {
+	text-align: center;
+}
 
-  .btn:hover {
-    transform: translateY(-5px);
-    background: transparent;
-    color: #0E8388;
-  }
+.btn {
+	display: inline-block;
+	padding: 14px 34px;
+	margin-left: 25px;
+	margin-top: 15px;
+	background: var(--main-color);
+	color: var(--text-color);
+	border: 2px solid var(--main-color);
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 8px;
+	transition: all 0.6s ease-in-out;
+}
+
+.btn:hover {
+	transform: translateY(-5px);
+	background: transparent;
+	color: var(--main-color);
+}
 
   .cancel-btn {
     background-color: transparent;
     color: #333;
   }
 
-  @media screen and (max-width: 1050px) {
-    .container {
-      grid-gap: 5rem;
-    }
-  }
+@media screen and (max-width: 1050px) {
+	.container {
+		grid-gap: 5rem;
+	}
+}
 
-  @media screen and (max-width: 1000px) {
-    form {
-      width: 290px;
-    }
+@media screen and (max-width: 1000px) {
+	form {
+		width: 290px;
+	}
 
-    .login-content h2 {
-      font-size: 2.4rem;
-      margin: 8px 0;
-    }
+	.login-content h2 {
+		font-size: 2.4rem;
+		margin: 8px 0;
+	}
 
-    .img img {
-      width: 400px;
-    }
-  }
+	.img img {
+		width: 400px;
+	}
+}
 
-  @media screen and (max-width: 900px) {
-    .container {
-      grid-template-columns: 1fr;
-    }
+@media screen and (max-width: 900px) {
+	.container {
+		grid-template-columns: 1fr;
+	}
 
-    .img {
-      display: none;
-    }
+	.img {
+		display: none;
+	}
 
-    .login-content {
-      justify-content: center;
-    }
-  }
+	.login-content {
+		justify-content: center;
+	}
+}
 </style>

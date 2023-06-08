@@ -4,58 +4,32 @@ import aplication from './aplication'
 const {startRecording,stopRecording,generateImages,showImages}= aplication()
 
 </script>
-
+ 
 <template>
     <div class="container">
 
-        <h1 id="prueba">Voice Controlled Notes App</h1>
-
-            <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
-
-            <div class="app"> 
-                <h3>Add New Note</h3>
-                <div class="input-single">
-                </div>         
-                <button id="start-record-btn" @click="startRecording()">Start Recording</button>
-                <button id="pause-record-btn" @click="stopRecording()">Stop Recording</button>
-                <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
-                
-
-                <h1>Click to see the next image</h1>
-                <div id="splash">
-                    <img src="" alt="classroom image" id="mainImage">
-                </div> 
-                <div id="controls">
-                    <button id="nextbtn" @click="generateImages()"> Generate Image</button>
-                </div>
-                <div id="controls">
-                    <button id="nextbtn" @click="showImages()"> Next Image</button>
-                </div>
-
+        <h3 v-show="!isSpeechRecognitionSupported" class="no-browser-support">Lo sentimos, su navegador no es compatible con la Web
+            API de voz. Prueba a abrir esta demo en Google Chrome.</h3>
+        <div class="app" v-show="isSpeechRecognitionSupported">
+            <h1>Agregar nueva nota</h1>
+            <div class="input-single"></div>
+            <button @click="startRecording" class="record-button"> Iniciar </button>
+            <button @click="stopRecording" class="record-button"> Parar </button>
+            <p id="recording-instructions"> Presiona el boton <strong> Iniciar </strong> para generar la grabación</p>
+            <div id="splash">
+                <img src="" alt="Esperando audio" id="mainImage">
             </div>
-
+            <br>
+            <h1 id="prueba">Presiona en siguiente imagen</h1>
+            <div id="controls">
+                <button @click="generateImages">Generar Imagen</button>
+                <button @click="showImages">Siguiente Imagen</button>
+            </div>
+        </div>
     </div>
 </template>
-
-<style scoped>
-#prueba{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #1da7da;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-p {
-    color: #444;
-}
-
-button:focus {
-    outline: 0;
-}
-
+  
+<style>
 .container {
     max-width: 700px;
     margin: 0 auto;
@@ -63,58 +37,72 @@ button:focus {
     text-align: center;
 }
 
-.container h1 {
-    margin-bottom: 20px;
-}
-
-.page-description {
-    font-size: 1.1rem;
-    margin: 0 auto;
-}
-
-.tz-link {
-    font-size: 1em;
-    color: #1da7da;
-    text-decoration: none;
+#prueba {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f7f7f7;
 }
 
 .no-browser-support {
     display: none;
     font-size: 1.2rem;
-    color: #e64427;
+    color: #0E8388;
     margin-top: 35px;
 }
 
 .app {
     margin: 40px auto;
+    text-align: center;
 }
 
-#note-textarea {
-    margin: 20px 0;
+.record-button {
+    padding: 10px 54px;
+    background-color: #0E8388;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 #recording-instructions {
     margin: 15px auto 60px;
 }
 
-#notes {
-    padding-top: 20px;
+h1 {
+    margin-bottom: 20px;
 }
 
-.note .header {
-    font-size: 0.9em;
-    color: #888;
-    margin-bottom: 10px;
+#splash {
+    background-color: #0d3335;
+    width: 311px;
+    height: 299px;
+    margin: 0 auto;
+    border: 13px solid #0d3335;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
-.note .delete-note,
-.note .listen-note {
-    text-decoration: none;
-    margin-left: 15px;
+#splash img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.note .content {
-    margin-bottom: 40px;
+#controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#controls button {
+    padding: 10px 20px;
+    background-color: #0E8388;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -125,19 +113,6 @@ button:focus {
     button {
         margin-bottom: 10px;
     }
-
-}   
-
-
-
-/* -- Demo ads -- */
-
-@media (max-width: 1200px) {
-    #bsaHolder{ display:none;}
-}
-
-img{
-    width: 350px;
-    height: 350px;
 }
 </style>
+

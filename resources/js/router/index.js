@@ -1,7 +1,6 @@
-import {createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-    
     {
         name:"Home",
         path:'/home',
@@ -61,16 +60,16 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-}) 
+});
 
 router.beforeEach((to, form) => {
-    if(to.meta.requiresAuth && !localStorage.getItem('data') ){
-        return { name: 'Login' }
+    if (to.meta.requiresAuth && !localStorage.getItem("data")) {
+        return { name: "Login" };
     }
 
-    if(!to.meta.requiresAuth && localStorage.getItem('data') ){
-        return { name: 'Home' }
+    if (!to.meta.requiresAuth && localStorage.getItem("data")) {
+        return { name: "Home" };
     }
-})
+});
 
-export default router
+export default router;

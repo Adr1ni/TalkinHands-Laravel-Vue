@@ -1,7 +1,8 @@
 <script setup>
 
-import { useRouter } from 'vue-router'
-import {ref, onMounted} from 'vue'
+import { useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import VoideToText from './voideToText.vue';
 import axios from "axios";
 import voiceToText from './voiceToText.vue';
 
@@ -15,7 +16,7 @@ onMounted(async () => {
     userData()
 })
 
-
+//Importar como el aplications (ANIMATE.js)
 
 const userData = async () => {
     await axios.get('/api/user-profile')
@@ -47,6 +48,7 @@ const deleteUser = async () => {
 }
 
 
+
 </script>
 
 <template>
@@ -69,9 +71,10 @@ const deleteUser = async () => {
 
             </ul>
             <!--Boton de Menu-->
-            <div class="menu-btn">
+            <div class="menu-btn" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
+            <!--Boton de Menu-->
         </div>
     </nav>
     <!--NAVBAR------------------------------------->
@@ -125,7 +128,7 @@ const deleteUser = async () => {
             <h2 class="title">Programa - TalkinHands</h2>
             <div class="serv-content">
                 <div class="card">
-                    <voice-to-text></voice-to-text>
+                    <VoideToText />
                 </div>
             </div>
         </div>
@@ -162,37 +165,37 @@ const deleteUser = async () => {
                     <div class="bars">
                         <div class="info">
                             <span>PHP - Laravel</span>
-                            <span>70%</span>
+                            <span>57%</span>
                         </div>
                         <div class="line php"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
                             <span>Vue</span>
-                            <span>20%</span>
+                            <span>30%</span>
                         </div>
                         <div class="line vue"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
+                            <span>JavaScript</span>
+                            <span>9%</span>
+                        </div>
+                        <div class="line js"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
                             <span>HTML</span>
-                            <span>5%</span>
+                            <span>2%</span>
                         </div>
                         <div class="line html"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
                             <span>CSS</span>
-                            <span>3%</span>
-                        </div>
-                        <div class="line css"></div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>JavaScript</span>
                             <span>2%</span>
                         </div>
-                        <div class="line js"></div>
+                        <div class="line css"></div>
                     </div>
                 </div>
             </div>
@@ -223,6 +226,8 @@ const deleteUser = async () => {
                 </div>
             </div>
         </div>
+
+
     </section>
     <!-- Herramintas usadas ----------------------------------------->
 
@@ -266,8 +271,6 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    
-    
     <!-- Integtantes del Proyecto--------------------------------------------------------->
 
     <!-- Seccion footer------------------------------------------------------------------------>
@@ -286,8 +289,6 @@ const deleteUser = async () => {
     </footer>
     <!-- Seccion footer------------------------------------------------------------------------>
 </template>
-
-
 
 <style scoped>
 /*  importacion de  google fonts ----------------- */
@@ -385,7 +386,7 @@ section .title::after {
     bottom: -8px;
     left: 50%;
     font-size: 20px;
-    color: #0E8388;
+    color: var(--main-color);
     padding: 0 5px;
     background: #fff;
     transform: translateX(-50%);
@@ -424,7 +425,7 @@ section .title::after {
 }
 
 .navbar .logo a span {
-    color: #0E8388;
+    color: #000000;
     transition: all 0.3s ease;
 }
 
@@ -611,8 +612,9 @@ section .title::after {
 
 /* Informacion del programa ------------------------------------------------- */
 
-
 /* Programa -------------------------------------------------------------------- */
+
+
 .services,
 .teams {
     color: #fff;
@@ -631,13 +633,18 @@ section .title::after {
     background: #222;
     text-align: center;
     border-radius: 6px;
-    padding: 50px 50px;
+    padding: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .services .serv-content .card:hover {
-    background: #0E8388;
+    background: #2E2C2C;
 }
 
 .services .serv-content .card {
@@ -650,7 +657,7 @@ section .title::after {
 
 .services .serv-content .card i {
     font-size: 50px;
-    color: #0E8388;
+    color: #2E2C2C;
     transition: color 0.3s ease;
 }
 
@@ -662,6 +669,7 @@ section .title::after {
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
+    text-align: center;
 }
 
 /* Programa -------------------------------------------------------------------- */
@@ -741,23 +749,23 @@ section .title::after {
 
 /* Barras -----------------------------------------------------------------*/
 .skills-content .right .php::before {
-    width: 70%;
+    width: 57%;
 }
 
 .skills-content .right .vue::before {
-    width: 20%;
+    width: 30%;
 }
 
 .skills-content .right .html::before {
-    width: 5%;
+    width: 2%;
 }
 
 .skills-content .right .css::before {
-    width: 3%;
+    width: 2%;
 }
 
 .skills-content .right .js::before {
-    width: 2%;
+    width: 9%;
 }
 
 .skills-content .right .mongo::before {
@@ -771,16 +779,15 @@ section .title::after {
 /* Equipo de proyecto ------------------------------------------------------- */
 .teams .carousel {
     display: flex;
-    flex-direction: row;
-    /* Cambio de "column" a "row" */
-    justify-content: space-between;
-    /* Distribuye las tarjetas a lo largo de la fila */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .teams .carousel .card {
     background: #174749;
-    border-radius: 8px;
-    padding: 25px 50px;
+    border-radius: 30px;
+    padding: 25px;
     text-align: center;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -788,18 +795,6 @@ section .title::after {
 
 .teams .carousel .card:hover {
     background: #20a1c9;
-}
-
-.teams .carousel .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.teams .carousel .card:hover {
-    transform: scale(1.05);
 }
 
 .teams .carousel .card .text {
@@ -852,15 +847,17 @@ section .title::after {
 
 /* Footer ----------------------------------------------------------------------- */
 footer {
-    background: black;
-    padding: 15px 23px;
+    background: rgb(0, 0, 0);
+    padding: 40px 60px;
     color: #fff;
     text-align: center;
+    font-size: 17px; /* Cambia el tamaño de letra aquí */
 }
 
 footer span a {
     color: #0E8388;
     text-decoration: none;
+    font-size: 17px; /* Cambia el tamaño de letra aquí */
 }
 
 footer span a:hover {
@@ -871,18 +868,17 @@ footer span a:hover {
     background-color: #0E8388;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 6px 11px;
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
+    font-size: 15px; /* Cambia el tamaño de letra aquí */
 }
 
 footer a i {
-    font-size: 30px;
-    margin: 20px;
+    font-size: 40px;
+    margin: 25px;
 }
-
-
 /* Footer ----------------------------------------------------------------------- */
 
 /* Responsive--------------------------------------------------------------------------- */
@@ -971,6 +967,21 @@ footer a i {
         width: 100%;
         margin-bottom: 35px;
     }
+
+    /* Equipo de proyecto */
+    .teams .carousel .card {
+        padding: 20px;
+    }
+
+    .teams .carousel .card .text {
+        font-size: 20px;
+        margin: 8px 0 5px 0;
+    }
+
+    .teams .carousel .card img {
+        height: 120px;
+        width: 120px;
+    }
 }
 
 @media (max-width: 690px) {
@@ -1021,4 +1032,6 @@ footer a i {
 }
 
 /* Responsive--------------------------------------------------------------------------- */
+
+
 </style>
