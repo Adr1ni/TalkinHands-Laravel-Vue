@@ -79,6 +79,7 @@ Iniciar el servidor
 
 ```shell
 php artisan serve
+npm run dev
 ```
 
 Acceder la aplicacion en tu navegador:
