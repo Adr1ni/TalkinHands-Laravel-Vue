@@ -64,3 +64,46 @@ const update = async() =>{
         </form>
     </div>
 </template>
+
+<style scoped>
+.container {
+  max-width: 400px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.btn-submit {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #45a049;
+}
+</style>

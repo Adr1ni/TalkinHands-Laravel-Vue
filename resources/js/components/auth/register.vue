@@ -37,7 +37,7 @@ const register = async () => {
 </script>
 
 
-<template>
+<template >
 	<div class="container">
 		<div class="img">
 			<img src="http://imgfz.com/i/HAyGNWU.jpeg">
@@ -106,7 +106,7 @@ const register = async () => {
 
 
 
-<style>
+<style scoped>
 * {
 	padding: 0;
 	margin: 0;
@@ -132,7 +132,7 @@ body {
 .container {
 	width: 100vw;
 	height: 100vh;
-	display: grid;
+    display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 7rem;
 	padding: 0 2rem;

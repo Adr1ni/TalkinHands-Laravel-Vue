@@ -1,28 +1,3 @@
-<template>
-    <div class="container">
-        <h1 id="prueba">Voice Controlled Notes App</h1>
-        <h3 v-show="!isSpeechRecognitionSupported" class="no-browser-support">Sorry, Your Browser Doesn't Support the Web
-            Speech API. Try Opening This Demo In Google Chrome.</h3>
-        <div class="app" v-show="isSpeechRecognitionSupported">
-            <h3>Add New Note</h3>
-            <div class="input-single"></div>
-            <button @click="startRecording">Start Recording</button>
-            <button @click="stopRecording">Stop Recording</button>
-            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
-            <h1>Click to see the next image</h1>
-            <div id="splash">
-                <img src="" alt="classroom image" id="mainImage">
-            </div>
-            <div id="controls">
-                <button @click="addImage">Generate Image</button>
-            </div>
-            <div id="controls">
-                <button @click="nextImage">Next Image</button>
-            </div>
-        </div>
-    </div>
-</template>
-    
 <script>
 export default {
     data() {
@@ -91,7 +66,29 @@ export default {
 };
 </script>
  
+<template>
+    <div class="container">
 
+        <h3 v-show="!isSpeechRecognitionSupported" class="no-browser-support">Lo sentimos, su navegador no es compatible con la Web
+            API de voz. Prueba a abrir esta demo en Google Chrome.</h3>
+        <div class="app" v-show="isSpeechRecognitionSupported">
+            <h1>Agregar nueva nota</h1>
+            <div class="input-single"></div>
+            <button @click="startRecording" class="record-button"> Iniciar </button>
+            <button @click="stopRecording" class="record-button"> Parar </button>
+            <p id="recording-instructions"> Presiona el boton <strong> Iniciar </strong> para generar la grabación</p>
+            <div id="splash">
+                <img src="" alt="Esperando audio" id="mainImage">
+            </div>
+            <br>
+            <h1 id="prueba">Presiona en siguiente imagen</h1>
+            <div id="controls">
+                <button @click="addImage">Generar Imagen</button>
+                <button @click="nextImage">Siguiente Imagen</button>
+            </div>
+        </div>
+    </div>
+</template>
   
 <style>
 .container {
@@ -103,24 +100,24 @@ export default {
 
 #prueba {
     font-family: Arial, Helvetica, sans-serif;
-    color: #1da7da;
+    color: #f7f7f7;
 }
 
 .no-browser-support {
     display: none;
     font-size: 1.2rem;
-    color: #e64427;
+    color: #0E8388;
     margin-top: 35px;
 }
 
 .app {
     margin: 40px auto;
+    text-align: center;
 }
 
-#start-record-btn,
-#pause-record-btn {
-    padding: 10px 20px;
-    background-color: #1da7da;
+.record-button {
+    padding: 10px 54px;
+    background-color: #0E8388;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -136,14 +133,32 @@ h1 {
     margin-bottom: 20px;
 }
 
+#splash {
+    background-color: #0d3335;
+    width: 311px;
+    height: 299px;
+    margin: 0 auto;
+    border: 13px solid #0d3335;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
 #splash img {
-    width: 350px;
-    height: 350px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 #controls button {
     padding: 10px 20px;
-    background-color: #1da7da;
+    background-color: #0E8388;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -161,3 +176,4 @@ h1 {
     }
 }
 </style>
+
