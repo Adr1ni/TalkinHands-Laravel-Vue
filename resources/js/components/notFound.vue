@@ -11,7 +11,7 @@
         <div class="text">
           <h1>ERROR 404</h1>
           <p>¡Algo salio mal!</p>
-          <a href="todo.html"><button class="btn">Regresar a sitio seguro</button></a> <!--Poner atributo de enlace donde vaya la solucion-->
+          <router-link to="/"><button class="btn">Regresar a sitio seguro</button></router-link> <!--Poner atributo de enlace donde vaya la solucion-->
 
         </div>
       </div>

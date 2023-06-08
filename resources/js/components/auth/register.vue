@@ -109,7 +109,7 @@ const register = async() =>{
             	   </div>
             	</div>
               <!--Button ----------------------------------------------------------->
-                <input type="submit" class="btn" value="Register">
+                <input type="submit" class="btn" value="Registrarse">
 				        <router-link to="/" class="btn">Cancelar</router-link>
             </form>
         </div>

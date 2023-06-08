@@ -70,7 +70,7 @@ const login = async() =>{
             	</div>
 
         <!-- Button login--------------------------------------------------------->
-				<input type="submit" class="btn" value="login">
+				<input type="submit" class="btn" value="Iniciar Sesion">
 				<router-link to="/" class="btn">Cancelar</router-link>
         
 			</form>

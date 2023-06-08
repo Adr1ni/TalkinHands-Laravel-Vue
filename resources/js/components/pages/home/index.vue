@@ -125,7 +125,7 @@ const deleteUser = async () => {
             <h2 class="title">Programa - TalkinHands</h2>
             <div class="serv-content">
                 <div class="card">
-                    <VoideToText />
+                    <voice-to-text></voice-to-text>
                 </div>
             </div>
         </div>
@@ -281,8 +281,8 @@ const deleteUser = async () => {
             <a href="https://docs.github.com/"><i class="fas fa-file-alt"></i></a>
         </span><br>
 
-        <button class="eliminar-usuario" @click="logout">Log out</button>
-        <button class="eliminar-usuario" @click="deleteUser">Delete user</button>
+        <button class="eliminar-usuario" @click="logout">Cerrar sesion</button>
+        <button class="eliminar-usuario" @click="deleteUser">Eliminar cuenta</button>
     </footer>
     <!-- Seccion footer------------------------------------------------------------------------>
 </template>

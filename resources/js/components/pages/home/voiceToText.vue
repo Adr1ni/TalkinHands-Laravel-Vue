@@ -5,7 +5,6 @@ const {startRecording,stopRecording,generateImages,showImages}= aplication()
 
 </script>
 
-
 <template>
     <div class="container">
 
