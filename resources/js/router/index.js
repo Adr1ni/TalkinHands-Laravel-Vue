@@ -51,7 +51,7 @@ const routes = [
         path:"/admin",
         component: () => import("../components/admin/index.vue"),
         meta:{
-            requiresAuth:true
+            requiresAuth:false
         }
     },
 

@@ -35,6 +35,7 @@ class UserController extends Controller
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
+            'role' => 'required',
             'password' => 'required',
             'c_password' => 'required|same:password'
         ],$message);
@@ -52,6 +53,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->role = $request->role;
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -101,6 +103,7 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'password' => 'required',
             'c_password' => 'required|same:password'
         ],$message);
 
@@ -117,6 +120,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->username = $request->username;
+        $user->role = $request->role;
         $user->password = Hash::make($request->password);
         $user->save();
 
