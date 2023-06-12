@@ -29,7 +29,7 @@ git clone https://github.com/yourusername/talkinhands.git
 Accede al directorio del proyecto:
 
 ```shell
-cd talkinhands
+cd TalkinHands-Laravel-Vue
 ```
 
 Instalar las dependencias(asegurate tener instalada la dependecia de php para mongo:^1.12):
@@ -42,7 +42,7 @@ npm install
 Configuracion
 ------------
 
-Configure the .env file with your MongoDB database connection details.
+Configure el archivo .env con los detalles de conexión de su base de datos MongoDB.
 ```php
 DB_CONNECTION=mongodb
 DB_HOST=127.0.0.1
@@ -70,7 +70,7 @@ class PersonalAccessToken extends Model implements HasAbilities
     protected $connection = 'mongodb';
 ```
 
-Generate the application key:
+Genere la clave de la aplicación:
 
 ```shell
 php artisan key:generate
@@ -79,6 +79,7 @@ Iniciar el servidor
 
 ```shell
 php artisan serve
+npm run dev
 ```
 
 Acceder la aplicacion en tu navegador:
