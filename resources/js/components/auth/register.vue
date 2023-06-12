@@ -1,6 +1,4 @@
 <script setup>
-
-
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
@@ -106,7 +104,7 @@ const register = async () => {
 
 
 
-<style scoped>
+<style>
 * {
 	padding: 0;
 	margin: 0;

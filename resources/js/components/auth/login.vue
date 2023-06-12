@@ -31,8 +31,11 @@ const login = async() =>{
 
 
 <template>
-    <div class="container">
-		
+	<!--Imagen Costado-->
+	<div class="container">
+		<div class="img">
+			<img src="http://imgfz.com/i/HAyGNWU.jpeg">
+		</div>
 
 		<div class="login-content">
 			<p v-if="error">{{ error }}</p>
@@ -84,7 +87,7 @@ const login = async() =>{
 </template>
 
 
-<style scoped>
+<style>
 *{
 	padding: 0;
 	margin: 0;

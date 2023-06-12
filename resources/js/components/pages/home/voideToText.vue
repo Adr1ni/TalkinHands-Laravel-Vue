@@ -81,7 +81,7 @@ export default {
                 <img src="" alt="Esperando audio" id="mainImage">
             </div>
             <br>
-            <h1 id="prueba">Presiona en siguiente imagen</h1>
+            <h3 id="prueba">Presiona en siguiente imagen</h3>
             <div id="controls">
                 <button @click="addImage">Generar Imagen</button>
                 <button @click="nextImage">Siguiente Imagen</button>
@@ -90,17 +90,20 @@ export default {
     </div>
 </template>
   
-<style>
+<style scoped>
 .container {
-    max-width: 700px;
+    max-width: 1px;
     margin: 0 auto;
     padding: 100px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
 #prueba {
     font-family: Arial, Helvetica, sans-serif;
-    color: #f7f7f7;
+    color: #ffffff;
 }
 
 .no-browser-support {
@@ -111,7 +114,7 @@ export default {
 }
 
 .app {
-    margin: 40px auto;
+    margin: -25px auto;
     text-align: center;
 }
 
@@ -135,8 +138,8 @@ h1 {
 
 #splash {
     background-color: #0d3335;
-    width: 311px;
-    height: 299px;
+    width: 330px;
+    height: 250px;
     margin: 0 auto;
     border: 13px solid #0d3335;
     display: flex;
