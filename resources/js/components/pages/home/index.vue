@@ -10,6 +10,7 @@ const router = useRouter()
 
 let error = ref('')
 let id = ref()
+let role = ref()
 
 onMounted(async () => {
     userData()
@@ -31,6 +32,7 @@ const userData = async () => {
         .then(response => {
             if (response.data.success) {
                 id.value = response.data.data._id
+                role.value = response.data.data.role
             } else {
                 error.value = response.data.message;
             }
@@ -74,6 +76,7 @@ const deleteUser = async () => {
                 <li><a href="#skills" class="menu-btn">Herramientas</a></li>
                 <li><a href="#teams" class="menu-btn">Equipo</a></li>
                 <li><a class="menu-btn"><router-link to="/actualizar">Actualizar Perfil</router-link></a></li>
+                
 
             </ul>
             <!--Boton de Menu-->
