@@ -7,29 +7,26 @@ const {startRecording,stopRecording,generateImages,showImages}= aplication()
  
 <template>
     <div class="container">
-
-        <h3 v-show="!isSpeechRecognitionSupported" class="no-browser-support">Lo sentimos, su navegador no es compatible con la Web
-            API de voz. Prueba a abrir esta demo en Google Chrome.</h3>
-        <div class="app" v-show="isSpeechRecognitionSupported">
-            <h1>Agregar nueva nota</h1>
-            <div class="input-single"></div>
-            <button @click="startRecording" class="record-button"> Iniciar </button>
-            <button @click="stopRecording" class="record-button"> Parar </button>
-            <p id="recording-instructions"> Presiona el boton <strong> Iniciar </strong> para generar la grabación</p>
-            <div id="splash">
-                <img src="" alt="Esperando audio" id="mainImage">
+            <div class="app"> 
+                <h1>Agregar nueva nota</h1>
+                <div class="input-single"></div>
+                <button @click="startRecording" class="record-button"> Iniciar </button>
+                <button @click="stopRecording" class="record-button"> Parar </button>
+                <p id="recording-instructions"> Presiona el boton <strong> Iniciar </strong> para generar la grabación</p>
+                <div id="splash">
+                    <img src="" alt="Esperando audio" id="mainImage">
+                </div>
+                <br>
+                <h1 >Presiona en siguiente imagen</h1>
+                <div id="controls">
+                    <button @click="generateImages">Generar Imagen</button>
+                    <button @click="showImages">Siguiente Imagen</button>
+                </div>
             </div>
-            <br>
-            <h1 id="prueba">Presiona en siguiente imagen</h1>
-            <div id="controls">
-                <button @click="generateImages">Generar Imagen</button>
-                <button @click="showImages">Siguiente Imagen</button>
-            </div>
-        </div>
     </div>
 </template>
   
-<style>
+<style >
 .container {
     max-width: 700px;
     margin: 0 auto;
@@ -115,4 +112,3 @@ h1 {
     }
 }
 </style>
-

@@ -19,7 +19,7 @@ const login = async() =>{
                 localStorage.setItem('data', response.data.data)
                 router.push('/home')
             }else{
-                alert(response.data.message);
+              alert(response.data.message)
             }
         })
 }
@@ -33,21 +33,20 @@ const login = async() =>{
 			<img src="Img/logo-jpg-talkinhands.jpg">
 		</div>
 		<div class="login-content">
-			<p v-if="error">{{ error }}</p>
 			
 			<form @submit.prevent="login">
 
 				<!---Formulario-->
         <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
 
-				<h2 class="title">Login</h2>
+				<h2 class="title">Iniciar Sesion</h2>
         <!-- input --------------------------------------------------------->
 				<div class="input-div one">
            	<div class="i">
            		  <i class="fas fa-user"></i>
            		   </div>
                  <div class="div">
-						      <input type="email" placeholder="Enter your email"  v-model="form.email"
+						      <input type="email" placeholder="Ingrese su email"  v-model="form.email"
 						            class="input input-field"
 						            minlength="4"
 						            autocomplete="off"
@@ -62,14 +61,14 @@ const login = async() =>{
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<input type="password" placeholder="Enter your password" v-model="form.password" 
+           		    	<input type="password" placeholder="Ingrese su contraseña" v-model="form.password" 
 						              class="input input-field" 
 						              autocomplete="off" required>
             	   </div>
             	</div>
 
         <!-- Button login--------------------------------------------------------->
-				<input type="submit" class="btn" value="login">
+				<input type="submit" class="btn" value="Ingresar">
 				<router-link to="/" class="btn">Cancelar</router-link>
         
 			</form>

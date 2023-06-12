@@ -21,13 +21,23 @@ class UserController extends Controller
 
     public function insert(Request $request){
 
-        $validator = Validator::make($request->all(),[
+        $message = [
+            'name.required' => 'El campo nombre no se puede dejar vacío',
+            'username.required' => 'El campo nombre de usuario no se puede dejar vacío',
+            'email.required' => 'El campo :attribute no se puede dejar vacío',
+            'required' => 'El campo no se puede dejar vacío',
+
+            'email.email' => 'El formato de correo electrónico no es válido',
+            'c_password.same' => 'Las contraseñas deben ser iguales'
+        ];
+
+        $validator = Validator::make($request->all(),[ 
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'c_password' => 'required|same:password'
-        ]);
+        ],$message);
 
         if($validator->fails()){
             $response = [
@@ -82,13 +92,17 @@ class UserController extends Controller
 
     public function update(Request $request, $id){
 
+        $message = [
+            'c_password.same' => 'Las contraseñas deben ser iguales'
+        ];
+
         $validator = Validator::make($request->all(),[
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'c_password' => 'required|same:password'
-        ]);
+        ],$message);
 
         if($validator->fails()){
             $response = [

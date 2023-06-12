@@ -1,13 +1,12 @@
 <script setup>
 
-import { ref, onMounted} from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from "axios";
 
 const router = useRouter()
 const form = ref([])
 
-let error = ref('')
 
 onMounted(async() => {
     userData()
@@ -19,9 +18,11 @@ const userData = async() =>{
             if(response.data.success){
                 form.value = response.data.data
             }else{
-                alert(response.data.message);
+              const { message } = response.data
+              const field = Object.keys(message)[0]
+              alert(message[field])
             }
-        })
+      })
 }
 
 const update = async() =>{
@@ -30,12 +31,12 @@ const update = async() =>{
             if(response.data.success){
                 router.push('/home')
             }else{
-              alert(response.data.message);
+              const { message } = response.data
+              const field = Object.keys(message)[0]
+              alert(message[field])
             }
         })
 }
-</script>
-
 </script>
 
 <template>
@@ -52,30 +53,31 @@ const update = async() =>{
             <!-- Name ------------------------------------------------- -->
             <div class="text-input">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Enter your name" v-model="form.name">
+              <input type="text" placeholder="Ingrese nombre completo" v-model="form.name" required>
+              <p></p>
             </div>
   
             <!-- Username ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Enter your username" v-model="form.username">
+              <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username" required>
             </div>
   
             <!-- Email -------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Enter your email" v-model="form.email">
+              <input type="email" placeholder="Ingrese email" v-model="form.email" required>
             </div>
   
             <!-- Password ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Enter your password" v-model="form.password">
+              <input type="password" placeholder="Ingrese la contraseña" v-model="form.password" required>
             </div>
   
             <div class="text-input">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Confirm your password" v-model="form.c_password">
+              <input type="password" placeholder="Confirme la contraseña" v-model="form.c_password" required>
             </div>
   
             <button class="btn"><input type="submit" value="Actualizar" style="background-color: transparent; border: none; padding: 0;color: #fff;font-size: 16px;font-weight: 600;"></button>
@@ -85,9 +87,8 @@ const update = async() =>{
         </form>
       </div>
     </body>
-  </template>
+</template>
   
-
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -274,5 +275,4 @@ a.forgot {
       grid-template-areas: "design actualizar";
     }
   }
-  
 </style>

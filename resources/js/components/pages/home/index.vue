@@ -4,8 +4,7 @@ import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import VoideToText from './voideToText.vue';
 import axios from "axios";
-import voiceToText from './voiceToText.vue';
-
+import $ from "jquery";
 
 const router = useRouter()
 
@@ -14,9 +13,18 @@ let id = ref()
 
 onMounted(async () => {
     userData()
+    loadactions()
 })
+//Booton Menú
 
-//Importar como el aplications (ANIMATE.js)
+const loadactions = () => {
+    $('.menu-btn').click(function(){
+        $('.navbar .menu').toggleClass("active");
+        $('.menu-btn i').toggleClass("active");
+    });
+ 
+}
+
 
 const userData = async () => {
     await axios.get('/api/user-profile')
@@ -46,8 +54,6 @@ const deleteUser = async () => {
             }
         })
 }
-
-
 
 </script>
 
@@ -128,7 +134,7 @@ const deleteUser = async () => {
             <h2 class="title">Programa - TalkinHands</h2>
             <div class="serv-content">
                 <div class="card">
-                    <VoideToText />
+                    <VoiceToText/>
                 </div>
             </div>
         </div>
@@ -281,7 +287,7 @@ const deleteUser = async () => {
             <span> 2023 All rights reserved</span>
             <br>
             <a href="https://github.com/ByronManchego"><i class="fab fa-github"></i></a>
-            <a href="https://docs.github.com/"><i class="fas fa-file-alt"></i></a>
+            <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing"><i class="fas fa-file-alt"></i></a>
         </span><br>
 
         <button class="eliminar-usuario" @click="logout">Cerrar sesion</button>
@@ -1030,8 +1036,4 @@ footer a i {
         line-height: 38px;
     }
 }
-
-/* Responsive--------------------------------------------------------------------------- */
-
-
 </style>
