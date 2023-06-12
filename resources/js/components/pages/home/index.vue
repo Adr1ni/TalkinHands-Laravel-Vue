@@ -2,7 +2,7 @@
 
 import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
-import VoideToText from './voideToText.vue';
+import VoiceToText from './voiceToText.vue';
 import axios from "axios";
 import $ from "jquery";
 
@@ -66,7 +66,7 @@ const deleteUser = async () => {
     <!--NAVBAR------------------------------------->
     <nav class="navbar">
         <div class="max-width">
-            <div class="logo"><a href="#">TalkinHands</a></div>
+            <div class="logo"><a href="#">Talkin<span>Hands</span></a></div>
             <ul class="menu">
                 <li><a href="#home" class="menu-btn">Inicio</a></li>
                 <li><a href="#about" class="menu-btn">Información</a></li>
@@ -91,7 +91,7 @@ const deleteUser = async () => {
         <div class="max-width">
             <div class="home-content">
                 <div class="text-2">TalkinHands</div>
-                <div class="text-3">De tu voz a <span class="typing"></span></div>
+                <div class="text-3">De tu voz a Imagen<span class="typing"></span></div>
                 <a href="#services">Programa</a>
             </div>
         </div>
@@ -407,8 +407,6 @@ section .title::after {
 
 /* Stilos al codigo alll section- ------------------------------------------------------------------ */
 
-
-
 /* Navbar ------------------------------------------------------------------------------- */
 .navbar {
     position: fixed;
@@ -687,6 +685,7 @@ section .title::after {
 /* Programa -------------------------------------------------------------------- */
 
 
+
 /*Herramientas ---------------------------------------------------------------*/
 .skills {
     background-color: #fff;
@@ -852,6 +851,7 @@ section .title::after {
 .owl-dot:hover {
     background: #0E8388 !important;
 }
+
 
 /* Equipo de proyecto ------------------------------------------------------- */
 
@@ -1042,4 +1042,5 @@ footer a i {
         line-height: 38px;
     }
 }
+
 </style>
