@@ -314,10 +314,6 @@ const deleteUser = async () => {
     text-decoration: none;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 img {
     display: block;
     margin: auto;

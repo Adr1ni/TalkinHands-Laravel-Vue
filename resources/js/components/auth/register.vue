@@ -33,7 +33,7 @@ const register = async () => {
 
   <div class="container">
       <div class="img">
-    <img src="Img/logo-jpg-talkinhands.jpg">
+    <img src="http://imgfz.com/i/HAyGNWU.jpeg">
   </div>
       <div class="login-content">
           <!--Formulario -------------------------------------------->
