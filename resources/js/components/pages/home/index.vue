@@ -119,7 +119,7 @@ const deleteUser = async () => {
                         mejorar la comunicación inclusiva para las
                         personas con discapacidad auditiva.
                     </p>
-                    <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing">Documentacion</a>
+                    <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing" target="_blank">Documentacion</a> 
                 </div>
             </div>
         </div>
@@ -171,37 +171,37 @@ const deleteUser = async () => {
                     <div class="bars">
                         <div class="info">
                             <span>PHP - Laravel</span>
-                            <span>57%</span>
+                            <span>70%</span>
                         </div>
                         <div class="line php"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
                             <span>Vue</span>
-                            <span>30%</span>
+                            <span>20%</span>
                         </div>
                         <div class="line vue"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
-                            <span>JavaScript</span>
-                            <span>9%</span>
-                        </div>
-                        <div class="line js"></div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
                             <span>HTML</span>
-                            <span>2%</span>
+                            <span>5%</span>
                         </div>
                         <div class="line html"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
                             <span>CSS</span>
-                            <span>2%</span>
+                            <span>3%</span>
                         </div>
                         <div class="line css"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>JavaScript</span>
+                            <span>2%</span>
+                        </div>
+                        <div class="line js"></div>
                     </div>
                 </div>
             </div>
@@ -247,8 +247,10 @@ const deleteUser = async () => {
 
                 <div class="card">
                     <div class="box">
+                        <a href="https://github.com/ByronManchego" target="_blank">
                         <img src="https://img4.goodfon.com/wallpaper/nbig/8/45/mr-robot-elliot-alderson-rami-malek.jpg"
                             alt="">
+                        </a>
                         <div class="text">Byron Manchego</div>
                         <p>Estudiante Tecsup</p>
                     </div>
@@ -257,8 +259,10 @@ const deleteUser = async () => {
 
                 <div class="card">
                     <div class="box">
+                        <a href="https://github.com/Adr1ni" target="_blank">
                         <img src="https://akm-img-a-in.tosshub.com/sites/visualstory/stories/2022_12/story_16611/assets/5.jpeg?time=1672399209"
                             alt="">
+                        </a>
                         <div class="text">Adriano Gongora</div>
                         <p>Estudiante Tecsup</p>
                     </div>
@@ -266,8 +270,10 @@ const deleteUser = async () => {
 
                 <div class="card">
                     <div class="box">
+                        <a href="https://github.com/Jefferson-23" target="_blank">
                         <img src="https://www.elcolombiano.com/binrepository/781x1001/0c1/780d565/none/11101/WYEO/homero-simpson_42360908_20230512163831.jpg"
                             alt="">
+                        </a>
                         <div class="text">Jefferson Coaquira</div>
                         <p>Estudiante Tecsup</p>
                     </div>
@@ -281,13 +287,14 @@ const deleteUser = async () => {
 
     <!-- Seccion footer------------------------------------------------------------------------>
     <footer>
-        <span>Created By <a href="--RedSocial--">Byron Manchego</a> ,
-            <a href="--RedSocial--">Adriano Gongora</a> and
-            <a href="--RedSocial--">Jefferson Coaquira</a>| <span class="far fa-copyright"></span>
+        <span>Created By <a href="https://github.com/ByronManchego" target="_blank">Byron Manchego</a> , 
+            <a href="https://github.com/Adr1ni" target="_blank">Adriano Gongora</a> and
+            <a href="https://github.com/Jefferson-23" target="_blank">Jefferson Coaquira</a>| <span class="far fa-copyright"></span>
             <span> 2023 All rights reserved</span>
             <br>
-            <a href="https://github.com/ByronManchego"><i class="fab fa-github"></i></a>
-            <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing"><i class="fas fa-file-alt"></i></a>
+            <a href="https://github.com/Adr1ni/TalkinHands-UI-Demo" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing" target="_blank">
+                <i class="fas fa-file-alt"></i></a>
         </span><br>
 
         <button class="eliminar-usuario" @click="logout">Cerrar sesion</button>
@@ -635,11 +642,10 @@ section .title::after {
 .services .title::after,
 
 .services .serv-content .card {
-    width: calc(100% - 20px);
+    width: calc(80% - 30px);
     background: #222;
     text-align: center;
     border-radius: 6px;
-    padding: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -755,23 +761,23 @@ section .title::after {
 
 /* Barras -----------------------------------------------------------------*/
 .skills-content .right .php::before {
-    width: 57%;
+    width: 70%;
 }
 
 .skills-content .right .vue::before {
-    width: 30%;
+    width: 20%;
 }
 
 .skills-content .right .html::before {
-    width: 2%;
+    width: 5%;
 }
 
 .skills-content .right .css::before {
-    width: 2%;
+    width: 3%;
 }
 
 .skills-content .right .js::before {
-    width: 9%;
+    width: 2%;
 }
 
 .skills-content .right .mongo::before {
@@ -800,7 +806,7 @@ section .title::after {
 }
 
 .teams .carousel .card:hover {
-    background: #20a1c9;
+    background: #2e9296;
 }
 
 .teams .carousel .card .text {
@@ -819,7 +825,7 @@ section .title::after {
 }
 
 .teams .carousel .card:hover img {
-    border-color: #fff;
+    border-color: #063638;
 }
 
 .owl-dots {
@@ -992,7 +998,7 @@ footer a i {
 
 @media (max-width: 690px) {
     .max-width {
-        padding: 0 23px;
+        padding: 0 10px;
     }
 
     .home .home-content .text-2 {

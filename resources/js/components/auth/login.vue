@@ -27,11 +27,12 @@ const login = async() =>{
 </script>
 
 <template>
-	<body>
-		<div class="container">
-        <div class="img">
-			<img src="Img/logo-jpg-talkinhands.jpg">
+	<!--Imagen Costado-->
+	<div class="container">
+		<div class="img">
+			<img src="http://imgfz.com/i/HAyGNWU.jpeg">
 		</div>
+
 		<div class="login-content">
 			
 			<form @submit.prevent="login">
@@ -74,7 +75,7 @@ const login = async() =>{
 			</form>
 		</div>
 	</div>	
-</body>
+
 
 </template>
 
