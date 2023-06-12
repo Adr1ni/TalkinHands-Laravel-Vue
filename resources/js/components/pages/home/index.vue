@@ -405,7 +405,7 @@ section .title::after {
 
 /* Navbar ------------------------------------------------------------------------------- */
 .navbar {
-    position: fixed;
+    position: static;
     width: 100%;
     z-index: 999;
     padding: 30px 0;
