@@ -46,6 +46,15 @@ const routes = [
         }
     },
 
+    {
+        name:'Admin',
+        path:"/admin",
+        component: () => import("../components/admin/index.vue"),
+        meta:{
+            requiresAuth:true
+        }
+    },
+
     //Not Found
     {
         name:'NotFound',
