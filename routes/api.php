@@ -9,7 +9,7 @@ Route::controller(UserController::class)->group(function (){
     Route::post('/login', 'login');
     Route::put('/users/{id}', 'update');
     Route::delete('/users/{id}', 'delete');    
-    Route::get('user-profile',[UserController::class, 'userProfile']);
+    Route::get('/user-profile',[UserController::class, 'userProfile']);
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
