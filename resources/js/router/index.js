@@ -51,7 +51,16 @@ const routes = [
         path:"/admin",
         component: () => import("../components/admin/index.vue"),
         meta:{
-            requiresAuth:false
+            requiresAuth:true
+        }
+    },
+
+    {
+        name:'CrearUsuario',
+        path:"/crear-usuario",
+        component: () => import("../components/admin/crearUsuario.vue"),
+        meta:{
+            requiresAuth:true
         }
     },
 

@@ -15,7 +15,7 @@ class UserController extends Controller
     public function all(){
         $users = User::all();
         return response()->json([
-            "result"=>$users
+            "data"=>$users
         ], Response::HTTP_OK);
     }
 
