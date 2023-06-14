@@ -10,6 +10,7 @@ const router = useRouter()
 
 let error = ref('')
 let id = ref()
+let role = ref()
 
 onMounted(async () => {
     userData()
@@ -29,6 +30,7 @@ const userData = async () => {
         .then(response => {
             if (response.data.success) {
                 id.value = response.data.data._id
+                role.value = response.data.data.role
             } else {
                 error.value = response.data.message;
             }
@@ -70,6 +72,7 @@ const deleteUser = async () => {
                 <li><a href="#skills" class="menu-btn">Herramientas</a></li>
                 <li><a href="#teams" class="menu-btn">Equipo</a></li>
                 <li><a class="menu-btn"><router-link to="/actualizar">Actualizar Perfil</router-link></a></li>
+                <li v-if="role == 'admin'"><a class="menu-btn"><router-link to="/admin">Panel Admin</router-link></a></li>
             </ul>
             <div class="menu-btn" id="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -293,7 +296,6 @@ img {
     margin: auto;
 }
 
-/* Scroll bar --------------------------------------------------------------------------- */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -310,10 +312,6 @@ img {
     background: #555;
 }
 
-/* Scroll bar --------------------------------------------------------------------------- */
-
-
-/* Stilos al codigo alll section- ------------------------------------------------------------------ */
 section {
     padding: 100px 0;
 }
@@ -375,9 +373,6 @@ section .title::after {
     transform: translateX(-50%);
 }
 
-/* Stilos al codigo alll section- ------------------------------------------------------------------ */
-
-/* Navbar ------------------------------------------------------------------------------- */
 .navbar {
     position: static;
     width: 100%;
@@ -436,10 +431,6 @@ section .title::after {
     color: #fff;
 }
 
-/* Navbar ------------------------------------------------------------------------------- */
-
-
-/* Menu de opciones ------------------------------------------------------------------------ */
 .menu-btn {
     color: #fff;
     font-size: 23px;
@@ -477,13 +468,9 @@ section .title::after {
     filter: brightness(90%);
 }
 
-/* Menu de opciones ------------------------------------------------------------------------ */
-
-
-/* Inicio pantalla principal ----------------------------------------------------------- */
 .home {
     display: flex;
-    background: url("https://images.unsplash.com/photo-1640550444366-b94e5752c479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80") no-repeat center;
+    background: url("https://i.postimg.cc/L4JqgyqT/Manos.png") no-repeat center;
     height: 100vh;
     color: #fff;
     min-height: 500px;
@@ -535,11 +522,6 @@ section .title::after {
     background: none;
 }
 
-/* Inicio pantalla principal ----------------------------------------------------------- */
-
-
-
-/* Informacion del programa ------------------------------------------------- */
 .about {
     background-color: #fff;
 }
@@ -590,11 +572,6 @@ section .title::after {
     color: #0E8388;
     background: none;
 }
-
-/* Informacion del programa ------------------------------------------------- */
-
-/* Programa -------------------------------------------------------------------- */
-
 
 .services,
 .teams {
@@ -652,11 +629,6 @@ section .title::after {
     text-align: center;
 }
 
-/* Programa -------------------------------------------------------------------- */
-
-
-
-/*Herramientas ---------------------------------------------------------------*/
 .skills {
     background-color: #fff;
 }
@@ -725,10 +697,6 @@ section .title::after {
     background: #0E8388;
 }
 
-/*Herramientas ---------------------------------------------------------------*/
-
-
-/* Barras -----------------------------------------------------------------*/
 .skills-content .right .php::before {
     width: 70%;
 }
@@ -753,11 +721,6 @@ section .title::after {
     width: 100%;
 }
 
-/* Barras -----------------------------------------------------------------*/
-
-
-
-/* Equipo de proyecto ------------------------------------------------------- */
 .teams .carousel {
     display: flex;
     flex-wrap: wrap;
@@ -822,24 +785,18 @@ section .title::after {
     background: #0E8388 !important;
 }
 
-
-/* Equipo de proyecto ------------------------------------------------------- */
-
-
-
-/* Footer ----------------------------------------------------------------------- */
 footer {
     background: rgb(0, 0, 0);
     padding: 40px 60px;
     color: #fff;
     text-align: center;
-    font-size: 17px; /* Cambia el tamaño de letra aquí */
+    font-size: 17px; 
 }
 
 footer span a {
     color: #0E8388;
     text-decoration: none;
-    font-size: 17px; /* Cambia el tamaño de letra aquí */
+    font-size: 17px; 
 }
 
 footer span a:hover {
@@ -854,16 +811,14 @@ footer span a:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
-    font-size: 15px; /* Cambia el tamaño de letra aquí */
+    font-size: 15px; 
 }
 
 footer a i {
     font-size: 40px;
     margin: 25px;
 }
-/* Footer ----------------------------------------------------------------------- */
 
-/* Responsive--------------------------------------------------------------------------- */
 @media (max-width: 1104px) {
     .about .about-content .left img {
         height: 350px;
@@ -1012,5 +967,4 @@ footer a i {
         line-height: 38px;
     }
 }
-
 </style>

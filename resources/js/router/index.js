@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
     {
-        name:"Home",
+        name:"Home",    
         path:'/home',
         component:() => import('../components/pages/home/index.vue'),
         meta:{
@@ -47,21 +47,21 @@ const routes = [
     },
 
     {
-        name:'Admin',
-        path:"/admin",
-        component: () => import("../components/admin/index.vue"),
-        meta:{
-            requiresAuth:true
-        }
+        name: 'Admin',
+        path: '/admin',
+        component: () => import('../components/admin/index.vue'),
+        meta: {
+          requiresAuth: true,
+        },
     },
-
+      
     {
-        name:'CrearUsuario',
-        path:"/crear-usuario",
-        component: () => import("../components/admin/crearUsuario.vue"),
-        meta:{
-            requiresAuth:true
-        }
+        name: 'CrearUsuario',
+        path: '/crear-usuario',
+        component: () => import('../components/admin/crearUsuario.vue'),
+        meta: {
+          requiresAuth: true,
+        },
     },
 
     //Not Found
@@ -76,19 +76,18 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 
-router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !localStorage.getItem("data")) {
-        next({ name: "Login" });
-    } else if (!to.meta.requiresAuth && localStorage.getItem("data")) {
-        next({ name: "Home" });
-    } else {
-        next();
-    }
-});
+router.beforeEach((to, form) => {
+  if (to.meta.requiresAuth && !localStorage.getItem("data")) {
+      return { name: "Login" };
+  }
 
+  if (!to.meta.requiresAuth && localStorage.getItem("data")) {
+      return { name: "Home" };
+  }
+});
 
 export default router;
