@@ -30,7 +30,7 @@ const login = async() =>{
 	<!--Imagen Costado-->
 	<div class="container">
 		<div class="img">
-			<img src="http://imgfz.com/i/HAyGNWU.jpeg">
+			<img src="http://imgfz.com/i/HAyGNWU.jpeg" alt="talkinhands">
 		</div>
 
 		<div class="login-content">

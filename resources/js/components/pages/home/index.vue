@@ -15,6 +15,7 @@ onMounted(async () => {
     userData()
     loadactions()
 })
+
 //Booton Menú
 
 const loadactions = () => {
@@ -22,7 +23,6 @@ const loadactions = () => {
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
- 
 }
 
 
@@ -105,7 +105,7 @@ const deleteUser = async () => {
             <h2 class="title">Información del Proyecto</h2>
             <div class="about-content">
                 <div class="column left">
-                    <img src="http://imgfz.com/i/0DYs7Nm.png" alt="">
+                    <img src="http://imgfz.com/i/0DYs7Nm.png" alt="talkinhands">
                 </div>
                 <div class="column right">
                     <div class="text">TalkinHands <span class="typing-2"></span></div>
@@ -249,7 +249,7 @@ const deleteUser = async () => {
                     <div class="box">
                         <a href="https://github.com/ByronManchego" target="_blank">
                         <img src="https://img4.goodfon.com/wallpaper/nbig/8/45/mr-robot-elliot-alderson-rami-malek.jpg"
-                            alt="">
+                            alt="talkinhands">
                         </a>
                         <div class="text">Byron Manchego</div>
                         <p>Estudiante Tecsup</p>
@@ -261,7 +261,7 @@ const deleteUser = async () => {
                     <div class="box">
                         <a href="https://github.com/Adr1ni" target="_blank">
                         <img src="https://akm-img-a-in.tosshub.com/sites/visualstory/stories/2022_12/story_16611/assets/5.jpeg?time=1672399209"
-                            alt="">
+                            alt="talkinhands">
                         </a>
                         <div class="text">Adriano Gongora</div>
                         <p>Estudiante Tecsup</p>
@@ -272,7 +272,7 @@ const deleteUser = async () => {
                     <div class="box">
                         <a href="https://github.com/Jefferson-23" target="_blank">
                         <img src="https://www.elcolombiano.com/binrepository/781x1001/0c1/780d565/none/11101/WYEO/homero-simpson_42360908_20230512163831.jpg"
-                            alt="">
+                            alt="talkinhands">
                         </a>
                         <div class="text">Jefferson Coaquira</div>
                         <p>Estudiante Tecsup</p>
@@ -308,14 +308,10 @@ const deleteUser = async () => {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: none;
+    padding: none;
     box-sizing: border-box;
     text-decoration: none;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 img {
@@ -399,7 +395,6 @@ section .title::after {
     bottom: -8px;
     left: 50%;
     font-size: 20px;
-    color: var(--main-color);
     padding: 0 5px;
     background: #fff;
     transform: translateX(-50%);
@@ -408,11 +403,12 @@ section .title::after {
 /* Stilos al codigo alll section- ------------------------------------------------------------------ */
 
 /* Navbar ------------------------------------------------------------------------------- */
+
 .navbar {
     position: fixed;
     width: 100%;
     z-index: 999;
-    padding: 30px 0;
+    padding: 13px ;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
     background-color: #0E8388;
@@ -436,7 +432,7 @@ section .title::after {
 }
 
 .navbar .logo a span {
-    color: #000000;
+    color: #fff;
     transition: all 0.3s ease;
 }
 
@@ -513,7 +509,7 @@ section .title::after {
 /* Inicio pantalla principal ----------------------------------------------------------- */
 .home {
     display: flex;
-    background: url("https://images.unsplash.com/photo-1640550444366-b94e5752c479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80") no-repeat center;
+    background: url("https://d1eipm3vz40hy0.cloudfront.net/images/SSAC-Blog/flujograma-atencion-cliente-que-es.jpg") no-repeat center;
     height: 100vh;
     color: #fff;
     min-height: 500px;

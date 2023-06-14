@@ -26,7 +26,7 @@ const {startRecording,stopRecording,generateImages,showImages}= aplication()
     </div>
 </template>
   
-<style >
+<style scoped >
 .container {
     max-width: 700px;
     margin: 0 auto;

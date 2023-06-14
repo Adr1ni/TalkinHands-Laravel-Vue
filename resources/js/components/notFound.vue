@@ -6,7 +6,7 @@
 <body>
 
       <div class="content">
-        <div class="img"><img src="Img/404.png"></div>
+        <div class="img"><img src="Img/404.png" alt="talkinhands"></div>
 
         <div class="text">
           <h1>ERROR 404</h1>
@@ -19,7 +19,7 @@
 </body>
 </template>
 
-<style scoped>
+<style>
 *{
     margin: 0;
     padding: 0;

@@ -43,7 +43,7 @@ const update = async() =>{
     <body>
       <div class="container">
         <div class="img">
-          <img src="Img/logo-jpg-talkinhands.jpg">
+          <img src="Img/logo-jpg-talkinhands.jpg" alt="talkinhands">
         </div>
       
         <form @submit.prevent="update">
@@ -109,6 +109,7 @@ body {
     background-size: 300% 300%;
     animation: gradient 15s ease infinite;
 }
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
