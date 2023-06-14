@@ -49,19 +49,19 @@ export default {
           <h1 ref="h1Ref">Bienvenidos</h1>
           <p ref="pRef">Para poder interactuar con la aplicación, por favor inicia sesión o regístrate</p>
           <div class="main-btn" ref="btnRef">
-            <router-link to="login" class="btn">Login</router-link>
-            <router-link to="register" class="btn two">Register</router-link>
+            <router-link to="iniciar-sesion" class="btn">Iniciar Session</router-link>
+            <router-link to="registro" class="btn two">Registrarse</router-link>
           </div>
         </div>
         <div class="home-img" ref="imgRef">
-          <img src="Img/fondo-talkinhands.png" alt="logo">
+          <img src="Img/fondo-talkinhands.png" alt="talkinhands">
         </div>
       </section>
   
       <div class="share">
         <p>Links:</p>
         <div class="social" ref="socialRef">
-          <a href=""><i class='bx bxs-file-doc'></i></a> <!--Poner los links de enlaces documentacion y Github-->
+          <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing"><i class='bx bxs-file-doc'></i></a> <!--Poner los links de enlaces documentacion y Github-->
           <a href=""><i class='bx bxl-github'></i></a>
         </div>
       </div>
@@ -72,10 +72,10 @@ export default {
 
 <style>
 *{
-    padding: 0%;
-    margin: 0%;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
     list-style: none;
     text-decoration: none;
     
@@ -87,7 +87,7 @@ body{
 
 /* header ---- headwe li*/
 
-header{
+header {
     position: fixed;
     top: 0;
     right: 0;
@@ -95,11 +95,11 @@ header{
     z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 32px 15%;
     background: transparent;
-    transition: all ease .45s;
+    transition: all ease 0.45s;
 }
+
 /* header ---- logo */
 .logo{
     color: #fff;
@@ -111,35 +111,33 @@ header{
     color: #0E8388;
 }
 
-
 /* inicio seccion lgo imagen derecha*/
-section{
-    padding: 0 15%; 
+section {
+    padding: 0 15%;
 }
 
-.home{
+.home {
     position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 30px;
 }
 
-.home-img{
+.home-img {
     width: 730px;
     height: 730px;
 }
 
-.home-img img{
+.home-img img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
 /*textto a lado de la imagen*/
-.home-text span{
+.home-text span {
     padding: 5px 25px;
     background: linear-gradient(130.08deg, #383528 0%, #191919 100%);
     box-shadow: 0px 20px 40px #00000070;
@@ -160,12 +158,13 @@ section{
 .home-text p{
     font-size:  1.1rem;
     font-weight: 400;
-    color: #c3c3c3;
+    color: #ffffff;
     line-height: 30px;
     margin-bottom: 30px;
 }
+
 /*divs btn*/
-.btn{
+.btn {
     display: inline-block;
     padding: 14px 34px;
     background: #0E8388 ;
@@ -173,31 +172,32 @@ section{
     border: 2px solid #0E8388;
     font-size: 16px;
     font-weight: 600;
-    border-radius: 8px ;
+    border-radius: 8px;
     transition: all 0.6s ease-in-out;
 }
 
-.btn:hover{
+.btn:hover {
     transform: translateY(-5px);
     background: transparent;
     color: #0E8388;
 }
+
 /*boton derecho*/
-.two{
+.two {
     background: #141414;
     border: 2px solid #141414;
     color: #fff;
     margin-left: 25px;
 }
 
-.two:hover{
+.two:hover {
     color: #141414;
     background: #fff;
     border: 2px solid #fff;
 }
 
 /*Enlaces face/docs/github*/
-.share{
+.share {
     position: absolute;
     bottom: 3rem;
     left: 15%;
@@ -205,13 +205,13 @@ section{
     align-items: center;
 }
 
-.share p{
+.share p {
     font-size: 17px;
     color: #fff;
     margin-right: 25px;
 }
 
-.share i{
+.share i {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -228,7 +228,7 @@ section{
     transition: all 0.6s ease-in-out;
 }
 
-.social i:hover{
+.social i:hover {
     transform: translateY(-10px);
 }
 
@@ -246,38 +246,52 @@ section{
   }
 }
 
-@media (max-width: 1850px){
-    header{
-        padding: 15px 8%;
-        transition: .2s;
-    }
-    section{
-        padding: 0 8%;
-        transition: .2s;
-    }
-    .share{
-        left: 8%;
-        transition: .2s;
+/*Responsive pagina*/
+@media (max-width: 500px) {
+    .home-text span {
+        display: block;
+        text-align: center;
+        margin-bottom: 15px;
     }
 }
 
-@media (max-width: 1370px){
-    header{
+@media (max-width: 1850px) {
+    header {
+        padding: 15px 8%;
+        transition: 0.2s;
+    }
+
+    section {
+        padding: 0 8%;
+        transition: 0.2s;
+    }
+
+    .share {
+        left: 8%;
+        transition: 0.2s;
+    }
+}
+
+@media (max-width: 1370px) {
+    header {
         padding: 15px 4%;
-        transition: .2s;
+        transition: 0.2s;
     }
-    section{
+
+    section {
         padding: 0 4%;
-        transition: .2s;
+        transition: 0.2s;
     }
-    .share{
+
+    .share {
         left: 4%;
-        transition: .2s;
+        transition: 0.2s;
     }
-    :root{
+
+    :root {
         --big-font: 5.5rem;
         --p-font: 1rem;
-        transition: .2s;
+        transition: 0.2s;
     }
 }
 
@@ -285,53 +299,62 @@ section{
     .share{
         display: none;
     }
-    section{
+
+    section {
         padding: 70px 4%;
     }
-    header{
+
+    header {
         padding: 11px 4%;
         background: #2d2d2d;
     }
-    .home{
+
+    .home {
         height: auto;
         display: flex;
         flex-wrap: wrap;
     }
-    .home-text{
+
+    .home-text {
         order: 2;
     }
-    .home-img{
+
+    .home-img {
         margin: auto;
         height: auto;
         width: auto;
     }
-    .home-img img{
+
+    .home-img img {
         max-width: 450px;
         width: 100%;
         height: auto;
     }
 }
 
-@media (max-width: 500px){
-    :root{
+@media (max-width: 500px) {
+    :root {
         --big-font: 4rem;
         --p-font: 15px;
-        transition: .2s ;
+        transition: 0.2s;
     }
-    .btn{
+
+    .btn {
         padding: 9px 28px;
     }
 }
 
 
-@keyframes imgg{
-    0%{
+@keyframes imgg {
+    0% {
         transform: translateY(0);
     }
-    50%{
+
+    50% {
         transform: translateY(-22px);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }
