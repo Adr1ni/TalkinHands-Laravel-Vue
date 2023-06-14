@@ -10,7 +10,6 @@ let form = reactive({
 	name: '',
 	username: '',
 	email: '',
-  role:'user',
 	password: '',
 	c_password: ''
 })

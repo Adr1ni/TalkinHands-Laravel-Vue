@@ -17,10 +17,4 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('logout', [UserController::class, 'logout']);
 });
 
-Route::group(['middleware' => 'admin:api'],function(){
-    Route::get('admin-test',function(){
-        return "easy";
-    });
-});
-
 

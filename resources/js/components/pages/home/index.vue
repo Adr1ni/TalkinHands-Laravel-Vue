@@ -10,13 +10,11 @@ const router = useRouter()
 
 let error = ref('')
 let id = ref()
-let role = ref()
 
 onMounted(async () => {
     userData()
     loadactions()
 })
-//Booton Menú
 
 const loadactions = () => {
     $('.menu-btn').click(function(){
@@ -26,13 +24,11 @@ const loadactions = () => {
  
 }
 
-
 const userData = async () => {
     await axios.get('/api/user-profile')
         .then(response => {
             if (response.data.success) {
                 id.value = response.data.data._id
-                role.value = response.data.data.role
             } else {
                 error.value = response.data.message;
             }
@@ -60,12 +56,10 @@ const deleteUser = async () => {
 </script>
 
 <template>
-    <!--Scroll de navegacion-->
     <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
     </div>
 
-    <!--NAVBAR------------------------------------->
     <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Talkin<span>Hands</span></a></div>
@@ -76,19 +70,13 @@ const deleteUser = async () => {
                 <li><a href="#skills" class="menu-btn">Herramientas</a></li>
                 <li><a href="#teams" class="menu-btn">Equipo</a></li>
                 <li><a class="menu-btn"><router-link to="/actualizar">Actualizar Perfil</router-link></a></li>
-                <li v-if="role === 'admin'"><a class="menu-btn"><router-link  to="/admin">Panel de Admin</router-link></a></li>
             </ul>
-            <!--Boton de Menu-->
             <div class="menu-btn" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
-            <!--Boton de Menu-->
         </div>
     </nav>
-    <!--NAVBAR------------------------------------->
 
-
-    <!-- Inicio principal Arriba-------------------------- -->
     <section class="home" id="home">
         <div class="max-width">
             <div class="home-content">
@@ -98,10 +86,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Inicio principal Arriba-------------------------- -->
 
-
-    <!-- Imformacion del programa ----------------------------->
     <section class="about" id="about">
         <div class="max-width">
             <h2 class="title">Información del Proyecto</h2>
@@ -126,11 +111,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Imformacion del programa ----------------------------->
 
-
-
-    <!-- Programa ----------------------------------------------->
     <section class="services" id="services">
         <div class="max-width">
             <h2 class="title">Programa - TalkinHands</h2>
@@ -141,10 +122,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Programa ----------------------------------------------->
-
-
-    <!-- Herramintas usadas ----------------------------------------->
+ 
     <section class="skills" id="skills">
         <div class="max-width">
             <h2 class="title">Herramientas</h2>
@@ -237,10 +215,7 @@ const deleteUser = async () => {
 
 
     </section>
-    <!-- Herramintas usadas ----------------------------------------->
-
-
-    <!-- Integtantes del Proyecto--------------------------------------------------------->
+ 
     <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">Equipo de Proyecto</h2>
@@ -285,9 +260,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Integtantes del Proyecto--------------------------------------------------------->
 
-    <!-- Seccion footer------------------------------------------------------------------------>
     <footer>
         <span>Created By <a href="https://github.com/ByronManchego" target="_blank">Byron Manchego</a> , 
             <a href="https://github.com/Adr1ni" target="_blank">Adriano Gongora</a> and
@@ -302,11 +275,10 @@ const deleteUser = async () => {
         <button class="eliminar-usuario" @click="logout">Cerrar sesion</button>
         <button class="eliminar-usuario" @click="deleteUser">Eliminar cuenta</button>
     </footer>
-    <!-- Seccion footer------------------------------------------------------------------------>
+
 </template>
 
 <style scoped>
-/*  importacion de  google fonts ----------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {

@@ -22,12 +22,6 @@ class UserController extends Controller
     public function insert(Request $request){
 
         $message = [
-            'name.required' => 'El campo nombre no se puede dejar vacío',
-            'username.required' => 'El campo nombre de usuario no se puede dejar vacío',
-            'email.required' => 'El campo :attribute no se puede dejar vacío',
-            'required' => 'El campo no se puede dejar vacío',
-
-            'email.email' => 'El formato de correo electrónico no es válido',
             'c_password.same' => 'Las contraseñas deben ser iguales'
         ];
 
@@ -35,7 +29,6 @@ class UserController extends Controller
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
-            'role' => 'required',
             'password' => 'required',
             'c_password' => 'required|same:password'
         ],$message);
@@ -65,32 +58,35 @@ class UserController extends Controller
         return response()->json($response, Response::HTTP_CREATED);
     }
 
-    public function login(Request $request){
-
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'password' => ['required']
         ]);
-        
-        if(Auth::attempt($credentials)){
+    
+        if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $token = $user->createToken('token')->plainTextToken;
             $cookie = cookie('cookie_token', $token, 60 * 24);
-
+    
             $response = [
                 "success" => true,
                 "data" => $token,
+                "admin" => ($user->role == 'admin')
             ];
-            return response()->json($response,Response::HTTP_OK)->withoutCookie($cookie);
-        }else{
-            $response = [
-                "success" => false,
-                "message" => "Datos incorrectos"
-            ];
-            return response($response,Response::HTTP_OK);
+    
+            return response()->json($response, Response::HTTP_OK)->withoutCookie($cookie);
         }
     
+        $response = [
+            "success" => false,
+            "message" => "Datos incorrectos"
+        ];
+    
+        return response($response, Response::HTTP_OK);
     }
+    
 
     public function update(Request $request, $id){
 

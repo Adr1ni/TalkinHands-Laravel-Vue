@@ -12,17 +12,22 @@ let form = reactive({
 })
 
 
-const login = async() =>{
-    await axios.post('/api/login', form)
-        .then(response => {
-            if(response.data.success){
-                localStorage.setItem('data', response.data.data)
-                router.push('/home')
-            }else{
-              alert(response.data.message)
-            }
-        })
+const login = async() => {
+  await axios.post('/api/login', form)
+    .then(response => {
+      if (response.data.admin) {
+          localStorage.setItem('data', response.data.data);
+          router.push('/admin');
+      } else {
+        localStorage.setItem('data', response.data.data);
+        router.push('/home');
+      }
+    })
+    .catch(error => {
+      alert(error.response.data.message);
+    });
 }
+
 
 </script>
 

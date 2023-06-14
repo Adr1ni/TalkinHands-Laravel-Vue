@@ -61,16 +61,8 @@
         router.push('/')
     }
 
-    const probar = async() => {
-        await axios.get('/api/admin-test')
-        .then(response =>{
-            console.log(response);
-        })
-    }
-
     onMounted(() => {
         allUsers();
-        probar()
     })
 
 </script>

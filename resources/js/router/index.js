@@ -80,14 +80,15 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach((to, form) => {
+router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth && !localStorage.getItem("data")) {
-        return { name: "Login" };
-    }
-
-    if (!to.meta.requiresAuth && localStorage.getItem("data")) {
-        return { name: "Home" };
+        next({ name: "Login" });
+    } else if (!to.meta.requiresAuth && localStorage.getItem("data")) {
+        next({ name: "Home" });
+    } else {
+        next();
     }
 });
+
 
 export default router;
