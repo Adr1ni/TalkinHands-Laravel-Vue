@@ -1,16 +1,11 @@
 <script setup>
 
-import { useRouter } from 'vue-router';
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import VoiceToText from './voiceToText.vue';
-import axios from "axios";
 import $ from "jquery";
+import users from '../../user';
 
-const router = useRouter()
-
-let error = ref('')
-let id = ref()
-let role = ref()
+const {userData,logout,user,deleteUser} = users()
 
 onMounted(async () => {
     userData()
@@ -23,36 +18,6 @@ const loadactions = () => {
         $('.menu-btn i').toggleClass("active");
     });
  
-}
-
-const userData = async () => {
-    await axios.get('/api/user-profile')
-        .then(response => {
-            if (response.data.success) {
-                id.value = response.data.data._id
-                role.value = response.data.data.role
-            } else {
-                error.value = response.data.message;
-            }
-        })
-}
-
-const logout = () => {
-    localStorage.removeItem('data')
-    router.push('/')
-
-}
-
-const deleteUser = async () => {
-    await axios.delete('/api/users/' + id.value)
-        .then(response => {
-            if (response.data.success) {
-                localStorage.removeItem('data')
-                router.push('/')
-            } else {
-                error.value = response.data.message;
-            }
-        })
 }
 
 </script>
@@ -71,8 +36,8 @@ const deleteUser = async () => {
                 <li><a href="#services" class="menu-btn">Programa</a></li>
                 <li><a href="#skills" class="menu-btn">Herramientas</a></li>
                 <li><a href="#teams" class="menu-btn">Equipo</a></li>
-                <li><a class="menu-btn"><router-link to="/actualizar">Actualizar Perfil</router-link></a></li>
-                <li v-if="role == 'admin'"><a class="menu-btn"><router-link to="/admin">Panel Admin</router-link></a></li>
+                <li><a class="menu-btn"><router-link to="/actualizar/${user._id}">Actualizar Perfil</router-link></a></li>
+                <li v-if="user.role == 'admin'"><a class="menu-btn"><router-link to="/admin">Panel Admin</router-link></a></li>
             </ul>
             <div class="menu-btn" id="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -276,7 +241,7 @@ const deleteUser = async () => {
         </span><br>
 
         <button class="eliminar-usuario" @click="logout">Cerrar sesion</button>
-        <button class="eliminar-usuario" @click="deleteUser">Eliminar cuenta</button>
+        <button class="eliminar-usuario" @click="deleteUser(user._id)">Eliminar cuenta</button>
     </footer>
 
 </template>

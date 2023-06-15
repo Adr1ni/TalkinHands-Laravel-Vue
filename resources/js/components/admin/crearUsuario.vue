@@ -1,9 +1,8 @@
 <script setup>
 import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
-import axios from "axios";
+import users from '../user';
 
-const router = useRouter()
+const {register} = users()
 
 let form = reactive({
   name: '',
@@ -14,22 +13,9 @@ let form = reactive({
   c_password: ''
 })
 
-const register = async () => {
-  await axios.post('/api/users', form)
-    .then(response => {
-      if (response.data.success) {
-        router.push('/admin')
-      } else {
-        const { message } = response.data
-        const field = Object.keys(message)[0]
-        alert(message[field])
-      }
-    })
-}
-
 const isAdmin = () => {
   const userData = JSON.parse(localStorage.getItem('data'))
-  return userData && userData.role === 'admin' // Replace 'admin' with the actual admin role value
+  return userData && userData.role === 'admin'
 }
 </script>
 
@@ -42,7 +28,7 @@ const isAdmin = () => {
         <div class="login-content">
             <!--Formulario -------------------------------------------->
 
-            <form @submit.prevent="register">
+            <form @submit.prevent="register(form)">
               <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
 
                 <h2>Registro</h2>
@@ -82,6 +68,16 @@ const isAdmin = () => {
                   </div>
                 </div>
                   <!--Input ---------------------------------------------------------------->
+                  <div class="input-div one">
+                  <div class="i">
+                        <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="div">
+                        <input type="text" placeholder="Ingrese role" v-model="form.role" 
+                        class="input input-field"
+                        autocomplete="off" >
+                  </div>
+                </div>
 
                 <div class="input-div pass">
                   <div class="i"> 

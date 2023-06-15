@@ -30,7 +30,7 @@ const routes = [
 
     {
         name:'Update',
-        path:"/actualizar",
+        path:"/actualizar/:id",
         component: () => import("../components/auth/update.vue"),
         meta:{
             requiresAuth:true
@@ -62,6 +62,16 @@ const routes = [
         meta: {
           requiresAuth: true,
         },
+    },
+
+    {
+        name: 'EditarUsuario',
+        path: '/editar-usuario/:id',
+        component: () => import('../components/admin/editarUsuario.vue'),
+        meta: {
+          requiresAuth: true,
+        },
+        props:true
     },
 
     //Not Found

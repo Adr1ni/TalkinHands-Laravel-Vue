@@ -1,26 +1,14 @@
 <script setup>
 import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
-import axios from "axios";
+import users from '../user';
 
-const router = useRouter()
+const {login} = users();
 
 let form = reactive({
   email: '',
   password: ''
 })
 
-const login = async() =>{
-    await axios.post('/api/login', form)
-        .then(response => {
-            if(response.data.success){
-                localStorage.setItem('data', response.data.data)
-                router.push('/home')
-            }else{
-              alert(response.data.message)
-            }
-  })
-}
 </script>
 
 
@@ -33,7 +21,7 @@ const login = async() =>{
 
 		<div class="login-content">
 			
-			<form @submit.prevent="login">
+			<form @submit.prevent="login(form)">
 
 				<!---Formulario-->
         <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">

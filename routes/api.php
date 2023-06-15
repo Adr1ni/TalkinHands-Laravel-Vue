@@ -10,6 +10,7 @@ Route::controller(UserController::class)->group(function (){
     Route::post('/login', 'login');
     Route::put('/users/{id}', 'update');
     Route::delete('/users/{id}', 'delete');
+    Route::get('/users/{id}', 'userData');
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
