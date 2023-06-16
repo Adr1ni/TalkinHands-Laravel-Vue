@@ -34,87 +34,83 @@ const isAdmin = () => {
 </script>
 
 <template>
-  <div v-if="isAdmin">
-    <div class="container">
-      <div class="img">
-      <img src="http://imgfz.com/i/HAyGNWU.jpeg">
-    </div>
-        <div class="login-content">
-            <!--Formulario -------------------------------------------->
-
-            <form @submit.prevent="register">
-              <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
-
-                <h2>Registro</h2>
-                <div class="input-div one">
-                  <div class="i">
-                      <i class="fas fa-user"></i>
-                  </div>
-                <!--Input ---------------------------------------------------------------->
-                  <div class="div">
-                        <input type="text" placeholder="Ingrese nombre completo" v-model="form.name"
-                        class="input input-field"
-                        autocomplete="off" required>
-                  </div>
-              </div>
-                  <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div one">
-                    <div class="i">
-                            <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="div">
-                            <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username" 
-                            class="input input-field"
-                            autocomplete="off" required>
-                    </div>
-                </div>
-                <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div one">
-                  <div class="i">
-                        <i class="fas fa-envelope"></i>
-                  </div>
-                  <div class="div">
-                        <input type="email" placeholder="Ingrese email" v-model="form.email" 
-                        class="input input-field"
-                        autocomplete="off" required>
-                  </div>
-                </div>
-                  <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div pass">
-                  <div class="i"> 
-                    <i class="fas fa-lock"></i>
-                  </div>
-                  <div class="div">
-                    <input type="password" placeholder="Ingrese la contraseña" v-model="form.password"
-                        class="input input-field" 
-                        autocomplete="off" required>
-                  </div>
-              </div>
-                  <!--Input ---------------------------------------------------------------->
-
-                <div class="input-div pass">
-                  <div class="i"> 
-                    <i class="fas fa-lock"></i>
-                  </div>
-                  <div class="div">
-                    <input type="password" placeholder="Confirme la contraseña" v-model="form.c_password"
-                        class="input input-field" 
-                        autocomplete="off" required>
-                  </div>
-              </div>
-              <!--Button ----------------------------------------------------------->
-                <input type="submit" class="btn" value="Registrar">
-                <router-link to="/" class="btn">Cancelar</router-link>
-            </form>
+  <body>
+    <div v-if="isAdmin">
+      <div class="container">
+        <div class="img">
+          <img src="http://imgfz.com/i/HAyGNWU.jpeg">
         </div>
+        <div class="login-content">
+          <!--Formulario -------------------------------------------->
+
+          <form @submit.prevent="register">
+            <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
+
+            <h2>Registro</h2>
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <!--Input ---------------------------------------------------------------->
+              <div class="div">
+                <input type="text" placeholder="Ingrese nombre completo" v-model="form.name" class="input input-field"
+                  autocomplete="off" required>
+              </div>
+            </div>
+            <!--Input ---------------------------------------------------------------->
+
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <div class="div">
+                <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username"
+                  class="input input-field" autocomplete="off" required>
+              </div>
+            </div>
+            <!--Input ---------------------------------------------------------------->
+
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="div">
+                <input type="email" placeholder="Ingrese email" v-model="form.email" class="input input-field"
+                  autocomplete="off" required>
+              </div>
+            </div>
+            <!--Input ---------------------------------------------------------------->
+
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <input type="password" placeholder="Ingrese la contraseña" v-model="form.password"
+                  class="input input-field" autocomplete="off" required>
+              </div>
+            </div>
+            <!--Input ---------------------------------------------------------------->
+
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <input type="password" placeholder="Confirme la contraseña" v-model="form.c_password"
+                  class="input input-field" autocomplete="off" required>
+              </div>
+            </div>
+            <input type="submit" class="btn" value="Registrar">
+            <router-link to="/" class="btn">Cancelar</router-link>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-  <div v-else>
-    <p>No tienes permiso para acceder a esta página.</p>
-  </div>
+    <div v-else>
+      <p>No tienes permiso para acceder a esta página.</p>
+    </div>
+  </body>
 </template>
 
 
@@ -144,7 +140,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-padding-left: 200px;
+  padding-left: 200px;
 }
 
 .login-content {
@@ -165,15 +161,16 @@ form {
 }
 
 /*Logo pequeño ---------------------------------------------------------*/
-.login-content .logo-min{
+.login-content .logo-min {
   height: 150px;
   width: 150px;
   border-radius: 50%;
 }
+
 /*Logo pequeño ---------------------------------------------------------*/
 .login-content h2 {
   margin: 15px 0;
-  color: #fff;
+  color: #fcfcfc;
   text-transform: uppercase;
   font-size: 2.9rem;
 }
@@ -202,12 +199,12 @@ form {
   transition: .3s;
 }
 
-.input-div > div {
+.input-div>div {
   position: relative;
   height: 45px;
 }
 
-.input-div > div > h5 {
+.input-div>div>h5 {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -241,16 +238,16 @@ form {
   width: 50%;
 }
 
-.input-div.focus > div > h5 {
+.input-div.focus>div>h5 {
   top: -5px;
   font-size: 15px;
 }
 
-.input-div.focus > .i > i {
+.input-div.focus>.i>i {
   color: #38d39f;
 }
 
-.input-div > div > input {
+.input-div>div>input {
   position: absolute;
   left: 0;
   top: 0;
@@ -269,7 +266,7 @@ form {
   margin-bottom: 4px;
 }
 
-.alert{
+.alert {
   color: red;
 }
 
