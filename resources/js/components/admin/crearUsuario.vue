@@ -1,9 +1,8 @@
 <script setup>
 import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
-import axios from "axios";
+import users from '../user';
 
-const router = useRouter()
+const {register} = users()
 
 let form = reactive({
   name: '',
@@ -14,103 +13,104 @@ let form = reactive({
   c_password: ''
 })
 
-const register = async () => {
-  await axios.post('/api/users', form)
-    .then(response => {
-      if (response.data.success) {
-        router.push('/admin')
-      } else {
-        const { message } = response.data
-        const field = Object.keys(message)[0]
-        alert(message[field])
-      }
-    })
-}
-
 const isAdmin = () => {
   const userData = JSON.parse(localStorage.getItem('data'))
-  return userData && userData.role === 'admin' // Replace 'admin' with the actual admin role value
+  return userData && userData.role === 'admin'
 }
 </script>
 
 <template>
-  <body>
-    <div v-if="isAdmin">
-      <div class="container">
-        <div class="img">
-          <img src="http://imgfz.com/i/HAyGNWU.jpeg">
-        </div>
+  <div v-if="isAdmin">
+    <div class="container">
+      <div class="img">
+      <img src="http://imgfz.com/i/HAyGNWU.jpeg">
+    </div>
         <div class="login-content">
-          <!--Formulario -------------------------------------------->
+            <!--Formulario -------------------------------------------->
 
-          <form @submit.prevent="register">
-            <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
+            <form @submit.prevent="register(form)">
+              <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
 
-            <h2>Registro</h2>
-            <div class="input-div one">
-              <div class="i">
-                <i class="fas fa-user"></i>
+                <h2>Registro</h2>
+                <div class="input-div one">
+                  <div class="i">
+                      <i class="fas fa-user"></i>
+                  </div>
+                <!--Input ---------------------------------------------------------------->
+                  <div class="div">
+                        <input type="text" placeholder="Ingrese nombre completo" v-model="form.name"
+                        class="input input-field"
+                        autocomplete="off" required>
+                  </div>
               </div>
-              <!--Input ---------------------------------------------------------------->
-              <div class="div">
-                <input type="text" placeholder="Ingrese nombre completo" v-model="form.name" class="input input-field"
-                  autocomplete="off" required>
-              </div>
-            </div>
-            <!--Input ---------------------------------------------------------------->
+                  <!--Input ---------------------------------------------------------------->
 
-            <div class="input-div one">
-              <div class="i">
-                <i class="fas fa-user-circle"></i>
-              </div>
-              <div class="div">
-                <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username"
-                  class="input input-field" autocomplete="off" required>
-              </div>
-            </div>
-            <!--Input ---------------------------------------------------------------->
+                <div class="input-div one">
+                    <div class="i">
+                            <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="div">
+                            <input type="text" placeholder="Ingrese nombre de usuario" v-model="form.username" 
+                            class="input input-field"
+                            autocomplete="off" required>
+                    </div>
+                </div>
+                <!--Input ---------------------------------------------------------------->
 
-            <div class="input-div one">
-              <div class="i">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="div">
-                <input type="email" placeholder="Ingrese email" v-model="form.email" class="input input-field"
-                  autocomplete="off" required>
-              </div>
-            </div>
-            <!--Input ---------------------------------------------------------------->
+                <div class="input-div one">
+                  <div class="i">
+                        <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="div">
+                        <input type="email" placeholder="Ingrese email" v-model="form.email" 
+                        class="input input-field"
+                        autocomplete="off" required>
+                  </div>
+                </div>
+                  <!--Input ---------------------------------------------------------------->
+                  <div class="input-div one">
+                  <div class="i">
+                        <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="div">
+                        <input type="text" placeholder="Ingrese role" v-model="form.role" 
+                        class="input input-field"
+                        autocomplete="off" >
+                  </div>
+                </div>
 
-            <div class="input-div pass">
-              <div class="i">
-                <i class="fas fa-lock"></i>
+                <div class="input-div pass">
+                  <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                  </div>
+                  <div class="div">
+                    <input type="password" placeholder="Ingrese la contraseña" v-model="form.password"
+                        class="input input-field" 
+                        autocomplete="off" required>
+                  </div>
               </div>
-              <div class="div">
-                <input type="password" placeholder="Ingrese la contraseña" v-model="form.password"
-                  class="input input-field" autocomplete="off" required>
-              </div>
-            </div>
-            <!--Input ---------------------------------------------------------------->
+                  <!--Input ---------------------------------------------------------------->
 
-            <div class="input-div pass">
-              <div class="i">
-                <i class="fas fa-lock"></i>
+                <div class="input-div pass">
+                  <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                  </div>
+                  <div class="div">
+                    <input type="password" placeholder="Confirme la contraseña" v-model="form.c_password"
+                        class="input input-field" 
+                        autocomplete="off" required>
+                  </div>
               </div>
-              <div class="div">
-                <input type="password" placeholder="Confirme la contraseña" v-model="form.c_password"
-                  class="input input-field" autocomplete="off" required>
-              </div>
-            </div>
-            <input type="submit" class="btn" value="Registrar">
-            <router-link to="/" class="btn">Cancelar</router-link>
-          </form>
+              <!--Button ----------------------------------------------------------->
+                <input type="submit" class="btn" value="Registrar">
+                <router-link to="/" class="btn">Cancelar</router-link>
+            </form>
         </div>
-      </div>
     </div>
-    <div v-else>
-      <p>No tienes permiso para acceder a esta página.</p>
-    </div>
-  </body>
+  </div>
+  <div v-else>
+    <p>No tienes permiso para acceder a esta página.</p>
+  </div>
 </template>
 
 

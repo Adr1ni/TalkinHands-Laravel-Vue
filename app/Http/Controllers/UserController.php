@@ -19,6 +19,13 @@ class UserController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function userData($id){
+        $user = User::find($id);
+        return response()->json([
+            "data"=>$user
+        ], Response::HTTP_OK);
+    }
+
     public function insert(Request $request){
 
         $message = [
