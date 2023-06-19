@@ -73,14 +73,13 @@ export default function users(){
         await axios.delete('/api/users/' + id)
             .then(response => {
                 if (response.data.success) {
-                    localStorage.removeItem('data')
                     router.push('/admin')
                 } else {
                     alert(response.data.message);
                 }
             })
     }
-
+    
     const deleteUser = async (id) => {
         if(!window.confirm("Estas seguro de eliminar tu usuario?")){
             return;
