@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
     {
-        name:"Home",
+        name:"Home",    
         path:'/home',
         component:() => import('../components/pages/home/index.vue'),
         meta:{
@@ -30,7 +30,7 @@ const routes = [
 
     {
         name:'Update',
-        path:"/actualizar",
+        path:"/actualizar/:id",
         component: () => import("../components/auth/update.vue"),
         meta:{
             requiresAuth:true
@@ -47,12 +47,31 @@ const routes = [
     },
 
     {
-        name:'Admin',
-        path:"/admin",
-        component: () => import("../components/admin/index.vue"),
-        meta:{
-            requiresAuth:true
-        }
+        name: 'Admin',
+        path: '/admin',
+        component: () => import('../components/admin/index.vue'),
+        meta: {
+          requiresAuth: true,
+        },
+    },
+      
+    {
+        name: 'CrearUsuario',
+        path: '/crear-usuario',
+        component: () => import('../components/admin/crearUsuario.vue'),
+        meta: {
+          requiresAuth: true,
+        },
+    },
+
+    {
+        name: 'EditarUsuario',
+        path: '/editar-usuario/:id',
+        component: () => import('../components/admin/editarUsuario.vue'),
+        meta: {
+          requiresAuth: true,
+        },
+        props:true
     },
 
     //Not Found
@@ -67,18 +86,18 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 
 router.beforeEach((to, form) => {
-    if (to.meta.requiresAuth && !localStorage.getItem("data")) {
-        return { name: "Login" };
-    }
+  if (to.meta.requiresAuth && !localStorage.getItem("data")) {
+      return { name: "Login" };
+  }
 
-    if (!to.meta.requiresAuth && localStorage.getItem("data")) {
-        return { name: "Home" };
-    }
+  if (!to.meta.requiresAuth && localStorage.getItem("data")) {
+      return { name: "Home" };
+  }
 });
 
 export default router;

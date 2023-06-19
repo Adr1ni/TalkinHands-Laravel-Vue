@@ -92,7 +92,6 @@
             this.insertNode(node.left, newNode);
           }
         } else {
-          console.log(newNode.data)
           if (node.right === null) {
             node.right = newNode;
           } else {

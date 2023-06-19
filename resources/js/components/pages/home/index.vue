@@ -1,22 +1,16 @@
 <script setup>
 
-import { useRouter } from 'vue-router';
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import VoiceToText from './voiceToText.vue';
-import axios from "axios";
 import $ from "jquery";
+import users from '../../user';
 
-const router = useRouter()
-
-let error = ref('')
-let id = ref()
-let role = ref()
+const {userData,logout,user,deleteUser} = users()
 
 onMounted(async () => {
     userData()
     loadactions()
 })
-//Booton Menú
 
 const loadactions = () => {
     $('.menu-btn').click(function(){
@@ -26,46 +20,13 @@ const loadactions = () => {
  
 }
 
-
-const userData = async () => {
-    await axios.get('/api/user-profile')
-        .then(response => {
-            if (response.data.success) {
-                id.value = response.data.data._id
-                role.value = response.data.data.role
-            } else {
-                error.value = response.data.message;
-            }
-        })
-}
-
-const logout = () => {
-    localStorage.removeItem('data')
-    router.push('/')
-
-}
-
-const deleteUser = async () => {
-    await axios.delete('/api/users/' + id.value)
-        .then(response => {
-            if (response.data.success) {
-                localStorage.removeItem('data')
-                router.push('/')
-            } else {
-                error.value = response.data.message;
-            }
-        })
-}
-
 </script>
 
 <template>
-    <!--Scroll de navegacion-->
     <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
     </div>
 
-    <!--NAVBAR------------------------------------->
     <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Talkin<span>Hands</span></a></div>
@@ -75,21 +36,15 @@ const deleteUser = async () => {
                 <li><a href="#services" class="menu-btn">Programa</a></li>
                 <li><a href="#skills" class="menu-btn">Herramientas</a></li>
                 <li><a href="#teams" class="menu-btn">Equipo</a></li>
-                <li><a class="menu-btn"><router-link to="/actualizar">Actualizar Perfil</router-link></a></li>
-                
-
+                <li><a class="menu-btn"><router-link to="/actualizar/${user._id}">Actualizar Perfil</router-link></a></li>
+                <li v-if="user.role == 'admin'"><a class="menu-btn"><router-link to="/admin">Panel Admin</router-link></a></li>
             </ul>
-            <!--Boton de Menu-->
             <div class="menu-btn" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
-            <!--Boton de Menu-->
         </div>
     </nav>
-    <!--NAVBAR------------------------------------->
 
-
-    <!-- Inicio principal Arriba-------------------------- -->
     <section class="home" id="home">
         <div class="max-width">
             <div class="home-content">
@@ -99,10 +54,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Inicio principal Arriba-------------------------- -->
 
-
-    <!-- Imformacion del programa ----------------------------->
     <section class="about" id="about">
         <div class="max-width">
             <h2 class="title">Información del Proyecto</h2>
@@ -127,11 +79,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Imformacion del programa ----------------------------->
 
-
-
-    <!-- Programa ----------------------------------------------->
     <section class="services" id="services">
         <div class="max-width">
             <h2 class="title">Programa - TalkinHands</h2>
@@ -142,10 +90,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Programa ----------------------------------------------->
-
-
-    <!-- Herramintas usadas ----------------------------------------->
+ 
     <section class="skills" id="skills">
         <div class="max-width">
             <h2 class="title">Herramientas</h2>
@@ -238,10 +183,7 @@ const deleteUser = async () => {
 
 
     </section>
-    <!-- Herramintas usadas ----------------------------------------->
-
-
-    <!-- Integtantes del Proyecto--------------------------------------------------------->
+ 
     <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">Equipo de Proyecto</h2>
@@ -286,9 +228,7 @@ const deleteUser = async () => {
             </div>
         </div>
     </section>
-    <!-- Integtantes del Proyecto--------------------------------------------------------->
 
-    <!-- Seccion footer------------------------------------------------------------------------>
     <footer>
         <span>Created By <a href="https://github.com/ByronManchego" target="_blank">Byron Manchego</a> , 
             <a href="https://github.com/Adr1ni" target="_blank">Adriano Gongora</a> and
@@ -301,13 +241,12 @@ const deleteUser = async () => {
         </span><br>
 
         <button class="eliminar-usuario" @click="logout">Cerrar sesion</button>
-        <button class="eliminar-usuario" @click="deleteUser">Eliminar cuenta</button>
+        <button class="eliminar-usuario" @click="deleteUser(user._id)">Eliminar cuenta</button>
     </footer>
-    <!-- Seccion footer------------------------------------------------------------------------>
+
 </template>
 
 <style scoped>
-/*  importacion de  google fonts ----------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {
@@ -322,7 +261,6 @@ img {
     margin: auto;
 }
 
-/* Scroll bar --------------------------------------------------------------------------- */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -339,10 +277,6 @@ img {
     background: #555;
 }
 
-/* Scroll bar --------------------------------------------------------------------------- */
-
-
-/* Stilos al codigo alll section- ------------------------------------------------------------------ */
 section {
     padding: 100px 0;
 }
@@ -404,9 +338,6 @@ section .title::after {
     transform: translateX(-50%);
 }
 
-/* Stilos al codigo alll section- ------------------------------------------------------------------ */
-
-/* Navbar ------------------------------------------------------------------------------- */
 .navbar {
     position: static;
     width: 100%;
@@ -465,10 +396,6 @@ section .title::after {
     color: #fff;
 }
 
-/* Navbar ------------------------------------------------------------------------------- */
-
-
-/* Menu de opciones ------------------------------------------------------------------------ */
 .menu-btn {
     color: #fff;
     font-size: 23px;
@@ -506,13 +433,9 @@ section .title::after {
     filter: brightness(90%);
 }
 
-/* Menu de opciones ------------------------------------------------------------------------ */
-
-
-/* Inicio pantalla principal ----------------------------------------------------------- */
 .home {
     display: flex;
-    background: url("https://images.unsplash.com/photo-1640550444366-b94e5752c479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80") no-repeat center;
+    background: url("https://i.postimg.cc/L4JqgyqT/Manos.png") no-repeat center;
     height: 100vh;
     color: #fff;
     min-height: 500px;
@@ -564,11 +487,6 @@ section .title::after {
     background: none;
 }
 
-/* Inicio pantalla principal ----------------------------------------------------------- */
-
-
-
-/* Informacion del programa ------------------------------------------------- */
 .about {
     background-color: #fff;
 }
@@ -619,11 +537,6 @@ section .title::after {
     color: #0E8388;
     background: none;
 }
-
-/* Informacion del programa ------------------------------------------------- */
-
-/* Programa -------------------------------------------------------------------- */
-
 
 .services,
 .teams {
@@ -681,11 +594,6 @@ section .title::after {
     text-align: center;
 }
 
-/* Programa -------------------------------------------------------------------- */
-
-
-
-/*Herramientas ---------------------------------------------------------------*/
 .skills {
     background-color: #fff;
 }
@@ -754,10 +662,6 @@ section .title::after {
     background: #0E8388;
 }
 
-/*Herramientas ---------------------------------------------------------------*/
-
-
-/* Barras -----------------------------------------------------------------*/
 .skills-content .right .php::before {
     width: 70%;
 }
@@ -782,11 +686,6 @@ section .title::after {
     width: 100%;
 }
 
-/* Barras -----------------------------------------------------------------*/
-
-
-
-/* Equipo de proyecto ------------------------------------------------------- */
 .teams .carousel {
     display: flex;
     flex-wrap: wrap;
@@ -851,24 +750,18 @@ section .title::after {
     background: #0E8388 !important;
 }
 
-
-/* Equipo de proyecto ------------------------------------------------------- */
-
-
-
-/* Footer ----------------------------------------------------------------------- */
 footer {
     background: rgb(0, 0, 0);
     padding: 40px 60px;
     color: #fff;
     text-align: center;
-    font-size: 17px; /* Cambia el tamaño de letra aquí */
+    font-size: 17px; 
 }
 
 footer span a {
     color: #0E8388;
     text-decoration: none;
-    font-size: 17px; /* Cambia el tamaño de letra aquí */
+    font-size: 17px; 
 }
 
 footer span a:hover {
@@ -883,16 +776,14 @@ footer span a:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
-    font-size: 15px; /* Cambia el tamaño de letra aquí */
+    font-size: 15px; 
 }
 
 footer a i {
     font-size: 40px;
     margin: 25px;
 }
-/* Footer ----------------------------------------------------------------------- */
 
-/* Responsive--------------------------------------------------------------------------- */
 @media (max-width: 1104px) {
     .about .about-content .left img {
         height: 350px;
@@ -1041,5 +932,4 @@ footer a i {
         line-height: 38px;
     }
 }
-
 </style>
