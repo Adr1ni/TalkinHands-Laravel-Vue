@@ -15,7 +15,7 @@ onMounted(async() => {
     <body>
       <div class="container">
         <div class="img">
-          <img src="Img/logo-jpg-talkinhands.jpg">
+          <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/logo-jpg-talkinhands_xzynmt.jpg">
         </div>
       
         <form @submit.prevent="update(user._id,user)">

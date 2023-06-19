@@ -16,7 +16,7 @@ onMounted(async () => {
     <body>
       <div class="container">
         <div class="img">
-          <img src="Img/logo-jpg-talkinhands.jpg">
+          <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/logo-jpg-talkinhands_xzynmt.jpg">
         </div>
       
         <form @submit.prevent="update(user._id,user)">
@@ -44,8 +44,8 @@ onMounted(async () => {
 
             <!-- Role ------------------------------------------------------->
             <div class="text-input">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Ingrese role del usuario" v-model="user.role" >
+              <i class="fas fa-user-tag"></i>
+              <input type="text" placeholder="Ingrese role del usuario" v-model="user.role">
             </div>
   
             <!-- Password ------------------------------------------------------->
@@ -87,7 +87,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
- 
     background: linear-gradient(90deg, rgba(31,31,33,1) 31%, rgba(14,131,136,1) 100%);
     background-size: 300% 300%;
     animation: gradient 15s ease infinite;

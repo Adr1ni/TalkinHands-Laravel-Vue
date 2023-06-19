@@ -79,7 +79,7 @@ export default function users(){
                 }
             })
     }
-
+    
     const deleteUser = async (id) => {
         if(!window.confirm("Estas seguro de eliminar tu usuario?")){
             return;
