@@ -103,7 +103,7 @@ const isAdmin = () => {
               </div>
               <!--Button ----------------------------------------------------------->
                 <input type="submit" class="btn" value="Registrar">
-                <router-link to="/" class="btn">Cancelar</router-link>
+                <router-link to="/admin" class="btn">Cancelar</router-link>
             </form>
         </div>
     </div>

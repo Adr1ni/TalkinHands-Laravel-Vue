@@ -8,7 +8,6 @@ let form = reactive({
   email: '',
   password: ''
 })
-
 </script>
 
 

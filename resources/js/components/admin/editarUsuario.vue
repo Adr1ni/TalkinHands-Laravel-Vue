@@ -45,7 +45,7 @@ onMounted(async () => {
             <!-- Role ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Ingrese role del usuario" v-model="user.role" required>
+              <input type="text" placeholder="Ingrese role del usuario" v-model="user.role" >
             </div>
   
             <!-- Password ------------------------------------------------------->
