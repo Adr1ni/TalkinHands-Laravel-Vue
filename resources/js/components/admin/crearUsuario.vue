@@ -24,7 +24,7 @@
       <div v-if="isAdmin">
         <div class="container">
           <div class="img">
-            <img src="http://imgfz.com/i/HAyGNWU.jpeg">
+            <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/logo-jpg-talkinhands_xzynmt.jpg">
           </div>
           <div class="login-content">
             <!--Formulario -------------------------------------------->

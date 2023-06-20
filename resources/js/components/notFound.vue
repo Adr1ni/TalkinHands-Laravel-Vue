@@ -1,12 +1,12 @@
 <template>
 <head>
-    <link rel="shortcut icon" href="Img/icono-TalkinHands.png">
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/icono-TalkinHands_dhxnbk.png">
     <title>TalkinHands</title>
 </head>
 <body>
 
       <div class="content">
-        <div class="img"><img src="Img/404.png"></div>
+        <div class="img"><img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/404_jyvazx.png"></div>
 
         <div class="text">
           <h1>ERROR 404</h1>

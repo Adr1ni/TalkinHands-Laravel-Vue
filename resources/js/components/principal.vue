@@ -54,7 +54,7 @@ export default {
           </div>
         </div>
         <div class="home-img" ref="imgRef">
-          <img src="Img/fondo-talkinhands.png" alt="logo">
+          <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/fondo-talkinhands_ustwyu.png" alt="logo">
         </div>
       </section>
   
@@ -62,7 +62,7 @@ export default {
         <p>Links:</p>
         <div class="social" ref="socialRef">
           <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing"><i class='bx bxs-file-doc'></i></a> <!--Poner los links de enlaces documentacion y Github-->
-          <a href=""><i class='bx bxl-github'></i></a>
+          <a href="https://github.com/Adr1ni/TalkinHands-Laravel-Vue"><i class='bx bxl-github'></i></a>
         </div>
       </div>
     </div>

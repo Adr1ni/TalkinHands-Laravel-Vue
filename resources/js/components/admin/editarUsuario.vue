@@ -20,8 +20,8 @@ onMounted(async () => {
         </div>
       
         <form @submit.prevent="update(user._id,user)">
-          <div class="actualizar">
-            <h3 class="title">Actualizar Perfil</h3>
+          <div class="actualizar" style="padding-top: 110px;">
+            <h3 class="title">Editar Perfil</h3>
   
             <!-- Name ------------------------------------------------- -->
             <div class="text-input">
@@ -185,8 +185,8 @@ body {
 .btn{
     display: inline-block;
     padding: 14px 100px;
-	margin-left: 25px;
-	margin-top: 15px;
+	  margin-left: 25px;
+	  margin-top: 15px;
     background:  #0E8388;
     color: #fff;
     border: 2px solid  #0E8388;
