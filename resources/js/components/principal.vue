@@ -54,7 +54,7 @@ export default {
           </div>
         </div>
         <div class="home-img" ref="imgRef">
-          <img src="Img/fondo-talkinhands.png" alt="logo">
+          <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/fondo-talkinhands_ustwyu.png" alt="logo">
         </div>
       </section>
   
