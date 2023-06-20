@@ -235,7 +235,7 @@ const loadactions = () => {
             <a href="https://github.com/Jefferson-23" target="_blank">Jefferson Coaquira</a>| <span class="far fa-copyright"></span>
             <span> 2023 All rights reserved</span>
             <br>
-            <a href="https://github.com/Adr1ni/TalkinHands-UI-Demo" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/Adr1ni/TalkinHands-Laravel-Vue" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://docs.google.com/document/d/1hltF-X_yAKm4KdGCytGw6iHmF68_ydWRC81HIMRAzM4/edit?usp=sharing" target="_blank">
                 <i class="fas fa-file-alt"></i></a>
         </span><br>
@@ -339,7 +339,7 @@ section .title::after {
 }
 
 .navbar {
-    position: static;
+    position: fixed;
     width: 100%;
     z-index: 999;
     padding: 30px 0;
