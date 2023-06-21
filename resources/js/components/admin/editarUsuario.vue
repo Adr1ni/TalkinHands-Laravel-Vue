@@ -1,17 +1,18 @@
 <script setup>
-
-import { onMounted } from 'vue'
+import { onMounted, defineProps } from 'vue';
 import users from '../user';
 
-const {update,userData,user} = users()
+const { update, userDataById, user, role } = users();
 
-onMounted(async() => {
-  userData()
-})
+const props = defineProps(['id']);
 
+onMounted(async () => {
+  userDataById(props.id); 
+});
 </script>
 
 <template>
+  <div v-if="role">
     <body>
       <div class="container">
         <div class="img">
@@ -19,8 +20,8 @@ onMounted(async() => {
         </div>
       
         <form @submit.prevent="update(user._id,user)">
-          <div class="actualizar" style="padding-top: 130px;">
-            <h3 class="title">Actualizar Perfil</h3>
+          <div class="actualizar" style="padding-top: 35px;">
+            <h3 class="title">Editar Perfil</h3>
   
             <!-- Name ------------------------------------------------- -->
             <div class="text-input">
@@ -40,6 +41,12 @@ onMounted(async() => {
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Ingrese email" v-model="user.email" required>
             </div>
+
+            <!-- Role ------------------------------------------------------->
+            <div class="text-input">
+              <i class="fas fa-user-tag"></i>
+              <input type="text" placeholder="Ingrese role del usuario" v-model="user.role">
+            </div>
   
             <!-- Password ------------------------------------------------------->
             <div class="text-input">
@@ -53,12 +60,16 @@ onMounted(async() => {
             </div>
   
             <button class="btn"><input type="submit" value="Actualizar" style="background-color: transparent; border: none; padding: 0;color: #fff;font-size: 16px;font-weight: 600;"></button>
-            <router-link to="/" class="btn">Cancelar</router-link>
+            <router-link to="/admin" class="btn">Cancelar</router-link>
 
           </div>
         </form>
       </div>
     </body>
+  </div>
+  <div v-else>
+    <p>No tienes permiso para acceder a esta página.</p>
+  </div>
 </template>
   
 <style scoped>
@@ -76,12 +87,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
- 
     background: linear-gradient(90deg, rgba(31,31,33,1) 31%, rgba(14,131,136,1) 100%);
     background-size: 300% 300%;
     animation: gradient 15s ease infinite;
 }
-
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -176,8 +185,8 @@ body {
 .btn{
     display: inline-block;
     padding: 14px 100px;
-	margin-left: 25px;
-	margin-top: 15px;
+	  margin-left: 25px;
+	  margin-top: 15px;
     background:  #0E8388;
     color: #fff;
     border: 2px solid  #0E8388;

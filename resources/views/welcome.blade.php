@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
         
     </head>
-    <body style = "margin : 0;">
+    <body style="margin: 0;">
         <div id="app"></div>
         @vite('resources/js/app.js')
     </body>

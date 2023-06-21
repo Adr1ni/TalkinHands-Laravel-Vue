@@ -1,41 +1,26 @@
 <script setup>
+import { reactive } from 'vue'
+import users from '../user';
 
-import {reactive} from 'vue'
-import { useRouter } from 'vue-router'
-import axios from "axios";
-
-const router = useRouter()
+const {login} = users();
 
 let form = reactive({
-    email:'',
-    password:''
+  email: '',
+  password: ''
 })
-
-
-const login = async() =>{
-    await axios.post('/api/login', form)
-        .then(response => {
-            if(response.data.success){
-                localStorage.setItem('data', response.data.data)
-                router.push('/home')
-            }else{
-              alert(response.data.message)
-            }
-        })
-}
-
 </script>
+
 
 <template>
 	<!--Imagen Costado-->
 	<div class="container">
 		<div class="img">
-			<img src="http://imgfz.com/i/HAyGNWU.jpeg" alt="talkinhands">
+			<img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/logo-jpg-talkinhands_xzynmt.jpg">
 		</div>
 
 		<div class="login-content">
 			
-			<form @submit.prevent="login">
+			<form @submit.prevent="login(form)">
 
 				<!---Formulario-->
         <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
