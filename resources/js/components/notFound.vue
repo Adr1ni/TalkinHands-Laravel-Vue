@@ -42,7 +42,7 @@ body{
 }
 
 .content img{
-    height: 500px;
+    height: 400px;
 }
 
 .text{
