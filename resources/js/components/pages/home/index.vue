@@ -23,13 +23,14 @@ const loadactions = () => {
 </script>
 
 <template>
+    <!--
     <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
-    </div>
+    </div> -->
 
     <nav class="navbar">
         <div class="max-width">
-            <div class="logo"><a href="#">Talkin<span>Hands</span></a></div>
+            <div class="logo"><a href="#">TalkinHands</a></div>
             <ul class="menu">
                 <li><a href="#home" class="menu-btn">Inicio</a></li>
                 <li><a href="#about" class="menu-btn">Información</a></li>
@@ -49,7 +50,7 @@ const loadactions = () => {
         <div class="max-width">
             <div class="home-content">
                 <div class="text-2">TalkinHands</div>
-                <div class="text-3">De tu voz a Imagen<span class="typing"></span></div>
+                <div class="text-3">De tu voz a <span class="typing"></span></div>
                 <a href="#services">Programa</a>
             </div>
         </div>
@@ -85,7 +86,7 @@ const loadactions = () => {
             <h2 class="title">Programa - TalkinHands</h2>
             <div class="serv-content">
                 <div class="card">
-                    <VoiceToText/>
+                    <VoiceToText />
                 </div>
             </div>
         </div>
@@ -247,6 +248,7 @@ const loadactions = () => {
 </template>
 
 <style scoped>
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {
@@ -278,7 +280,8 @@ img {
 }
 
 section {
-    padding: 100px 0;
+    padding: 55px 0;
+    color: var(--bg-color);
 }
 
 .max-width {
@@ -323,7 +326,7 @@ section .title::before {
     left: 50%;
     width: 180px;
     height: 3px;
-    background: #111;
+    background: black;
     transform: translateX(-50%);
 }
 
@@ -334,7 +337,7 @@ section .title::after {
     font-size: 20px;
     color: var(--main-color);
     padding: 0 5px;
-    background: #fff;
+    background: var(--text-color);
     transform: translateX(-50%);
 }
 
@@ -342,7 +345,7 @@ section .title::after {
     position: fixed;
     width: 100%;
     z-index: 999;
-    padding: 30px 0;
+    padding: 15px 0;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
     background-color: #0E8388;
@@ -403,26 +406,6 @@ section .title::after {
     display: none;
 }
 
-.scroll-up-btn {
-    position: fixed;
-    height: 45px;
-    width: 42px;
-    background: #0E8388;
-    right: 30px;
-    bottom: 10px;
-    text-align: center;
-    line-height: 45px;
-    color: #fff;
-    z-index: 9999;
-    font-size: 30px;
-    border-radius: 6px;
-    border-bottom-width: 2px;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
 .scroll-up-btn.show {
     bottom: 30px;
     opacity: 1;
@@ -464,6 +447,7 @@ section .title::after {
     margin: 5px 0;
 }
 
+
 .home .home-content .text-3 span {
     color: #0E8388;
     font-weight: 500;
@@ -488,7 +472,7 @@ section .title::after {
 }
 
 .about {
-    background-color: #fff;
+    background-color: #fff; 
 }
 
 .about .about-content .left {
@@ -772,8 +756,8 @@ footer span a:hover {
     background-color: #0E8388;
     color: #fff;
     border: none;
-    padding: 6px 11px;
-    border-radius: 5px;
+    padding: 7px 9px;
+    border-radius: 7px;
     cursor: pointer;
     margin-left: 10px;
     font-size: 15px; 

@@ -19,7 +19,7 @@
 </body>
 </template>
 
-<style scoped>
+<style>
 *{
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ body{
 }
 
 .content img{
-    height: 500px;
+    height: 400px;
 }
 
 .text{
