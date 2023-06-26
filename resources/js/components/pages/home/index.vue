@@ -23,10 +23,6 @@ const loadactions = () => {
 </script>
 
 <template>
-    <!--
-    <div class="scroll-up-btn">
-        <i class="fas fa-angle-up"></i>
-    </div> -->
 
     <nav class="navbar">
         <div class="max-width">
@@ -50,7 +46,7 @@ const loadactions = () => {
         <div class="max-width">
             <div class="home-content">
                 <div class="text-2">TalkinHands</div>
-                <div class="text-3">De tu voz a <span class="typing"></span></div>
+                <div class="text-3">De tu voz a señas</div>
                 <a href="#services">Programa</a>
             </div>
         </div>
@@ -58,7 +54,7 @@ const loadactions = () => {
 
     <section class="about" id="about">
         <div class="max-width">
-            <h2 class="title">Información del Proyecto</h2>
+            <h2 class="title">Información</h2>
             <div class="about-content">
                 <div class="column left">
                     <img src="http://imgfz.com/i/0DYs7Nm.png" alt="">
@@ -83,7 +79,7 @@ const loadactions = () => {
 
     <section class="services" id="services">
         <div class="max-width">
-            <h2 class="title">Programa - TalkinHands</h2>
+            <h2 class="title">Programa</h2>
             <div class="serv-content">
                 <div class="card">
                     <VoiceToText />
@@ -243,6 +239,8 @@ const loadactions = () => {
 
         <button class="eliminar-usuario" @click="logout">Cerrar sesion</button>
         <button class="eliminar-usuario" @click="deleteUser(user._id)">Eliminar cuenta</button>
+        <button class="eliminar-usuario" onclick="window.location.href='https://mail.google.com/mail/u/0/#search/talkinhandsorg%40gmail.com'">Contactanos</button>
+        
     </footer>
 
 </template>
@@ -307,6 +305,22 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+}
+
+.title , .text-3{
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3s steps(40) infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 section .title {
@@ -406,25 +420,28 @@ section .title::after {
     display: none;
 }
 
-.scroll-up-btn.show {
-    bottom: 30px;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.scroll-up-btn:hover {
-    filter: brightness(90%);
-}
-
 .home {
     display: flex;
     background: url("https://i.postimg.cc/L4JqgyqT/Manos.png") no-repeat center;
     height: 100vh;
-    color: #fff;
+    color: #FFFFFF;
     min-height: 500px;
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Ubuntu', sans-serif;
+    animation: movimientoFondo 20s infinite linear;
+}
+
+@keyframes movimientoFondo {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 .home .max-width {
@@ -760,12 +777,19 @@ footer span a:hover {
     border-radius: 7px;
     cursor: pointer;
     margin-left: 10px;
+    margin-top: 10px;
     font-size: 15px; 
 }
 
 footer a i {
     font-size: 40px;
     margin: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+    .home {
+        animation-duration: 50s;
+    }
 }
 
 @media (max-width: 1104px) {
@@ -907,13 +931,5 @@ footer a i {
         font-size: 19px;
     }
 
-    .scroll-up-btn {
-        right: 15px;
-        bottom: 15px;
-        height: 38px;
-        width: 35px;
-        font-size: 23px;
-        line-height: 38px;
-    }
 }
 </style>
