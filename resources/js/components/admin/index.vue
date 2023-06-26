@@ -75,7 +75,7 @@
         align-items: stretch;
         min-height: 100vh;
         padding: 0px;
-        background-color: #f2f2f2;
+        background-color: #0e8388 ;
     }
 
     /* Header */
@@ -111,14 +111,12 @@
     }
 
     .navbar {
-        background-color: #0e84889a;
         padding: 40px;
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 20px;
+        top: 30px;
         /* Altura del header */
-        left: 0;
         bottom: 0;
         width: 60px;
         /* Ancho del navbar */
@@ -163,7 +161,7 @@
         border: none;
         cursor: pointer;
         font-size: 16px;
-        color: #000000;
+        color: #fafafa;
     }
 
     .navbar .header-links {
