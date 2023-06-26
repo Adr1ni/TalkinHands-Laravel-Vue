@@ -9,15 +9,15 @@
             <div class="navbar">
                 <div class="navbar-links-upper">
                     <router-link to="/home">
-                        <i class="fas fa-arrow-left"></i> Atrás
+                        <i class="fas fa-arrow-left"></i>
                     </router-link>
                     <router-link to="/crear-usuario">
-                        <i class="fas fa-user-plus"></i> Crear usuario
+                        <i class="fas fa-user-plus"></i>
                     </router-link>
                 </div>
                 <div class="logout-button">
                     <button @click="logout">
-                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                        <i class="fas fa-sign-out-alt"></i>
                     </button>
                 </div>
             </div>
@@ -67,7 +67,6 @@
 <style scoped>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
-    /* Estilos generales */
     .admin-panel {
         font-family: "Roboto", sans-serif;
         display: flex;
@@ -75,10 +74,9 @@
         align-items: stretch;
         min-height: 100vh;
         padding: 0px;
-        background-color: #0e8388 ;
+        background-color: #24898ce8;
     }
 
-    /* Header */
     .header {
         background-color: #0e8388;
         color: #fff;
@@ -104,23 +102,20 @@
         color: black !important;
     }
 
-    /* Navbar */
     .content-wrapper {
         display: flex;
         flex-grow: 1;
     }
 
     .navbar {
-        padding: 40px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 30px;
-        /* Altura del header */
+        top: 73px;
         bottom: 0;
-        width: 60px;
-        /* Ancho del navbar */
-        z-index: 99;
+        width: 20px;
+        z-index: 21;
     }
 
     .navbar-links {
@@ -132,10 +127,9 @@
     .navbar-links-upper {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
         margin-top: 50px;
         align-items: left;
-        /* Centrar los enlaces horizontalmente */
     }
 
     .navbar-links-lower {
@@ -148,46 +142,39 @@
         align-items: center;
         color: #fafafa;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 22px;
     }
 
     .navbar a i {
-        margin-right: 8px;
-        /* Agregar un margen derecho al ícono */
+        margin-right: 1px;
     }
 
     .navbar button {
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 16px;
-        color: #fafafa;
+        font-size: 22px;
+        color: #000000;
     }
 
     .navbar .header-links {
         display: flex;
         flex-direction: column;
-        /* Cambiamos la dirección de flexión a columna */
         gap: 20px;
     }
 
     .navbar .logout-button {
         margin-top: auto;
-        /* Mover el logout button hacia la parte inferior del navbar */
     }
 
-    /* Contenido principal */
     .main {
         margin-top: 60px;
-        /* Ajusta según el tamaño del header */
         flex-grow: 1;
         background-color: #BAD9D6;
         padding: 20px;
-        margin-left: 140px;
-        /* Ancho del navbar */
+        margin-left: 70px;
     }
 
-    /* Cartas de usuarios */
     .user-cards {
         display: flex;
         flex-wrap: wrap;
@@ -229,7 +216,6 @@
         margin-bottom: 10px;
     }
 
-    /* Acciones de la carta de usuario */
     .card-actions {
         margin-top: 20px;
     }
@@ -246,12 +232,10 @@
 
     .card-actions button.delete i {
         color: #ff0000;
-        /* Color rojo para el icono de eliminar */
     }
 
     .card-actions button.edit i {
         color: #10c9f7;
-        /* Color verde para el icono de editar */
     }
 
     .fa-trash:before {
@@ -274,7 +258,6 @@
         content: "\f2f5";
     }
 
-    /* Ajustes para pantallas más pequeñas */
     @media (max-width: 768px) {
         .user-card {
             width: 100%;
@@ -296,7 +279,6 @@
 
     }
 
-    /* Ajustes adicionales para pantallas más pequeñas */
     @media (max-width: 480px) {
         .user-card {
             padding: 10px;

@@ -18,15 +18,10 @@ let form = reactive({
 			<img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/logo-jpg-talkinhands_xzynmt.jpg">
 		</div>
 
-		<div class="login-content">
-			
+		<div class="login-content">			
 			<form @submit.prevent="login(form)">
-
-				<!---Formulario-->
         <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
-
 				<h2 class="title">Iniciar Sesion</h2>
-        <!-- input --------------------------------------------------------->
 				<div class="input-div one">
            	<div class="i">
            		  <i class="fas fa-user"></i>
@@ -39,9 +34,7 @@ let form = reactive({
 						            required>
            		   </div>
         </div>
-
 				<br>
-        <!-- input --------------------------------------------------------->
 				<div class="input-div pass">
            		   <div class="i"> 
            		    	<i class="fas fa-lock"></i>
@@ -52,15 +45,12 @@ let form = reactive({
 						              autocomplete="off" required>
             	   </div>
             	</div>
-
-        <!-- Button login--------------------------------------------------------->
 				<input type="submit" class="btn" value="Ingresar">
 				<router-link to="/" class="btn">Cancelar</router-link>
         
 			</form>
 		</div>
 	</div>	
-
 
 </template>
 
@@ -99,23 +89,18 @@ let form = reactive({
     align-items: center;
     text-align: center;
   }
-/*Logo pequeño ---------------------------------------------------------*/
+
   .login-content .logo-min{
     height: 150px;
     width: 150px;
     border-radius: 100%;
   }
-/*Logo pequeño ---------------------------------------------------------*/
 
-/* Imagen costado ---------------------------------------------*/
   .img img {
     width: 500px;
 	  height: 500px;
     border-radius: 20px;
   }
-
-  /* Imagen costado ---------------------------------------------*/
-
 
   form {
     width: 360px;
@@ -128,7 +113,6 @@ let form = reactive({
     font-size: 2.9rem;
   }
 
-  /*  -------------------------------------------------------*/
   .login-content .input-div {
     position: relative;
     display: grid;
@@ -138,12 +122,10 @@ let form = reactive({
     border-bottom: 2px solid #fff;
   }
   
-
   .login-content .input-div.one {
     margin-top: 0;
   }
 
-/*----------------------------------------------------------------*/
   .i {
     color: #fff;
     display: flex;
@@ -250,8 +232,6 @@ let form = reactive({
     background-color: transparent;
     color: #333;
   }
-
-/*Metodo Responsive --------------------------------------------*/
 
   @media screen and (max-width: 1050px) {
     .container {

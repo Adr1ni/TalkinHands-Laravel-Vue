@@ -22,26 +22,22 @@ onMounted(async() => {
           <div class="actualizar" style="padding-top: 35px;">
             <h3 class="title">Actualizar Perfil</h3>
   
-            <!-- Name ------------------------------------------------- -->
             <div class="text-input">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Ingrese nombre completo" v-model="user.name" required>
               <p></p>
             </div>
   
-            <!-- Username ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Ingrese nombre de usuario" v-model="user.username" required>
             </div>
   
-            <!-- Email -------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Ingrese email" v-model="user.email" required>
             </div>
   
-            <!-- Password ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Ingrese la contraseña" v-model="user.password" required>

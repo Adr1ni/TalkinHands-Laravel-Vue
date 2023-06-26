@@ -23,45 +23,33 @@ onMounted(async () => {
           <div class="actualizar" style="padding-top: 35px;">
             <h3 class="title">Editar Perfil</h3>
   
-            <!-- Name ------------------------------------------------- -->
             <div class="text-input">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Ingrese nombre completo" v-model="user.name" required>
               <p></p>
             </div>
-  
-            <!-- Username ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Ingrese nombre de usuario" v-model="user.username" required>
             </div>
-  
-            <!-- Email -------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Ingrese email" v-model="user.email" required>
             </div>
-
-            <!-- Role ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-user-tag"></i>
               <input type="text" placeholder="Ingrese role del usuario" v-model="user.role">
             </div>
-  
-            <!-- Password ------------------------------------------------------->
             <div class="text-input">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Ingrese la contraseña" v-model="user.password" required>
             </div>
-  
             <div class="text-input">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Confirme la contraseña" v-model="user.c_password" required>
             </div>
-  
             <button class="btn"><input type="submit" value="Actualizar" style="background-color: transparent; border: none; padding: 0;color: #fff;font-size: 16px;font-weight: 600;"></button>
             <router-link to="/admin" class="btn">Cancelar</router-link>
-
           </div>
         </form>
       </div>

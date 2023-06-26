@@ -22,8 +22,6 @@ let form = reactive({
     <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687113285/logo-talkinhands_xembln.png">
   </div>
       <div class="login-content">
-          <!--Formulario -------------------------------------------->
-
           <form @submit.prevent="register(form)">
             <img class="logo-min" src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif">
 
@@ -32,14 +30,12 @@ let form = reactive({
                 <div class="i">
                     <i class="fas fa-user"></i>
                 </div>
-               <!--Input ---------------------------------------------------------------->
                 <div class="div">
                       <input type="text" placeholder="Ingrese nombre completo" v-model="form.name"
                       class="input input-field"
                       autocomplete="off" required>
                 </div>
              </div>
-                <!--Input ---------------------------------------------------------------->
 
               <div class="input-div one">
                   <div class="i">
@@ -51,7 +47,6 @@ let form = reactive({
                           autocomplete="off" required>
                   </div>
               </div>
-              <!--Input ---------------------------------------------------------------->
 
               <div class="input-div one">
                 <div class="i">
@@ -63,7 +58,6 @@ let form = reactive({
                       autocomplete="off" required>
                 </div>
               </div>
-                <!--Input ---------------------------------------------------------------->
 
               <div class="input-div pass">
                 <div class="i"> 
@@ -75,7 +69,6 @@ let form = reactive({
                       autocomplete="off" required>
                 </div>
             </div>
-                <!--Input ---------------------------------------------------------------->
 
               <div class="input-div pass">
                 <div class="i"> 
@@ -87,7 +80,6 @@ let form = reactive({
                       autocomplete="off" required>
                 </div>
             </div>
-            <!--Button ----------------------------------------------------------->
               <input type="submit" class="btn" value="Registrar">
               <router-link to="/" class="btn">Cancelar</router-link>
           </form>
@@ -141,13 +133,13 @@ form {
   width: 360px;
 }
 
-/*Logo pequeño ---------------------------------------------------------*/
+
 .login-content .logo-min{
   height: 150px;
   width: 150px;
   border-radius: 50%;
 }
-/*Logo pequeño ---------------------------------------------------------*/
+
 .login-content h2 {
   margin: 15px 0;
   color: #fff;
