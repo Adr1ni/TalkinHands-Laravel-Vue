@@ -19,7 +19,7 @@ onMounted(async() => {
         </div>
       
         <form @submit.prevent="update(user._id,user)">
-          <div class="actualizar" style="padding-top: 130px;">
+          <div class="actualizar" style="padding-top: 35px;">
             <h3 class="title">Actualizar Perfil</h3>
   
             <div class="text-input">
