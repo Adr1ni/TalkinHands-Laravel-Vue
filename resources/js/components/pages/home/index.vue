@@ -190,11 +190,11 @@ const loadactions = () => {
                 <div class="card">
                     <div class="box">
                         <a href="https://github.com/ByronManchego" target="_blank">
-                        <img src="https://img4.goodfon.com/wallpaper/nbig/8/45/mr-robot-elliot-alderson-rami-malek.jpg"
+                        <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687874494/Byronv2_qsmgvd.jpg"
                             alt="">
                         </a>
                         <div class="text">Byron Manchego</div>
-                        <p>Estudiante Tecsup</p>
+                        <p>Frontend Developer</p>
                     </div>
                 </div>
 
@@ -202,22 +202,22 @@ const loadactions = () => {
                 <div class="card">
                     <div class="box">
                         <a href="https://github.com/Adr1ni" target="_blank">
-                        <img src="https://akm-img-a-in.tosshub.com/sites/visualstory/stories/2022_12/story_16611/assets/5.jpeg?time=1672399209"
+                        <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687878146/Adrianov2_auhvxx.jpg"
                             alt="">
                         </a>
                         <div class="text">Adriano Gongora</div>
-                        <p>Estudiante Tecsup</p>
+                        <p>Backend Developer</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="box">
                         <a href="https://github.com/Jefferson-23" target="_blank">
-                        <img src="https://www.elcolombiano.com/binrepository/781x1001/0c1/780d565/none/11101/WYEO/homero-simpson_42360908_20230512163831.jpg"
+                        <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687874847/Jeffersonv2_xfn1ff.jpg"
                             alt="">
                         </a>
                         <div class="text">Jefferson Coaquira</div>
-                        <p>Estudiante Tecsup</p>
+                        <p>Database Administrator</p>
                     </div>
                 </div>
 
