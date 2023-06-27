@@ -202,7 +202,7 @@ const loadactions = () => {
                 <div class="card">
                     <div class="box">
                         <a href="https://github.com/Adr1ni" target="_blank">
-                        <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687874494/Adrianov2_mqf0zs.jpg"
+                        <img src="https://res.cloudinary.com/dbilk0odc/image/upload/v1687878146/Adrianov2_auhvxx.jpg"
                             alt="">
                         </a>
                         <div class="text">Adriano Gongora</div>
