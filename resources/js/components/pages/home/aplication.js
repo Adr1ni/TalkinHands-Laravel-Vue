@@ -1,13 +1,7 @@
-import search from './vocabulario';
-
-const {searchWord}= search()
+import { searchWord } from './vocabulario.js';
 
 export default function application() {
   const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const letters = new Set([
-    'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r',
-    's','t','u','v','w','x','y','z'
-  ]);
 
   let noteContent = '';
   let cleanedText = [];
@@ -42,9 +36,8 @@ export default function application() {
     return text.split(' ');
   }
   
-  function createSequence() {
+  async function createSequence() {
     cleanedText = cleanText(noteContent);
-    console.log(cleanedText, cleanedText.length);
     let currentIndex = 0;
   
     const otherWord = (text) => {
@@ -54,15 +47,12 @@ export default function application() {
   
     while (currentIndex < cleanedText.length) {
       const letter = cleanedText[currentIndex].toLowerCase();
-      const searchedWord = searchWord(letter);
+      console.log(letter)
+      const word = await searchWord(letter); 
   
-      if (searchedWord !== null) {
+      if (word) {
         const img = new Image();
-        img.src = `./vocabulario/${searchedWord}.png`;
-        images[letter] = img;
-      } else if (letters.has(letter)) {
-        const img = new Image();
-        img.src = `./letters/${letter}.png`;
+        img.src = `./vocabulario/${letter}.png`;
         images[letter] = img;
       } else {
         otherWord(letter);
@@ -74,6 +64,8 @@ export default function application() {
       currentIndex++;
     }
   }
+  
+  
   
   function generateImages() {
     createSequence();

@@ -18,4 +18,12 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('logout', [UserController::class, 'logout']);
 });
 
+Route::get('/search', function () {
+    $query = http_build_query(request()->query());
+    $url = 'http://localhost:5000/search?' . $query;
 
+    $client = new \GuzzleHttp\Client();
+    $response = $client->get($url);
+
+    return $response->getBody();
+});
