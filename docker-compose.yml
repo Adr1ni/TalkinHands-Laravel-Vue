@@ -1,0 +1,32 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      MONGO_DB_HOST: mongodb://db:27017
+      MONGO_DB_DATABASE: nombre_de_la_base_de_datos
+      MONGO_DB_USERNAME: adriano
+      MONGO_DB_PASSWORD: 123456
+    networks:
+      - laravel_network
+
+  db:
+    image: mongo
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - laravel_network
+
+networks:
+  laravel_network:
