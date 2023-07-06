@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
 Route::get('/search', function () {
     $query = http_build_query(request()->query());
-    $url = 'http://localhost:5000/search?' . $query;
+    $url = 'http://3.90.245.158/search?' . $query;
 
     $client = new \GuzzleHttp\Client();
     $response = $client->get($url);
